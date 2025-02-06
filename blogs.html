@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShulkwiSEC - Blogs</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- anmation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom Styles -->
+     <link rel="stylesheet" href="blogs.css">  
+     <link rel="stylesheet" href="style.css">  
+</head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" data-aos="fade-down" data-os-delay="1000">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">ShulkwiSEC</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="blogs.html">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header text-center" data-aos="fade-right" data-os-delay="1000">
+      <div class="container">
+        <h1>Latest Blogs</h1>
+        <p>Insights, stories, and creative ideas</p>
+      </div>
+    </header>
+
+    <!-- Blogs Section -->
+    <section id="blogs" class="py-5">
+      <div class="container">
+        <!-- Non-Embedded Blogs -->
+        <div class="mb-5" data-aos="fade-left" data-os-delay="1000">
+          <h2 class="mb-4">Blog Posts</h2>
+          <div class="row" id="none-embed-blogs">
+            <!-- Blog cards will be injected here -->
+          </div>
+        </div>
+
+        <!-- Social Embedded Blogs -->
+        <div data-aos="fade-right" data-os-delay="1000">
+          <h2 class="mb-4">Social Feeds</h2>
+          <div id="social-horizontal" class="social-horizontal">
+            <!-- Social posts will be injected here horizontally -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Reading Mode Modal -->
+    <div
+      class="modal fade"
+      id="blogModal"
+      tabindex="-1"
+      aria-labelledby="blogModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="blogModalLabel"></h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              id="blogBanner"
+              class="blog-banner mb-3"
+              src=""
+              alt="Blog Banner"
+            />
+            <p id="blogDescription" class="lead"></p>
+            <div id="blogContent"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="text-center" data-aos="fade-up" data-os-delay="9000">
+        <div class="container">
+            <!-- Social Links -->
+            <div class="social-links mb-4 d-flex justify-content-center">
+                <a href="https://twitter.com/shulkwisec" class="mx-3"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.com/invite/shulkwisec" class="mx-3"><i class="fab fa-discord"></i></a>
+                <a href="https://facebook.com/shulkwisec" class="mx-3"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@shulkwisec" class="mx-3"><i class="fab fa-tiktok"></i></a>
+                <a href="https://t.me/shulkwisec" class="mx-3"><i class="fab fa-telegram"></i></a>
+                <a href="https://stackoverflow.com/users/shulkwisec" class="mx-3"><i class="fab fa-stack-overflow"></i></a>
+                <a href="https://github.com/shulkwisec" class="mx-3"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/shulkwisec" class="mx-3"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/shulkwisec" class="mx-3"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:shulkwisec@gmail.com" class="mx-3"><i class="fab fa-google"></i></a>
+            </div>
+            <!-- Copyright Notice -->
+            <p class="mb-0">&copy; 2023 ShulkwiSEC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Blogs Loading Script -->
+    <script src="./blogs.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>  
+</body>
+</html>

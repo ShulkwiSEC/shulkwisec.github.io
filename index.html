@@ -6,203 +6,58 @@
     <title>ShulkwiSEC - Cybersecurity Professional</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-.myButton {
-	box-shadow:inset -7px 12px 12px -1px #f5978e;
-	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
-	background-color:#f24537;
-	border-radius:12px;
-	border:2px solid #d02718;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Trebuchet MS;
-	font-size:16px;
-	font-weight:bold;
-	padding:8px 53px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #810e05;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
-	background-color:#c62d1f;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-
-        :root {
-            --primary-color: #2A2A2A;
-            --accent-color: #00FF88;
-            --text-color: #F5F5F5;
-        }
-
-        body {
-            font-family: 'Karla', sans-serif;
-            background: var(--primary-color);
-            color: var(--text-color);
-            overflow-x: hidden;
-        }
-
-        /* Animated Navigation */
-        .navbar {
-            background: rgba(42, 42, 42, 0.95) !important;
-            transition: all 0.3s ease;
-        }
-        .navbar-scroll {
-            background: rgba(42, 42, 42, 0.98) !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        .nav-link {
-            position: relative;
-            color: var(--text-color) !important;
-            margin: 0 15px;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(45deg, #1a1a1a 0%, #2a2a2a 100%);
-            overflow: hidden;
-        }
-        .hero-content {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s ease forwards;
-        }
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        .hero h1 span {
-            color: var(--accent-color);
-        }
-        .hero .social-links .btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin: 0 10px;
-            transition: all 0.3s ease;
-        }
-        .hero .social-links .btn:hover {
-            transform: translateY(-5px);
-            background: var(--accent-color) !important;
-        }
-
-        /* Portfolio Section */
-        .portfolio-section {
-            padding: 5rem 0;
-        }
-        .portfolio-card {
-            background: #333;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .portfolio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.1);
-        }
-        .portfolio-card img {
-            transition: transform 0.3s ease;
-        }
-        .portfolio-card:hover img {
-            transform: scale(1.1);
-        }
-        .portfolio-overlay {
-            position: absolute;
-            bottom: -100%;
-            left: 0;
-            right: 0;
-            background: rgba(42, 42, 42, 0.9);
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        .portfolio-card:hover .portfolio-overlay {
-            bottom: 0;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: #1a1a1a;
-            padding: 5rem 0;
-        }
-        .contact-card {
-            background: #333;
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.1);
-        }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        .floating-icon {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blogs.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top" data-aos="fade-down" data-os-delay="1000">
         <div class="container">
-            <a class="navbar-brand display-5" href="#">ShulkwiSEC</a>
+            <a class="navbar-brand display-1 text-white" href="index.html">ShulkwiSEC</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <section id="ubuntuTerminal">
+        <div class="container">
+            <div class="Terminal">
+                <div class="Terminal__Toolbar">
+                    <div class="Toolbar__buttons">
+                        <button class="Toolbar__button Toolbar__button--exit"></button>
+                    </div>
+                    <div class="Toolbar__user">shulkwisec@ubuntu</div>
+                </div>
+                <div class="Terminal__body" id="Terminal_body">
+                    <div class="Terminal__Prompt">
+                        <span class="Prompt__user">shulkwisec@ubuntu</span>:
+                        <span class="Prompt__location">~</span>$ 
+                        <span id="Prompt_command"></span>
+                        <span class="Prompt__cursor" id="Prompt_cursor"></span>
+                    </div>
+                    <pre id="Prompt_output"></pre>
+                </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
     <!-- Hero Section -->
-    <section id="about" class="hero">
+    <section id="about" class="hero" data-aos="fade-right" data-os-delay="1000" data>
         <div class="container">
             <div class="hero-content">
-                <h1>Cybersecurity Expert &<br><span>Bug Bounty Hunter</span></h1>
+                <h1>Cybersecurity Expert &<br><span>Bug Bounty Hunter</span> and <span>CTF Geek</span></h1>
                 <p class="lead">Hi, I'm Ahmed (ShulkwiSEC). Specializing in vulnerability research, penetration testing, and secure system architecture.</p>
-                <div class="social-links mt-4">
+                <div class="social-links mt-4" data-aos="zoom-in-up" data-os-delay="2000">
                     <a href="#" class="btn btn-dark"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="btn btn-dark"><i class="fab fa-github"></i></a>
                     <a href="#" class="btn btn-dark"><i class="fab fa-linkedin"></i></a>
@@ -212,70 +67,142 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio-section">
+    <section id="portfolio" class="portfolio-section" data-aos="fade-left" data-os-delay="8000">
         <div class="container">
             <h2 class="text-center mb-5">Featured Projects</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="portfolio-card">
-                        <img src="https://t4.ftcdn.net/jpg/00/63/06/45/360_F_63064599_c2YEM1vnauuB1eenrhrAhhaSNwUHx2vQ.jpg" class="img-fluid" alt="Project 1">
-                        <div class="portfolio-overlay">
-                            <h4>Vulnerability Research</h4>
-                            <p>Advanced exploit development for modern systems</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add more portfolio items -->
-            </div>
+            <div class="row g-4" id="portfolio-projects"></div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    
+    <!-- Footer Section -->
+    <footer id="contact" class="text-center" data-aos="fade-up" data-os-delay="9000">
         <div class="container">
-            <div class="contact-card">
-                <h2 class="text-center mb-4">Let's Connect</h2>
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email">
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
-                    </div>
-                    <div class="col-12 text-center">
-                        <button class="myButton btn btn-accent">Send Message</button>
-                    </div>
-                </div>
+            <!-- Social Links -->
+            <div class="social-links mb-4 d-flex justify-content-center">
+                <a href="https://twitter.com/shulkwisec" class="mx-3"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.com/invite/shulkwisec" class="mx-3"><i class="fab fa-discord"></i></a>
+                <a href="https://facebook.com/shulkwisec" class="mx-3"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@shulkwisec" class="mx-3"><i class="fab fa-tiktok"></i></a>
+                <a href="https://t.me/shulkwisec" class="mx-3"><i class="fab fa-telegram"></i></a>
+                <a href="https://stackoverflow.com/users/shulkwisec" class="mx-3"><i class="fab fa-stack-overflow"></i></a>
+                <a href="https://github.com/shulkwisec" class="mx-3"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/shulkwisec" class="mx-3"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/shulkwisec" class="mx-3"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:shulkwisec@gmail.com" class="mx-3"><i class="fab fa-google"></i></a>
             </div>
+            <!-- Copyright Notice -->
+            <p class="mb-0">&copy; 2023 ShulkwiSEC. All rights reserved.</p>
         </div>
-    </section>
+    </footer>
+   
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./main.js"></script>
+    <!-- JavaScript libs -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                document.querySelector('.navbar').classList.add('navbar-scroll');
-            } else {
-                document.querySelector('.navbar').classList.remove('navbar-scroll');
+        AOS.init();
+    </script>
+    <script>
+        // Function to simulate typing effect
+        function promptEffect(text, elementId, delay = 50, callback) {
+            const element = document.getElementById(elementId);
+            let i = 0;
+            element.textContent = ""; // Clear previous content
+    
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i); // Add one character at a time
+                    i++;
+                    setTimeout(type, delay); // Delay between characters
+                } else {
+                    if (callback) callback(); // Execute callback after typing is done
+                }
             }
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+    
+            type(); // Start typing effect
+        }
+    
+        // Function to simulate command execution
+        function sh(command, output) {
+            const Prompt_command = document.getElementById('Prompt_command');
+            const Prompt_output = document.getElementById('Prompt_output');
+            const Prompt_cursor = document.getElementById('Prompt_cursor');
+    
+            // Clear previous output
+            Prompt_output.textContent = "";
+    
+            // Simulate typing the command
+            promptEffect(command, 'Prompt_command', 50, () => {
+                // After typing the command, display the output
+                setTimeout(() => {
+                    Prompt_output.textContent = output; // Display output
+                    Prompt_cursor.style.display = "inline"; // Show cursor again
+                }, 500); // Delay before showing output
             });
+        }
+    
+        // skill function
+        function skill() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    sh("cd skill\\'s", "Changing directory to 'skill\\'s'");
+                }, 2000);
+    
+                setTimeout(() => {
+                    sh("ls -alh", `
+    total 44K. 
+    drwxrwxrwx 1 m4x m4x 4.0K Feb  6 16:39 .
+    drwxrwxrwx 1 m4x m4x 4.0K Feb  6 13:58 ..
+    -rwxrwxrwx 1 m4x m4x 3.1K Feb  6 18:06 BinaryExploition.css
+    -rwxrwxrwx 1 m4x m4x 5.1K Feb  6 16:54 reverseEngineering.html
+    -rwxrwxrwx 1 m4x m4x 5.4K Feb  6 18:14 WebEXPLOITION.js
+    drwxrwxrwx 1 m4x m4x 4.0K Feb  6 13:59 fullStack_WEb
+    drwxrwxrwx 1 m4x m4x 4.0K Feb  6 13:58 Networking
+    -rwxrwxrwx 1 m4x m4x 5.5K Feb  6 18:38 Desing
+    -rwxrwxrwx 1 m4x m4x 2.2K Feb  6 16:40 Data\\ Structures
+    -rwxrwxrwx 1 m4x m4x   52 Feb  6 13:58 Problem Solving
+    -rwxrwxrwx 1 m4x m4x 8.9K Feb  6 18:35 Algorithms.css
+                    `);
+                    resolve(); // Resolve the promise after the last command
+                }, 3000);
+            });
+        }
+    
+        // currentlyAdhering function
+        function currentlyAdhering() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    sh("cd Currently Adhering", "Changing directory to 'Currently Adhering'");
+                }, 2000);
+    
+                setTimeout(() => {
+                    sh('cat Currently Adhering | head -n 10', `
+        1   working as trainer afaq international
+        2   Trainings : 
+        3           Cyber security
+        4           networking
+        5           software Engineering
+        6           exploit devoplment
+        7           Web EXPLOITION
+        ...
+                    `);
+                    resolve(); // Resolve the promise after the last command
+                }, 4000);
+            });
+        }
+    
+        // Execute functions sequentially
+        document.addEventListener('DOMContentLoaded', async () => {
+            await skill(); // Wait for skill() to complete
+            await currentlyAdhering(); // Wait for currentlyAdhering() to complete
         });
     </script>
 </body>
