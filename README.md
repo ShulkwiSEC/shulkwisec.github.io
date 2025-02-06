@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed | Cybersecurity & Software Engineer</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://t4.ftcdn.net/jpg/00/63/06/45/360_F_63064599_c2YEM1vnauuB1eenrhrAhhaSNwUHx2vQ.jpg">
     <script defer src="/static/script.js"></script>
     <style>
         body {
