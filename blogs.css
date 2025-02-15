@@ -47,6 +47,7 @@ header.page-header {
   background: url("https://source.unsplash.com/1600x400/?technology") center/cover;
   padding: 120px 0;
   position: relative;
+  overflow: hidden !important;
 }
 header.page-header::before {
   content: "";
@@ -68,10 +69,10 @@ header.page-header p {
 
 /* Blog Cards */
 .blog-card {
+  overflow: hidden !important;
   background: var(--card-bg);
   border-radius: 0.5rem;
   transition: transform 0.3s ease;
-  overflow: hidden;
 }
 .card-img-top {
   height: 200px;
@@ -91,9 +92,12 @@ header.page-header p {
 /* Modal */
 #blogModal .modal-content {
   border-radius: 0.5rem;
+  margin: 5rem 0rem !important;
 }
 #blogBanner {
   max-height: 50vh;
+  width: 100%;
+  height: auto;
   object-fit: cover;
 }
 #blogContent {
@@ -138,10 +142,15 @@ header.page-header p {
 
   .blog-card {
     margin: 0 10px 1.5rem;
+    overflow: hidden; /* Ensure no overflow */
   }
+
   .card-img-top {
-    height: 180px;
+    width: 100%; /* Make the image fill the width */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: cover; /* Crop image if necessary to fit */
   }
+
   .card-title {
     font-size: 1.2rem;
   }
@@ -152,9 +161,14 @@ header.page-header p {
   #blogModal .modal-dialog {
     margin: 10px;
   }
+
   #blogBanner {
-    max-height: 30vh;
+    width: 100%; /* Make the banner fill the width of its container */
+    height: auto; /* Adjust height based on the width */
+    max-height: 200px; /* Set a max height to prevent the banner from being too large */
+    object-fit: cover; /* Make sure it covers the area without stretching */
   }
+
   #blogContent {
     font-size: 0.95rem;
   }
@@ -179,6 +193,10 @@ header.page-header p {
   .card-title {
     font-size: 1.25rem;
   }
+
+  #blogBanner {
+    max-height: 40vh;
+  }
 }
 
 /* Desktop Enhancements */
@@ -199,6 +217,10 @@ header.page-header p {
 
   .blog-card:hover {
     transform: translateY(-8px);
+  }
+
+  #blogBanner {
+    max-height: 50vh;
   }
 }
 

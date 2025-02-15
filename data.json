@@ -79,6 +79,48 @@
         "description":" Knightctf 2025 / RandomseniorAdleman Writeup",
         "encoding": true,
         "content": "IyBLbmlnaHRDVEYgMjAyNTogUmFuZG9tc2VuaW9yQWRsZW1hbg0KDQojIyBJbnRyb2R1Y3Rpb24NCklmIHlvdSd2ZSBldmVyIGhhZCBhbiBpdGNoIGluIHRoZSBiYWNrIG9mIHlvdXIgYnJhaW4gYWJvdXQgY3J5cHRvZ3JhcGh5LCB5b3UgbWlnaHQgcmVjb2duaXplIHRoZSBuYW1lICoqTGVvbmFyZCBBZGxlbWFuKiouIEJvcm4gb24gRGVjZW1iZXIgMzEsIDE5NDUsIGhlIGlzIGFuIEFtZXJpY2FuIGNvbXB1dGVyIHNjaWVudGlzdCBhbmQgb25lIG9mIHRoZSBjcmVhdG9ycyBvZiB0aGUgW1JTQSBjcnlwdG9zeXN0ZW1dKGh0dHBzOi8vZW4ud2lraXBlZGlhLm9yZy93aWtpL1JTQV8oY3J5cHRvc3lzdGVtKSksIGZvciB3aGljaCBoZSByZWNlaXZlZCB0aGUgWzIwMDIgVHVyaW5nIEF3YXJkXShodHRwczovL2VuLndpa2lwZWRpYS5vcmcvd2lraS9UdXJpbmdfQXdhcmQpLiBIZSBhbHNvIHBpb25lZXJlZCB0aGUgZmllbGQgb2YgW0ROQSBjb21wdXRpbmddKGh0dHBzOi8vZW4ud2lraXBlZGlhLm9yZy93aWtpL0ROQV9jb21wdXRpbmcpIGFuZCBjb2luZWQgdGhlIHRlcm0gW2NvbXB1dGVyIHZpcnVzXShodHRwczovL2VuLndpa2lwZWRpYS5vcmcvd2lraS9Db21wdXRlcl92aXJ1cykuDQoNCiMjIENoYWxsZW5nZSBPdmVydmlldw0KSW4gdGhpcyBjaGFsbGVuZ2UsIHdlIGFyZSBnaXZlbiBhbiBSU0EgY3J5cHRvc3lzdGVtIHdpdGggYSBjdXN0b20gbWV0aG9kIGZvciBnZW5lcmF0aW5nIHRoZSBwcmltZSBudW1iZXIgXCggcCBcKS4gT3VyIGdvYWwgaXMgdG8gZGVjcnlwdCB0aGUgY2lwaGVydGV4dCBcKCBjIFwpIGFuZCByZXRyaWV2ZSB0aGUgcGxhaW50ZXh0Lg0KDQotLS0NCg0KIyMgR2l2ZW4gSW5mb3JtYXRpb24NCi0gKipcKCBxIFwpKio6IEEga25vd24gMjU2LWJpdCBwcmltZSBudW1iZXIuDQotICoqXCggZSBcKSoqOiBUaGUgcHVibGljIGV4cG9uZW50Lg0KLSAqKlwoIGMgXCkqKjogVGhlIGNpcGhlcnRleHQgdG8gZGVjcnlwdC4NCi0gKipIaW50Kio6IFRocmVlIHBocmFzZXMgYXJlIHByb3ZpZGVkOg0KICAxLiBgInVzZWRpc3RvZmluZG91dHRoZXNlZWQiYA0KICAyLiBgInRoaXNpc3RoZWtleXRvZ2V0eW91cnNlZWQiYA0KICAzLiBgImFub3RoZXJzZWNyZXRoZXJlImANCg0KVGhlIGhpbnQgc3VnZ2VzdHMgdGhhdCB0aGVzZSBwaHJhc2VzIGFyZSB1c2VkIHRvIGRlcml2ZSBhIHNlZWQgdXNpbmcgYW4gIkF4ZS1PcmUiIHN3aXJsIChsaWtlbHkgWE9SKSBhbmQgYSBoYXNoaW5nIG9wZXJhdGlvbi4gVGhpcyBzZWVkIGlzIHRoZW4gdXNlZCB0byBnZW5lcmF0ZSB0aGUgcHJpbWUgXCggcCBcKS4NCg0KLS0tDQoNCiMjIFN0ZXAgMTogVW5kZXJzdGFuZGluZyBTZWVkIEdlbmVyYXRpb24NClRoZSBnaXZlbiBoaW50IG1lbnRpb25zIGFuICJBeGUtT3JlIiBzd2lybCwgbGlrZWx5IHJlZmVycmluZyB0byB0aGUgWE9SIG9wZXJhdGlvbiwgd2hpY2ggaXMgY29tbW9ubHkgdXNlZCBpbiBjcnlwdG9ncmFwaHkuIFRoZSBwcm9jZXNzIHRvIGRlcml2ZSB0aGUgc2VlZCBpcyBhcyBmb2xsb3dzOg0KDQoxLiAqKkVuY29kZSB0aGUgUGhyYXNlcyoqOiBDb252ZXJ0IHRoZSB0aHJlZSBwaHJhc2VzIGludG8gYnl0ZSBhcnJheXMuDQogICBgYGBweXRob24NCiAgIGJ5dGVzMSA9IHBocmFzZTEuZW5jb2RlKCkNCiAgIGJ5dGVzMiA9IHBocmFzZTIuZW5jb2RlKCkNCiAgIGJ5dGVzMyA9IHBocmFzZTMuZW5jb2RlKCkNCiAgIGBgYA0KDQoyLiAqKlBlcmZvcm0gWE9SIE9wZXJhdGlvbioqOiBYT1IgdGhlIHRocmVlIGJ5dGUgYXJyYXlzIHRvZ2V0aGVyLg0KICAgYGBgcHl0aG9uDQogICB4b3JfcmVzdWx0ID0gYnl0ZXMoeCBeIHkgXiB6IGZvciB4LCB5LCB6IGluIHppcChieXRlczEsIGJ5dGVzMiwgYnl0ZXMzKSkNCiAgIGBgYA0KDQozLiAqKkhhc2ggdGhlIFJlc3VsdCoqOiBVc2UgU0hBLTI1NiB0byBoYXNoIHRoZSBYT1IgcmVzdWx0LCBwcm9kdWNpbmcgYSAyNTYtYml0IHZhbHVlLg0KICAgYGBgcHl0aG9uDQogICBoYXNoX29iamVjdCA9IGhhc2hsaWIuc2hhMjU2KHhvcl9yZXN1bHQpDQogICBzZWVkID0gaW50LmZyb21fYnl0ZXMoaGFzaF9vYmplY3QuZGlnZXN0KCksICdiaWcnKQ0KICAgYGBgDQoNCjQuICoqU2VlZCB0aGUgUmFuZG9tIE51bWJlciBHZW5lcmF0b3IqKjoNCiAgIGBgYHB5dGhvbg0KICAgcmFuZG9tLnNlZWQoc2VlZCkNCiAgIGBgYA0KDQotLS0NCg0KIyMgU3RlcCAyOiBHZW5lcmF0aW5nIHRoZSBQcmltZSBcKCBwIFwpDQpXaXRoIHRoZSByYW5kb20gbnVtYmVyIGdlbmVyYXRvciBzZWVkZWQsIHdlIGdlbmVyYXRlIFwoIHAgXCk6DQoNCjEuIEdlbmVyYXRlIGEgcmFuZG9tIDI1Ni1iaXQgaW50ZWdlci4NCiAgIGBgYHB5dGhvbg0KICAgcF9jYW5kaWRhdGUgPSByYW5kb20uZ2V0cmFuZGJpdHMoMjU2KQ0KICAgYGBgDQoNCjIuIEZpbmQgdGhlIG5leHQgcHJpbWUgbnVtYmVyIGFmdGVyIHRoZSBjYW5kaWRhdGUuDQogICBgYGBweXRob24NCiAgIHAgPSBuZXh0cHJpbWUocF9jYW5kaWRhdGUpDQogICBgYGANCg0KLS0tDQoNCiMjIFN0ZXAgMzogQ29tcHV0aW5nIFJTQSBQYXJhbWV0ZXJzDQpXaXRoIGJvdGggXCggcCBcKSBhbmQgXCggcSBcKSBrbm93biwgd2UgY29tcHV0ZSB0aGUgUlNBIHBhcmFtZXRlcnM6DQoNCjEuIENvbXB1dGUgdGhlIG1vZHVsdXMgXCggbiBcKToNCiAgIGBgYHB5dGhvbg0KICAgbiA9IHAgKiBxDQogICBgYGANCg0KMi4gQ29tcHV0ZSBFdWxlcuKAmXMgdG90aWVudCBmdW5jdGlvbiBcKCBccGhpKG4pIFwpOg0KICAgYGBgcHl0aG9uDQogICBwaGlfbiA9IChwIC0gMSkgKiAocSAtIDEpDQogICBgYGANCg0KMy4gQ29tcHV0ZSB0aGUgcHJpdmF0ZSBrZXkgXCggZCBcKToNCiAgIGBgYHB5dGhvbg0KICAgZCA9IG1vZF9pbnZlcnNlKGUsIHBoaV9uKQ0KICAgYGBgDQoNCi0tLQ0KDQojIyBTdGVwIDQ6IERlY3J5cHRpbmcgdGhlIENpcGhlcnRleHQNCldpdGggdGhlIHByaXZhdGUga2V5IFwoIGQgXCksIHdlIGRlY3J5cHQgXCggYyBcKToNCg0KMS4gQ29tcHV0ZSB0aGUgcGxhaW50ZXh0IFwoIG0gXCk6DQogICBgYGBweXRob24NCiAgIG0gPSBwb3coYywgZCwgbikNCiAgIGBgYA0KDQoyLiBDb252ZXJ0IHRoZSBwbGFpbnRleHQgaW50ZWdlciBpbnRvIGJ5dGVzOg0KICAgYGBgcHl0aG9uDQogICBwbGFpbnRleHRfYnl0ZXMgPSBtLnRvX2J5dGVzKChtLmJpdF9sZW5ndGgoKSArIDcpIC8vIDgsICdiaWcnKQ0KICAgYGBgDQoNCjMuIEF0dGVtcHQgdG8gZGVjb2RlIHRoZSBieXRlcyBpbnRvIGEgc3RyaW5nOg0KICAgYGBgcHl0aG9uDQogICB0cnk6DQogICAgICAgcGxhaW50ZXh0ID0gcGxhaW50ZXh0X2J5dGVzLmRlY29kZSgpDQogICAgICAgcHJpbnQoIkRlY3J5cHRlZCBwbGFpbnRleHQ6IiwgcGxhaW50ZXh0KQ0KICAgZXhjZXB0IFVuaWNvZGVEZWNvZGVFcnJvcjoNCiAgICAgICBwcmludCgiRGVjcnlwdGVkIG1lc3NhZ2UgKGFzIGJ5dGVzKToiLCBwbGFpbnRleHRfYnl0ZXMpDQogICBgYGANCg0KLS0tDQoNCiMjIEZ1bGwgQ29kZQ0KYGBgcHl0aG9uDQpmcm9tIHN5bXB5IGltcG9ydCBuZXh0cHJpbWUsIG1vZF9pbnZlcnNlDQppbXBvcnQgaGFzaGxpYg0KaW1wb3J0IHJhbmRvbQ0KDQpxID0gODE5NTAyMDg3MzE2MDUwMzAxNzMwNzI5MDE0OTcyNDA2NzY0NjA5NDYxMzQ0MjI2MTMwNTk5NDE0MTM0NzYwNjg0NjU2NTYyNTAwMTENCmUgPSAxNTUzNw0KYyA9IDQ3NDQyNzU0ODAxMjU3NjExNDk0NzU0Mzk2NTIxODk1Njg1MzI3MTk5OTc5ODUyOTc2NDMwMjQwNDU2MjU5MDA2NjUzMDU2ODI2MzA0NTIwNDQwMDQwMTM2NDczNTA2NTg0MjgwNjk3MTg5NTI4MDE4Mjg2NTEzMzM4ODAxODY4NDEyODk2MzAyOTQ3ODkwNTQzMjIyMzc1ODUNCg0KcGhyYXNlMSA9ICJ1c2VkaXN0b2ZpbmRvdXR0aGVzZWVkIg0KcGhyYXNlMiA9ICJ0aGlzaXN0aGVrZXl0b2dldHlvdXJzZWVkIg0KcGhyYXNlMyA9ICJhbm90aGVyc2VjcmV0aGVyZSINCg0KYnl0ZXMxID0gcGhyYXNlMS5lbmNvZGUoKQ0KYnl0ZXMyID0gcGhyYXNlMi5lbmNvZGUoKQ0KYnl0ZXMzID0gcGhyYXNlMy5lbmNvZGUoKQ0KDQp4b3JfcmVzdWx0ID0gYnl0ZXMoeCBeIHkgXiB6IGZvciB4LCB5LCB6IGluIHppcChieXRlczEsIGJ5dGVzMiwgYnl0ZXMzKSkNCg0KaGFzaF9vYmplY3QgPSBoYXNobGliLnNoYTI1Nih4b3JfcmVzdWx0KQ0Kc2VlZCA9IGludC5mcm9tX2J5dGVzKGhhc2hfb2JqZWN0LmRpZ2VzdCgpLCAnYmlnJykNCg0KcmFuZG9tLnNlZWQoc2VlZCkNCg0KcF9jYW5kaWRhdGUgPSByYW5kb20uZ2V0cmFuZGJpdHMoMjU2KQ0KcCA9IG5leHRwcmltZShwX2NhbmRpZGF0ZSkNCg0KbiA9IHAgKiBxDQoNCnBoaV9uID0gKHAgLSAxKSAqIChxIC0gMSkNCg0KZCA9IG1vZF9pbnZlcnNlKGUsIHBoaV9uKQ0KDQptID0gcG93KGMsIGQsIG4pDQoNCnBsYWludGV4dF9ieXRlcyA9IG0udG9fYnl0ZXMoKG0uYml0X2xlbmd0aCgpICsgNykgLy8gOCwgJ2JpZycpDQoNCnRyeToNCiAgICBwbGFpbnRleHQgPSBwbGFpbnRleHRfYnl0ZXMuZGVjb2RlKCkNCiAgICBwcmludCgiRGVjcnlwdGVkIHBsYWludGV4dDoiLCBwbGFpbnRleHQpDQpleGNlcHQgVW5pY29kZURlY29kZUVycm9yOg0KICAgIHByaW50KCJEZWNyeXB0ZWQgbWVzc2FnZSAoYXMgYnl0ZXMpOiIsIHBsYWludGV4dF9ieXRlcykNCmBgYA0KDQojIyBHb29kIEx1Y2sh"
-      }  
+      },
+      {
+        "id": 12,
+        "title": "Understanding Phishing Attacks",
+        "description": "Learn how to recognize and prevent phishing attempts.",
+        "banner": "https://www.malwarebytes.com/wp-content/uploads/sites/2/2024/05/phishing.webp?w=1024",
+        "content": "<p>Phishing attacks are a common form of cybercrime. This blog explores the different types of phishing and how to protect yourself...</p>"
+      },
+      {
+        "id": 13,
+        "title": "Blockchain and Cybersecurity",
+        "description": "How blockchain technology enhances cybersecurity.",
+        "banner": "https://www.nisum.com/hubfs/Nisum%20Knows/How%20Will%20Blockchain%20Strengthen%20Cybersecurity%20for%20Your%20Business/How%20Will%20Blockchain%20Strengthen%20Cybersecurity%20for%20Your%20Business.jpg",
+        "content": "<p>Blockchain has the potential to revolutionize security protocols. Learn about its applications in cybersecurity...</p>"
+      },
+      {
+        "id": 14,
+        "title": "Cybersecurity for IoT Devices",
+        "description": "Securing the Internet of Things from emerging threats.",
+        "banner": "https://www.metacompliance.com/wp-content/uploads/2019/08/1-4.png",
+        "content": "<p>The rapid growth of IoT devices introduces new security challenges. This article discusses how to secure your IoT devices...</p>"
+      },
+      {
+        "id": 15,
+        "title": "Social Engineering Attacks Explained",
+        "description": "What are social engineering attacks, and how to defend against them.",
+        "banner": "https://www.tripwire.com/sites/default/files/2023-03/5-social-engineering-attacks-bw.jpg",
+        "content": "<p>Social engineering attacks exploit human psychology. Learn how to identify and protect against these threats...</p>"
+      },
+      {
+        "id": 16,
+        "title": "The Future of Cybersecurity in 2025",
+        "description": "Exploring the emerging trends and technologies in cybersecurity.",
+        "banner": "https://eccweb.s3.ap-south-1.amazonaws.com/wp-content/uploads/2025/01/29065919/Emerging-Technologies-Driving-the-Future-of-Cybersecurity-in-2025-01.webp",
+        "content": "<p>As cybersecurity evolves, so do the threats. This blog discusses what the future holds for the industry and the next steps...</p>"
+      },
+      {
+        "id": 17,
+        "title": "Ethical Hacking and Penetration Testing",
+        "description": "The importance of ethical hacking in securing networks.",
+        "banner": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp8F8wiiXMGnzGPKSwvckndmvurE5bbDCIxClNK0LG3qLbCUL8XERIlnDFCzm-7kBdVJo&usqp=CAU",
+        "content": "<p>Ethical hackers play a critical role in identifying vulnerabilities. Learn about penetration testing and its benefits...</p>"
+      }
     ]
 }
