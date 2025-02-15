@@ -62,6 +62,7 @@
   .navbar .navbar-toggler{
     /* color: var(--btn-color) !important; */
     background-color: var(--btn-color) !important;
+    color: black !important;
   }
   .navbar-brand,
   .nav-link {

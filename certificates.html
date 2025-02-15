@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
         :root {
             --primary-color: #1a1a1a;
@@ -154,11 +156,10 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: var(--primary-color);">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">ShulkwiSEC</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -174,26 +175,16 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="about" class="hero">
+    <section id="about" class="hero" data-aos="zoom-in-down" data-os-delay="2000">
         <div class="container">
-            <h1>Achievements<br><span>/</span> <span>Certifications</span></h1>
-            <div class="social-links mt-4">
-                <a href="#" class="btn btn-dark"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="btn btn-dark"><i class="fab fa-github"></i></a>
-                <a href="#" class="btn btn-dark"><i class="fab fa-linkedin"></i></a>
-            </div>
+            <h1>Achievements / <span>Certifications</span></h1>
         </div>
     </section>
 
-    <!-- Certificates Grid -->
-    <div class="container my-lg-5" data-aos="fade-left" data-aos-delay="1000">
-        <div class="row g-4" id="certificates">
-        </div>
+    <div class="container my-lg-5" data-aos="fade-left">
+        <div class="row g-4" id="certificates"></div>
     </div>
 
-
-    <!-- Modal -->
     <div class="modal fade" id="certificateModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -201,16 +192,15 @@
                     <h5 class="modal-title">Certificate</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body text-center" id="modalBody">
-                    <canvas id="pdfCanvas"></canvas>
-                </div>
+                <div class="modal-body text-center" id="modalBody"></div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer id="contact" class="text-center" data-aos="fade-up" data-aos-delay="9000">
+    <!-- Footer Section -->
+    <footer id="contact" class="text-center" data-aos="fade-up" data-os-delay="9000">
         <div class="container">
+            <!-- Social Links -->
             <div class="social-links mb-4 d-flex justify-content-center">
                 <a href="https://twitter.com/shulkwisec" class="mx-3"><i class="fab fa-twitter"></i></a>
                 <a href="https://discord.com/invite/shulkwisec" class="mx-3"><i class="fab fa-discord"></i></a>
@@ -221,9 +211,10 @@
                 <a href="https://github.com/shulkwisec" class="mx-3"><i class="fab fa-github"></i></a>
                 <a href="https://linkedin.com/in/shulkwisec" class="mx-3"><i class="fab fa-linkedin"></i></a>
                 <a href="https://wa.me/shulkwisec" class="mx-3"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:shulkwisec@gmail.com" class="mx-3"><i class="fa fa-envelope"></i></a>
+                <a href="mailto:shulkwisec@gmail.com" class="mx-3"><i class="fab fa-google"></i></a>
             </div>
-            <p>&copy; 2025 ShulkwiSEC</p>
+            <!-- Copyright Notice -->
+            <p class="mb-0">&copy; 2023 ShulkwiSEC. All rights reserved.</p>
         </div>
     </footer>
 
@@ -240,14 +231,13 @@
                 "Kali Linux.jpg",
                 "noName1.pdf"
             ];
-    
             const container = document.getElementById("certificates");
             
-            certificates.forEach((cert) => {
+            certificates.forEach(cert => {
                 const isPDF = cert.endsWith(".pdf");
                 const encodedCert = encodeURIComponent(cert);
                 const col = document.createElement("div");
-                col.classList.add("col-md-4", "col-sm-6", "mb-4", "animated-container");
+                col.classList.add("col-md-4", "col-sm-6", "mb-4");
                 col.innerHTML = `
                     <div class="card certificate-card shadow-sm bg-dark text-white">
                         ${isPDF ? 
@@ -256,13 +246,9 @@
                                 <p class="mt-2">View PDF</p>
                             </div>` 
                             : 
-                            `<img src="/certificates/${encodedCert}" 
-                                 class="card-img-top" 
-                                 alt="Certificate" 
-                                 onclick="showCertificate('/certificates/${encodedCert}', 'image')">`
+                            `<img src="/certificates/${encodedCert}" onclick="showCertificate('/certificates/${encodedCert}', 'image')">`
                         }
-                    </div>
-                `;
+                    </div>`;
                 container.appendChild(col);
             });
         });
@@ -270,45 +256,28 @@
         function showCertificate(src, type) {
             const modalBody = document.getElementById("modalBody");
             modalBody.innerHTML = "";
-
+            document.activeElement.blur();
             if (type === "image") {
                 modalBody.innerHTML = `<img src="${src}" class="img-fluid">`;
             } else {
                 modalBody.innerHTML = `<canvas id="pdfCanvas"></canvas>`;
-                const loadingTask = pdfjsLib.getDocument(src);
-                loadingTask.promise.then(pdf => {
+                pdfjsLib.getDocument(src).promise.then(pdf => {
                     pdf.getPage(1).then(page => {
                         const canvas = document.getElementById("pdfCanvas");
                         const context = canvas.getContext("2d");
                         const viewport = page.getViewport({ scale: 1.5 });
-
                         canvas.width = viewport.width;
                         canvas.height = viewport.height;
-
                         page.render({ canvasContext: context, viewport: viewport });
                     });
                 });
             }
-
             new bootstrap.Modal(document.getElementById("certificateModal")).show();
         }
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./main.js"></script>
-    <!-- JavaScript libs -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-    <script src="./Terminal.js"></script>
-    <script src="./load.js"></script>
-    <script src="./seealso.js"></script>
+    <script>AOS.init();</script>
 </body>
 </html>
