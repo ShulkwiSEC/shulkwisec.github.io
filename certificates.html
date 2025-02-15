@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Certifications</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #00ff88;
+            --text-color: #ffffff;
+            --bg-overlay: rgba(0, 0, 0, 0.7);
+            --card-bg: #2a2a2a;
+            --banner-bg: #1a1a1aea;
+        }
+
+        /* Base Styles */
+        body {
+            background: var(--primary-color);
+            color: var(--text-color);
+            padding-top: 80px;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary-color);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .nav-link {
+            font-size: 1rem;
+            padding: 0.5rem 1rem !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 50px 0;
+            text-align: center;
+            background: var(--banner-bg);
+            border-bottom: 2px solid #444;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero span {
+            color: var(--accent-color);
+        }
+
+        /* Certificate Cards */
+        .certificate-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+        }
+        .certificate-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .certificate-card img {
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .certificate-card i {
+            font-size: 3rem;
+            color: #ff5722;
+            transition: transform 0.3s ease;
+        }
+        .certificate-card i:hover {
+            transform: scale(1.1);
+        }
+        .card-body {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c2c2c;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .modal-body img, .modal-body canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Social Links */
+        .social-links a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #121212;
+        }
+
+        footer p {
+            margin-top: 20px;
+            color: #777;
+        }
+
+        @media (max-width: 768px) {
+            .certificate-card {
+                margin-bottom: 30px;
+            }
+        }
+
+        .animated-container {
+            animation: fadeUpDown 1.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes fadeUpDown {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(15px); }
+        }
+        /* Footer */
+        footer {
+          background: var(--primary-color);
+          border-top: 1px solid #444;
+          padding: 2rem 0;
+        }
+        footer a {
+          color: var(--text-color);
+          transition: color 0.3s;
+        }
+        footer a:hover {
+          color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: var(--primary-color);">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">ShulkwiSEC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="certificates.html">Certifications</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="hero">
+        <div class="container">
+            <h1>Achievements<br><span>/</span> <span>Certifications</span></h1>
+            <div class="social-links mt-4">
+                <a href="#" class="btn btn-dark"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="btn btn-dark"><i class="fab fa-github"></i></a>
+                <a href="#" class="btn btn-dark"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Grid -->
+    <div class="container my-lg-5" data-aos="fade-left" data-aos-delay="1000">
+        <div class="row g-4" id="certificates">
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="certificateModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Certificate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center" id="modalBody">
+                    <canvas id="pdfCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="text-center" data-aos="fade-up" data-aos-delay="9000">
+        <div class="container">
+            <div class="social-links mb-4 d-flex justify-content-center">
+                <a href="https://twitter.com/shulkwisec" class="mx-3"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.com/invite/shulkwisec" class="mx-3"><i class="fab fa-discord"></i></a>
+                <a href="https://facebook.com/shulkwisec" class="mx-3"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@shulkwisec" class="mx-3"><i class="fab fa-tiktok"></i></a>
+                <a href="https://t.me/shulkwisec" class="mx-3"><i class="fab fa-telegram"></i></a>
+                <a href="https://stackoverflow.com/users/shulkwisec" class="mx-3"><i class="fab fa-stack-overflow"></i></a>
+                <a href="https://github.com/shulkwisec" class="mx-3"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/shulkwisec" class="mx-3"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/shulkwisec" class="mx-3"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:shulkwisec@gmail.com" class="mx-3"><i class="fa fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2025 ShulkwiSEC</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const certificates = [
+                "I2CSUpdate20250211-26-4my448.pdf",
+                "6ce20bc5-0b51-4690-8f65-fdded13c428f.png",
+                "Advanced Penetration Testing.jpg",
+                "bhmea23.jpg",
+                "coursat_certificate_bd80-42d0-ffb1-6970.jpg",
+                "download.pdf",
+                "Ethical Hacker.pdf",
+                "Kali Linux.jpg",
+                "noName1.pdf"
+            ];
+    
+            const container = document.getElementById("certificates");
+            
+            certificates.forEach((cert) => {
+                const isPDF = cert.endsWith(".pdf");
+                const encodedCert = encodeURIComponent(cert);
+                const col = document.createElement("div");
+                col.classList.add("col-md-4", "col-sm-6", "mb-4", "animated-container");
+                col.innerHTML = `
+                    <div class="card certificate-card shadow-sm bg-dark text-white">
+                        ${isPDF ? 
+                            `<div class="card-body text-center">
+                                <i class="fa fa-file-pdf" onclick="showCertificate('/certificates/${encodedCert}', 'pdf')"></i>
+                                <p class="mt-2">View PDF</p>
+                            </div>` 
+                            : 
+                            `<img src="/certificates/${encodedCert}" 
+                                 class="card-img-top" 
+                                 alt="Certificate" 
+                                 onclick="showCertificate('/certificates/${encodedCert}', 'image')">`
+                        }
+                    </div>
+                `;
+                container.appendChild(col);
+            });
+        });
+
+        function showCertificate(src, type) {
+            const modalBody = document.getElementById("modalBody");
+            modalBody.innerHTML = "";
+
+            if (type === "image") {
+                modalBody.innerHTML = `<img src="${src}" class="img-fluid">`;
+            } else {
+                modalBody.innerHTML = `<canvas id="pdfCanvas"></canvas>`;
+                const loadingTask = pdfjsLib.getDocument(src);
+                loadingTask.promise.then(pdf => {
+                    pdf.getPage(1).then(page => {
+                        const canvas = document.getElementById("pdfCanvas");
+                        const context = canvas.getContext("2d");
+                        const viewport = page.getViewport({ scale: 1.5 });
+
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+
+                        page.render({ canvasContext: context, viewport: viewport });
+                    });
+                });
+            }
+
+            new bootstrap.Modal(document.getElementById("certificateModal")).show();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./main.js"></script>
+    <!-- JavaScript libs -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="./Terminal.js"></script>
+    <script src="./load.js"></script>
+    <script src="./seealso.js"></script>
+</body>
+</html>
