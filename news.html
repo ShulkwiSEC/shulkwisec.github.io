@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cves.css">
+    <link rel="stylesheet" href="news.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -21,7 +21,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cves.html">CVE News</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -31,35 +30,38 @@
     <!-- Page Header -->
     <header class="page-header text-center overflow-hidden" data-aos="fade-right" data-aos-delay="1000">
       <div class="container">
-        <h1>Latest CVE News</h1>
-        <p>Stay updated with the latest cybersecurity vulnerabilities, threats, and updates.</p>
+        <h1>Latest Hacker News</h1>
+        <p>Stay updated with the latest news from Hacker News.</p>
       </div>
     </header>
-
-    <!-- CVE Section -->
-    <section id="cves" class="py-5 overflow-hidden">
+    <div class="filters d-flex justify-content-center align-items-center gap-2 fixed-bottom m-5">
+      <button id="filter-top-stories" class="btn btn-primary">Top Stories</button>
+      <button id="filter-best-stories" class="btn btn-success">Best Stories</button>
+      <button id="filter-new-stories" class="btn btn-warning">New Stories</button>
+    </div>
+    <!-- News Section -->
+    <section id="news" class="py-5 overflow-hidden">
       <div class="container">
-        <!-- Non-Embedded CVEs -->
+        <!-- Non-Embedded News -->
         <div class="mb-5" data-aos="fade-left" data-aos-delay="1000">
-          <h2 class="mb-4">Latest CVE Posts</h2>
-          <div class="row" id="none-embed-cves">
-            <!-- CVE cards will be injected here -->
+          <h2 class="mb-4" id="lableofNews">Top News Stories</h2>
+          <div class="row" id="none-embed-news">
+            <!-- News cards will be injected here -->
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CVE Reading Mode Modal -->
-    <div class="modal fade" id="cveModal" tabindex="-1" aria-labelledby="cveModalLabel" aria-hidden="true">
+    <!-- News Reading Mode Modal -->
+    <div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="cveModalLabel"></h5>
+            <h5 class="modal-title" id="newsModalLabel"></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p id="cveDescription" class="lead"></p>
-            <div id="cveContent"></div>
+            <div id="newsContent"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -91,10 +93,7 @@
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- CVE Loading Script -->
-    <script src="./load.js"></script>
-    <script src="./cve.js"></script>
+    <!-- AOS Animations -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
@@ -102,5 +101,7 @@
     <!-- Markdown Supporting -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.2/purify.min.js"></script>
+    <script src="load.js"></script>
+    <script src="news.js"></script>
 </body>
 </html>
