@@ -150,3 +150,144 @@ footer a {
 footer a:hover {
   color: var(--accent-color);
 }
+
+/* Responsive */
+
+/* Mobile First Approach */
+/* Base styles (for mobile) */
+header.page-header h1 {
+  font-size: 2.5rem;
+}
+
+.card-img-top {
+  height: 180px;
+}
+
+.social-post {
+  min-width: 280px;
+}
+
+/* Tablet Styles (768px and up) */
+@media (min-width: 768px) {
+  header.page-header h1 {
+    font-size: 3rem;
+  }
+  
+  .card-img-top {
+    height: 200px;
+  }
+  
+  .social-post {
+    min-width: 320px;
+  }
+}
+
+/* Desktop Styles (992px and up) */
+@media (min-width: 992px) {
+  header.page-header {
+    padding: 180px 0;
+  }
+  
+  header.page-header h1 {
+    font-size: 3.5rem;
+  }
+  
+  .card-img-top {
+    height: 220px;
+  }
+}
+
+/* Extra Large Screens (1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 767px) {
+  /* Adjust navbar brand size */
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  
+  /* Stack blog cards vertically */
+  #none-embed-blogs .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  /* Reduce header padding */
+  header.page-header {
+    padding: 100px 0;
+  }
+  
+  /* Improve modal readability */
+  #blogModal .modal-body {
+    padding: 1rem;
+  }
+  
+  #blogBanner {
+    max-height: 30vh !important;
+  }
+  
+  /* Social feed touch optimization */
+  .social-horizontal {
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* Tablet Landscape Optimization */
+@media (max-width: 991px) and (orientation: landscape) {
+  header.page-header {
+    padding: 120px 0;
+  }
+  
+  #blogBanner {
+    max-height: 40vh !important;
+  }
+}
+
+/* Image Responsiveness */
+.blog-card img,
+.social-post img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Touch-friendly hover states */
+@media (hover: hover) and (pointer: fine) {
+  .blog-card:hover,
+  .social-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Mobile Menu Optimization */
+.navbar-collapse {
+  background: var(--primary-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Blog Content Readability */
+#blogContent {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  #blogContent {
+    font-size: 1.1rem;
+  }
+}
+
+/* Social Feed Scrollbar Visibility */
+.social-horizontal {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) var(--primary-color);
+}
