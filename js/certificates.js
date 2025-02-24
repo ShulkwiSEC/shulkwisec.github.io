@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     const certificates = [
         "I2CSUpdate20250211-26-4my448.pdf",
@@ -16,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const isPDF = cert.endsWith(".pdf");
         const encodedCert = encodeURIComponent(cert);
         const col = document.createElement("div");
-        col.classList.add("col-md-4", "col-sm-6", "mb-4");
+        col.classList.add("col-12", "col-md-6", "col-lg-4", "mb-4"); // Updated to full width on small screens
+        
         col.innerHTML = `
             <div class="card certificate-card shadow-sm bg-dark text-white">
                 ${isPDF ? 
@@ -36,6 +38,7 @@ function showCertificate(src, type) {
     const modalBody = document.getElementById("modalBody");
     modalBody.innerHTML = "";
     document.activeElement.blur();
+    
     if (type === "image") {
         modalBody.innerHTML = `<img src="${src}" class="img-fluid">`;
     } else {
@@ -51,5 +54,8 @@ function showCertificate(src, type) {
             });
         });
     }
-    new bootstrap.Modal(document.getElementById("certificateModal")).show();
+    
+    // Adjust the modal size for smaller screens
+    const modal = new bootstrap.Modal(document.getElementById("certificateModal"));
+    modal.show();
 }

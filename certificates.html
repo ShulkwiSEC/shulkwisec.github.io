@@ -5,30 +5,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/certificates.css">
-    <section id="about" class="hero" data-aos="zoom-in-down" data-os-delay="2000">
+
+    <section id="about" class="hero" data-aos="zoom-in-down" data-aos-delay="2000">
         <div class="container">
             <h1>Achievements / <span>Certifications</span></h1>
         </div>
     </section>
 
     <div class="container my-lg-5" data-aos="fade-left">
-        <div class="row g-4" id="certificates"></div>
+        <div class="row g-4" id="certificates">
+            <!-- JavaScript will generate certificate cards here -->
+        </div>
     </div>
 
-    <div class="modal fade" id="certificateModal" tabindex="-1">
+    <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Certificate</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title" id="certificateModalLabel">Certificate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body text-center" id="modalBody"></div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Modal content (image/pdf) will be injected here -->
+                </div>
             </div>
         </div>
     </div>
+
     <script src="js/certificates.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
+    <script>
+        AOS.init();
+    </script>
 </PageContent>
 <script src="app.js"></script>

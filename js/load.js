@@ -35,10 +35,18 @@
     `;
     document.head.appendChild(style);
 
+    // Max load timeout of 2 seconds
+    const maxLoadTime = 2000;
+    const hideOverlay = () => {
+        loadingOverlay.style.display = 'none';
+    };
+
+    // Hide the loading overlay after 2 seconds regardless of loading state
+    setTimeout(hideOverlay, maxLoadTime);
+
     // Wait for all images, videos, and other resources to be loaded
     window.onload = function() {
-        // Wait for the page to fully load before hiding the loading overlay
-        loadingOverlay.style.display = 'none';
+        hideOverlay();
     };
 
     // You can also listen for individual image/video loading events if needed
@@ -50,7 +58,7 @@
         element.onload = element.onerror = function() {
             loadedElements++;
             if (loadedElements === totalElements) {
-                loadingOverlay.style.display = 'none';
+                hideOverlay();
             }
         };
     });

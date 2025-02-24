@@ -33,6 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
       document.open();
       document.write(baseDoc.documentElement.outerHTML);
       document.close();
+
+      // Wait for the new document to be fully loaded before executing other scripts
+      window.onload = () => {
+        console.log("New document is fully loaded.");
+        // You can add any additional JavaScript logic here
+      };
     })
     .catch(error => console.error("Error fetching base.html:", error));
 });
