@@ -1,10 +1,13 @@
-<PageTitle><title>ShulkwiSEC - Blogs</title></PageTitle>
-<!-- block content -->
+<PageTitle>
+  <title>ShulkwiSEC - Blogs</title>
+</PageTitle>
+
+<!-- Block content -->
 <PageContent>
   <header class="page-header text-center overflow-hidden" data-aos="fade-right" data-os-delay="1000">
     <div class="container">
       <h1>Latest Blogs</h1>
-      <p>Insights, stories,and creative ideas, CTF Challnges Writeups,Last News ..</p>
+      <p>Insights, stories, and creative ideas, CTF Challenges Writeups, Latest News...</p>
     </div>
   </header>
   
@@ -22,45 +25,26 @@
   </section>
   
   <!-- Blog Reading Mode Modal -->
-  <div
-  class="modal fade"
-  id="blogModal"
-  tabindex="-1"
-  aria-labelledby="blogModalLabel"
-  aria-hidden="true"
-  >
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="blogModalLabel"></h5>
-        <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="modal"
-        aria-label="Close"
-        ></button>
+  <div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="blogModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img id="blogBanner" class="blog-banner mb-3" src="" alt="Blog Banner" />
+          <p id="blogDescription" class="lead"></p>
+          <div id="blogContent"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
       </div>
-      <div class="modal-body">
-        <img
-        id="blogBanner"
-        class="blog-banner mb-3"
-        src=""
-        alt="Blog Banner"
-        />
-        <p id="blogDescription" class="lead"></p>
-        <div id="blogContent"></div>
-      </div>
-      <div class="modal-footer">
-        <button
-        type="button"
-        class="btn btn-secondary"
-        data-bs-dismiss="modal"
-        >
-        Close
-      </button>
     </div>
   </div>
-  </div>
-  </div>
 </PageContent>
+
 <script src="app.js"></script>

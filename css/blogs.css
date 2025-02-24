@@ -103,6 +103,7 @@ header.page-header p {
 #blogContent {
   line-height: 1.7;
   font-size: 1rem;
+  max-width: 100%; /* Ensures content does not overflow */
 }
 
 /* Footer */
@@ -238,4 +239,122 @@ header.page-header p {
 .img-fluid {
   max-width: 100%;
   height: auto;
+}
+
+/* Markdown Enhancements for Responsiveness */
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* Ensure images in markdown are responsive */
+}
+
+.markdown-body table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+.markdown-body pre {
+  overflow-x: auto;
+  white-space: pre-wrap; /* Ensure code wraps nicely */
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--text-color);
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: var(--accent-color);
+}
+
+.markdown-body p {
+  line-height: 1.6;
+}
+
+/* Markdown Enhancements for Responsiveness */
+.markdown-body img {
+  max-width: 100% !important;  /* Force the image to take up no more than the container's width */
+  height: auto;               /* Maintain aspect ratio */
+  object-fit: contain;        /* Ensure the image fits within its container */
+  display: block;             /* Ensures the image behaves like a block element, removing any extra spacing */
+  margin: 0 auto;             /* Center the image if it is smaller than the container */
+}
+
+.markdown-body table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+.markdown-body pre {
+  overflow-x: auto;
+  white-space: pre-wrap; /* Ensure code wraps nicely */
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--text-color);
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: var(--accent-color);
+}
+
+.markdown-body p {
+  line-height: 1.6;
+}
+
+/* Modal Content - Ensure responsive images inside the modal */
+#blogModal #blogContent img {
+  max-width: 100% !important;  /* Make images responsive */
+  height: auto;               /* Maintain aspect ratio */
+  object-fit: contain;        /* Ensure image fits within its container */
+  display: block;             /* Remove inline-block spacing */
+  margin: 0 auto;             /* Center the image if it's smaller than the container */
+}
+
+#blogModal #blogContent table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+#blogModal #blogContent pre {
+  overflow-x: auto;
+  white-space: pre-wrap;  /* Ensure code wraps nicely */
+}
+
+#blogModal #blogContent blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--text-color);
+}
+
+#blogModal #blogContent h1,
+#blogModal #blogContent h2,
+#blogModal #blogContent h3,
+#blogModal #blogContent h4,
+#blogModal #blogContent h5,
+#blogModal #blogContent h6 {
+  color: var(--accent-color);
+}
+
+#blogModal #blogContent p {
+  line-height: 1.6;
 }
