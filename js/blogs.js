@@ -11,6 +11,7 @@ async function loadBlogs() {
       let encoding = blog.encoding ? true : false;
       let content = encoding ? decodeURIComponent(escape(atob(blog.content))) : blog.content;
       document.getElementById("blogContent").innerHTML = DOMPurify.sanitize(marked.parse(content));
+      hljs.highlightAll();  // Apply syntax highlighting to all code blocks
       new bootstrap.Modal(document.getElementById("blogModal")).show();      
     }
 

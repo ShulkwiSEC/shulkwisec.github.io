@@ -1,0 +1,38 @@
+/* ===== CSS Variables ===== */
+:root {
+    --accent-color: #00ff88;
+    --btn-color: #ffff;
+    --terminal-bg: #27041ce6;
+    --toolbar-gradient: linear-gradient(#504b45 0%, #3c3b37 100%);
+    --button-gradient: linear-gradient(#7d7871 0%, #595953 100%);
+    --exit-gradient: linear-gradient(#f37458 0%, #de4c12 100%);
+    --terminal-text-color: #ffff;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --primary-color: #1a1a1a;
+    --text-color: #ffffff;
+    --bg-overlay: rgba(0, 0, 0, 0.7);
+    --card-bg: #2a2a2a;
+    --banner-bg: #1a1a1aea;
+    --contact-bg: #333;
+    --form-bg: #555;
+    --form-border: #666;
+    --portfolio-overlay: rgba(42, 42, 42, 0.9); 
+}
+
+/* Light Theme */
+/* Light Theme */
+[data-theme="light"] {
+    --primary-color: #ffffff; /* Brighter background for the primary areas */
+    --text-color: #333333; /* Darker text for better readability */
+    --bg-overlay: rgba(255, 255, 255, 0.8); /* Subtle white overlay */
+    --card-bg: #f9f9f9; /* Soft white card background */
+    --banner-bg: rgba(245, 245, 245, 0.9); /* Light gray banner with slight transparency */
+    --contact-bg: #f0f0f0; /* Light gray for contact section */
+    --form-bg: #fafafa; /* Softer form background */
+    --form-border: #e0e0e0; /* Slightly darker border */
+    --portfolio-overlay: rgba(255, 255, 255, 0.9); /* Brighter overlay for portfolio section */
+    --terminal-bg: #27041ce6;
+}
