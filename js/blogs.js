@@ -1,7 +1,7 @@
 async function loadBlogs() {
   try {
     // Load blog data from JSON file
-    const response = await fetch('data.json');
+    const response = await fetch('resources/data.json');
     if (!response.ok) throw new Error('Failed to load blogs');
     const BLOGS = await response.json();
     function showBlog(blog) {

@@ -15,6 +15,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+    async function fetchProjects() {
+        try {
+            const response = await fetch('/Projects/main.json');
+            const data = await response.json();
+            console.log(data); // استخدم البيانات هنا
+            return data;
+        } catch (error) {
+            console.error('Error loading projects:', error);
+            return [];
+        }
+    }
+
 // Projects loader 
 const Projects = [
     {
