@@ -1,18 +1,18 @@
-/* ===== CSS Variables ===== */
+/* ===== CSS Variables (Updated) ===== */
 :root {
-    --accent-color: #00ff88;
-    --btn-color: #ffff;
+    --accent-color: #00d4a1;
+    --btn-color: #ffffff;
     --terminal-bg: #27041ce6;
     --toolbar-gradient: linear-gradient(#504b45 0%, #3c3b37 100%);
     --button-gradient: linear-gradient(#7d7871 0%, #595953 100%);
     --exit-gradient: linear-gradient(#f37458 0%, #de4c12 100%);
     --terminal-text-color: #ffff;
     
-    /* New Button Variables using same past colors */
+    /* New Button Variables using improved colors */
     --myButton-box-shadow: #f5978e;
-    --myButton-bg-start: #f24537;
-    --myButton-bg-end: #c62d1f;
-    --myButton-bg-color: #f24537;
+    --myButton-bg-start: #e63946;
+    --myButton-bg-end: #b22222;
+    --myButton-bg-color: #e63946;
     --myButton-border: #d02718;
     --myButton-text: #ffffff;
     --myButton-text-shadow: #810e05;
@@ -30,6 +30,9 @@
     --form-border: #666;
     --portfolio-overlay: rgba(42, 42, 42, 0.9);
     --theme-toggler-btn: yellow; 
+    --modal-headers-color: #ff5722;
+    --modal-text-color: white;
+    --modal-title-bg-color: #222;
 }
 
 /* Light Theme */
@@ -43,6 +46,9 @@
     --form-bg: #fafafa;
     --form-border: #e0e0e0;
     --portfolio-overlay: rgba(255, 255, 255, 0.9);
-    --accent-color: #000;
+    --accent-color: #007acc;
     --theme-toggler-btn: #333333;
+    --modal-headers-color: #ff5722;
+    --modal-text-color: #000000;
+    --modal-title-bg-color: #222;
 }

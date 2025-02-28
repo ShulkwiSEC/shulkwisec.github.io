@@ -45,7 +45,9 @@
 
 
     <!-- Page Content -->
-                <!-- Includeable Part start -->
+            <meta name="robots" content="index, follow">
+<meta name="description" content="Welcome to ShulkwiSEC – Explore cybersecurity insights, news, CTF Writeups.">
+    <!-- Includeable Part start -->
     <div class="MainPage">
         <section id="ubuntuTerminal">
             <div class="container">
@@ -107,6 +109,8 @@
             </div>
         </section>
     </div> <!--MainPage--> <!--Includeable part end-->
+    <script src="js/Terminal.js"></script>\
+    <script src="js/main.js"></script>
 
 
     <!-- Footer Section -->
@@ -139,11 +143,6 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.2/purify.min.js"></script>
     <script src="js/load.js"></script>
-    <script src="js/blogs.js"></script>
-    <script src="js/certificates.js"></script>
-    <script src="js/news.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/Terminal.js"></script>
 
     <!-- Navbar Scroll Effect -->
     <script>
@@ -194,6 +193,25 @@
             } else {
                 document.documentElement.setAttribute('data-theme', 'dark');
             }
+        });
+    </script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('navbar-scroll');
+            } else {
+                document.querySelector('.navbar').classList.remove('navbar-scroll');
+            }
+        })
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </body>

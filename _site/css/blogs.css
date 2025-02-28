@@ -253,10 +253,8 @@ header.page-header p {
 }
 
 .markdown-body blockquote {
-  border-left: 4px solid var(--accent-color);
   padding-left: 1rem;
   font-style: italic;
-  color: var(--text-color);
 }
 
 .markdown-body h1,
@@ -265,7 +263,7 @@ header.page-header p {
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  color: var(--accent-color);
+  will-change: auto;
 }
 
 .markdown-body p {
@@ -274,11 +272,11 @@ header.page-header p {
 
 /* Markdown Enhancements for Responsiveness */
 .markdown-body img {
-  max-width: 100% !important;  /* Force the image to take up no more than the container's width */
-  height: auto;               /* Maintain aspect ratio */
-  object-fit: contain;        /* Ensure the image fits within its container */
-  display: block;             /* Ensures the image behaves like a block element, removing any extra spacing */
-  margin: 0 auto;             /* Center the image if it is smaller than the container */
+  max-width: 100% !important;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .markdown-body table {
@@ -289,14 +287,12 @@ header.page-header p {
 
 .markdown-body pre {
   overflow-x: auto;
-  white-space: pre-wrap; /* Ensure code wraps nicely */
+  white-space: pre-wrap;
 }
 
 .markdown-body blockquote {
-  border-left: 4px solid var(--accent-color);
   padding-left: 1rem;
   font-style: italic;
-  color: var(--text-color);
 }
 
 .markdown-body h1,
@@ -305,7 +301,7 @@ header.page-header p {
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  color: var(--accent-color);
+  flex-wrap: wrap;
 }
 
 .markdown-body p {
@@ -314,11 +310,11 @@ header.page-header p {
 
 /* Modal Content - Ensure responsive images inside the modal */
 #blogModal #blogContent img {
-  max-width: 100% !important;  /* Make images responsive */
-  height: auto;               /* Maintain aspect ratio */
-  object-fit: contain;        /* Ensure image fits within its container */
-  display: block;             /* Remove inline-block spacing */
-  margin: 0 auto;             /* Center the image if it's smaller than the container */
+  max-width: 100% !important;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 #blogModal #blogContent table {
@@ -329,14 +325,13 @@ header.page-header p {
 
 #blogModal #blogContent pre {
   overflow-x: auto;
-  white-space: pre-wrap;  /* Ensure code wraps nicely */
+  white-space: pre-wrap;
 }
 
 #blogModal #blogContent blockquote {
   border-left: 4px solid var(--accent-color);
   padding-left: 1rem;
   font-style: italic;
-  color: var(--text-color);
 }
 
 #blogModal #blogContent h1,
@@ -345,9 +340,64 @@ header.page-header p {
 #blogModal #blogContent h4,
 #blogModal #blogContent h5,
 #blogModal #blogContent h6 {
-  color: var(--accent-color);
+  word-wrap: normal;
 }
 
 #blogModal #blogContent p {
   line-height: 1.6;
+}
+
+.modal :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 800;
+  color: var(--modal-headers-color) !important;
+}
+
+#blogModal {
+  color: var(--modal-text-color) !important;
+}
+
+#blogModalLabel {
+  color: var(--modal-lable-color) !important;
+  font: 900 !important;
+}
+.btn-close {
+  background-color: var(--modal-closebtn-bg-color) !important;
+}
+
+/* Custom Checkbox Styles for Tag Filters */
+.form-check-input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent-color);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+.form-check-input:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.form-check-input:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 4px;
+  height: 9px;
+  border: solid var(--primary-color);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.form-check-label {
+  cursor: pointer;
+  vertical-align: middle;
+  margin-bottom: 0;
+  font-weight: 500;
 }

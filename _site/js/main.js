@@ -1,20 +1,4 @@
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    if (window.scrollY > 50) {
-        document.querySelector('.navbar').classList.add('navbar-scroll');
-    } else {
-        document.querySelector('.navbar').classList.remove('navbar-scroll');
-    }
-})
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+
 
     async function fetchProjects() {
         try {
