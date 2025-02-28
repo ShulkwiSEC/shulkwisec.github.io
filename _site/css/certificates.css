@@ -1,0 +1,142 @@
+
+/* Base Reset */
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+    background: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    background: var(--banner-bg);
+    border-bottom: 2px solid #444;
+    min-height: 250px;
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+.hero span {
+    color: var(--accent-color);
+}
+
+/* Certificate Cards Container */
+#certificates {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Certificate Cards */
+.certificate-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    max-height: 30vh;
+}
+
+.certificate-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+.certificate-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    max-height: 30vh;
+}
+
+/* PDF Icon Styling */
+.certificate-card .pdf-icon {
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-top: 30px;
+}
+.certificate-card .pdf-text {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/* Card Wrapper (Bootstrap overrides) */
+.card {
+    border: none;
+    background: transparent;
+}
+
+/* Modal Customization */
+.modal-content {
+    margin-top: 2rem;
+    background: var(--card-bg);
+    border: none;
+    border-radius: 10px;
+}
+.modal-header {
+    border-bottom: 1px solid #444;
+}
+.modal-title {
+    color: #fff;
+}
+.modal-body {
+    padding: 20px;
+}
+.modal-body img,
+.modal-body canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    max-height: 70vh;
+}
+
+/* Animation */
+.animated-container {
+    animation: floatUpDown 1.5s infinite alternate ease-in-out;
+}
+@keyframes floatUpDown {
+    from { transform: translateY(0px); }
+    to { transform: translateY(15px); }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 10px;
+        min-height: 200px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+}

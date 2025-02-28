@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"> <!-- default theme is dark -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShulkwiSEC - Cybersecurity Professional</title>
+
+    <!-- CSS Links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blogs.css">
+    <link rel="stylesheet" href="css/certificates.css">
+    <link rel="stylesheet" href="css/news.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" importance="high">
+</head>
+<body>
+   <!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top" data-aos="fade-down" data-aos-delay="1000">
+    <div class="container">
+        <a class="navbar-brand display-1 text-white" href="index.html">ShulkwiSEC</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="certificates.html">Certifications</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Theme toggler button -->
+<button class="theme-toggler-btn" onclick="toggleTheme()">
+    <i class="fa-solid fa-lightbulb"></i>
+</button>
+
+
+
+
+    <!-- Page Content -->
+            <meta name="robots" content="index, follow">
+<meta name="description" content="Welcome to ShulkwiSEC – Explore cybersecurity insights, news, CTF Writeups.">
+    <!-- Includeable Part start -->
+    <div class="MainPage">
+        <section id="ubuntuTerminal">
+            <div class="container">
+                <div class="Terminal">
+                    <div class="Terminal__Toolbar">
+                        <div class="Toolbar__buttons">
+                            <button class="Toolbar__button Toolbar__button--exit"></button>
+                        </div>
+                        <div class="Toolbar__user">shulkwisec@ubuntu</div>
+                    </div>
+                    <div class="Terminal__body" id="Terminal_body">
+                        <div class="Terminal__Prompt">
+                            <span class="Prompt__user">shulkwisec@ubuntu</span>:
+                            <span class="Prompt__location">~</span>$ 
+                            <span id="Prompt_command"></span>
+                            <span class="Prompt__cursor" id="Prompt_cursor"></span>
+                        </div>
+                        <pre id="Prompt_output"></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    
+        <!-- Hero Section -->
+        <section id="about" class="hero" data-aos="fade-right" data-os-delay="1000" data>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Cybersecurity Expert &<br><span>Bug Bounty Hunter</span> and <span>CTF Geek</span></h1>
+                    <p class="lead"><section>
+                        <h1>Hi, I'm Ahmed (ShulkwiSEC)!</h1>
+                        <h3>💡 Security Specialist | Senior Software Engineer</h3>
+                        
+                        <ul>
+                            <li><strong>Expertise:</strong> Vulnerability research, penetration testing, and secure system architecture.</li>
+                            <li><strong>Development Skills:</strong> 5+ years of experience in <strong>Python (Flask, FastAPI, Django), PHP, MySQL, SQLite</strong>, and frontend technologies like <strong>Angular, Bootstrap, and Tailwind CSS</strong>.</li>
+                            <li><strong>Backend & API Development:</strong> Proficient in <strong>Nginx, server management, and building scalable, user-friendly web applications</strong>.</li>
+                            <li><strong>Passion for Innovation:</strong> A problem-solver who thrives on tackling challenges and collaborating with teams.</li>
+                            <li><strong>CTF Enthusiast:</strong> Always exploring cybersecurity challenges and competitions.</li>
+                        </ul>
+                    
+                        <p>🚀 Let's build something secure and scalable!</p>
+                    </section>
+                    </p>
+                    <div class="social-links mt-4" data-aos="zoom-in-up" data-os-delay="2000">
+                        <a href="#" class="btn"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn"><i class="fab fa-github"></i></a>
+                        <a href="#" class="btn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-section" data-aos="fade-left" data-os-delay="8000">
+            <div class="container">
+                <h2 class="text-center mb-5">Featured Projects</h2>
+                <div class="row g-4" id="portfolio-projects"></div>
+            </div>
+        </section>
+    </div> <!--MainPage--> <!--Includeable part end-->
+    <script src="js/Terminal.js"></script>\
+    <script src="js/main.js"></script>
+
+
+    <!-- Footer Section -->
+    <footer id="contact" class="text-center" data-aos="fade-up" data-aos-delay="9000">
+        <div class="container">
+            <!-- Social Links -->
+            <div class="social-links mb-4 d-flex justify-content-center">
+                <a href="https://twitter.com/shulkwisec" class="mx-3"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.com/invite/shulkwisec" class="mx-3"><i class="fab fa-discord"></i></a>
+                <a href="https://facebook.com/shulkwisec" class="mx-3"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@shulkwisec" class="mx-3"><i class="fab fa-tiktok"></i></a>
+                <a href="https://t.me/shulkwisec" class="mx-3"><i class="fab fa-telegram"></i></a>
+                <a href="https://stackoverflow.com/users/shulkwisec" class="mx-3"><i class="fab fa-stack-overflow"></i></a>
+                <a href="https://github.com/shulkwisec" class="mx-3"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/shulkwisec" class="mx-3"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/shulkwisec" class="mx-3"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:shulkwisec@gmail.com" class="mx-3"><i class="fab fa-google"></i></a>
+            </div>
+            <!-- Copyright Notice -->
+            <p class="mb-0">&copy; 2023 ShulkwiSEC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.2/purify.min.js"></script>
+    <script src="js/load.js"></script>
+
+    <!-- Navbar Scroll Effect -->
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+            if (navbar) {
+                navbar.classList.toggle("navbar-scroll", window.scrollY > 50);
+            }
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute("href"));
+                if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        });
+    </script>
+
+    <!-- Highlight.js Scripts -->
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js" defer></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js" defer></script>
+    <!-- Include PDF.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            hljs.highlightAll();
+        });
+    </script>
+
+    <!-- Theme Toggle -->
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        });
+    </script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('navbar-scroll');
+            } else {
+                document.querySelector('.navbar').classList.remove('navbar-scroll');
+            }
+        })
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

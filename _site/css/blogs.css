@@ -1,0 +1,403 @@
+@import url("variables.css");
+/* Base Styles */
+body {
+  background: var(--primary-color);
+  color: var(--text-color);
+  padding-top: 80px;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--primary-color);
+}
+
+/* Navigation */
+.navbar {
+  background: var(--primary-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.nav-link {
+  font-size: 1rem;
+  padding: 0.5rem 1rem !important;
+}
+
+/* Page Header */
+header.page-header {
+  background: url("https://source.unsplash.com/1600x400/?technology") center/cover;
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden !important;
+  background: var(--portfolio-overlay) !important;
+}
+header.page-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-overlay);
+}
+header.page-header h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+header.page-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Blog Cards */
+.blog-card {
+  overflow: hidden !important;
+  background: var(--card-bg);
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+.card-title {
+  font-size: 1.3rem;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+.card-text {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Modal */
+#blogModal .modal-content {
+  border-radius: 0.5rem;
+  margin: 5rem 0rem !important;
+}
+#blogBanner {
+  max-height: 50vh;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+#blogContent {
+  line-height: 1.7;
+  font-size: 1rem;
+  max-width: 100%; /* Ensures content does not overflow */
+}
+
+/* Footer */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.social-links a {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+.social-links a:hover {
+  transform: translateY(-3px);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 767px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+
+  header.page-header {
+    padding: 80px 0;
+  }
+  header.page-header h1 {
+    font-size: 2rem;
+  }
+  header.page-header p {
+    font-size: 1rem;
+  }
+
+  .blog-card {
+    margin: 0 10px 1.5rem;
+    overflow: hidden; /* Ensure no overflow */
+  }
+
+  .card-img-top {
+    width: 100%; /* Make the image fill the width */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: cover; /* Crop image if necessary to fit */
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+  .card-text {
+    font-size: 0.9rem;
+  }
+
+  #blogModal .modal-dialog {
+    margin: 10px;
+  }
+
+  #blogBanner {
+    width: 100%; /* Make the banner fill the width of its container */
+    height: auto; /* Adjust height based on the width */
+    max-height: 200px; /* Set a max height to prevent the banner from being too large */
+    object-fit: cover; /* Make sure it covers the area without stretching */
+  }
+
+  #blogContent {
+    font-size: 0.95rem;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+  .social-links a {
+    font-size: 1.3rem;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) and (max-width: 991px) {
+  header.page-header {
+    padding: 100px 0;
+  }
+  header.page-header h1 {
+    font-size: 2.8rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+  }
+
+  #blogBanner {
+    max-height: 40vh;
+  }
+}
+
+/* Desktop Enhancements */
+@media (min-width: 992px) {
+  .navbar-brand {
+    font-size: 1.7rem;
+  }
+  .nav-link {
+    font-size: 1.1rem;
+  }
+
+  header.page-header {
+    padding: 150px 0;
+  }
+  header.page-header h1 {
+    font-size: 3.2rem;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-8px);
+  }
+
+  #blogBanner {
+    max-height: 50vh;
+  }
+}
+
+/* Touch Device Optimization */
+@media (hover: none) {
+  .blog-card {
+    transition: none;
+  }
+  .blog-card:hover {
+    transform: none;
+  }
+}
+
+/* Utility Classes */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Markdown Enhancements for Responsiveness */
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* Ensure images in markdown are responsive */
+}
+
+.markdown-body table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+.markdown-body pre {
+  overflow-x: auto;
+  white-space: pre-wrap; /* Ensure code wraps nicely */
+}
+
+.markdown-body blockquote {
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  will-change: auto;
+}
+
+.markdown-body p {
+  line-height: 1.6;
+}
+
+/* Markdown Enhancements for Responsiveness */
+.markdown-body img {
+  max-width: 100% !important;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.markdown-body table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+.markdown-body pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.markdown-body blockquote {
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  flex-wrap: wrap;
+}
+
+.markdown-body p {
+  line-height: 1.6;
+}
+
+/* Modal Content - Ensure responsive images inside the modal */
+#blogModal #blogContent img {
+  max-width: 100% !important;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+#blogModal #blogContent table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+#blogModal #blogContent pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+#blogModal #blogContent blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+#blogModal #blogContent h1,
+#blogModal #blogContent h2,
+#blogModal #blogContent h3,
+#blogModal #blogContent h4,
+#blogModal #blogContent h5,
+#blogModal #blogContent h6 {
+  word-wrap: normal;
+}
+
+#blogModal #blogContent p {
+  line-height: 1.6;
+}
+
+.modal :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 800;
+  color: var(--modal-headers-color) !important;
+}
+
+#blogModal {
+  color: var(--modal-text-color) !important;
+}
+
+#blogModalLabel {
+  color: var(--modal-lable-color) !important;
+  font: 900 !important;
+}
+.btn-close {
+  background-color: var(--modal-closebtn-bg-color) !important;
+}
+
+/* Custom Checkbox Styles for Tag Filters */
+.form-check-input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent-color);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+.form-check-input:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.form-check-input:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 4px;
+  height: 9px;
+  border: solid var(--primary-color);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.form-check-label {
+  cursor: pointer;
+  vertical-align: middle;
+  margin-bottom: 0;
+  font-weight: 500;
+}
