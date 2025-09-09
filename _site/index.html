@@ -31,7 +31,6 @@
                 <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
                 <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="certificates.html">Certifications</a></li>
             </ul>
         </div>
     </div>
@@ -45,7 +44,11 @@
 
 
     <!-- Page Content -->
-            <meta name="robots" content="index, follow">
+            <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
+<link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar.css"/>
+
+<meta name="robots" content="index, follow">
 <meta name="description" content="Welcome to ShulkwiSEC – Explore cybersecurity insights, news, CTF Writeups.">
     <!-- Includeable Part start -->
     <div class="MainPage">
@@ -88,14 +91,17 @@
                             <li><strong>Passion for Innovation:</strong> A problem-solver who thrives on tackling challenges and collaborating with teams.</li>
                             <li><strong>CTF Enthusiast:</strong> Always exploring cybersecurity challenges and competitions.</li>
                         </ul>
-                    
-                        <p>🚀 Let's build something secure and scalable!</p>
                     </section>
+                    <!-- github calendar -->
+                    <div class="calendar">
+                        loading
+                    </div>
+
                     </p>
                     <div class="social-links mt-4" data-aos="zoom-in-up" data-os-delay="2000">
-                        <a href="#" class="btn"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="btn"><i class="fab fa-github"></i></a>
-                        <a href="#" class="btn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/shulkwisec" class="btn"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/shulkwisec" class="btn"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/shulkwisec" class="btn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -108,8 +114,12 @@
                 <div class="row g-4" id="portfolio-projects"></div>
             </div>
         </section>
-    </div> <!--MainPage--> <!--Includeable part end-->
-    <script src="js/Terminal.js"></script>\
+    </div> 
+    <script>
+        new GitHubCalendar(".calendar", "shulkwisec");
+    </script>
+    <!--MainPage--> <!--Includeable part end-->
+    <script src="js/Terminal.js"></script>
     <script src="js/main.js"></script>
 
 
