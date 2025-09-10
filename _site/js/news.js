@@ -46,7 +46,7 @@ async function loadBestStories() {
 
 async function loadNewStories() {
     try {
-        document.getElementById('lableofNews').innerText = 'New News 🙂⃤ 🙂⃤'
+        document.getElementById('lableofNews').innerText = ''
         // Fetch new stories ID from Hacker News API
         const response = await fetch('https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty');
         if (!response.ok) throw new Error('Failed to load new stories');

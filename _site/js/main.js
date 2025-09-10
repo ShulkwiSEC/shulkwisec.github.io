@@ -1,53 +1,59 @@
-
-
-    async function fetchProjects() {
-        try {
-            const response = await fetch('/Projects/main.json');
-            const data = await response.json();
-            console.log(data); // استخدم البيانات هنا
-            return data;
-        } catch (error) {
-            console.error('Error loading projects:', error);
-            return [];
-        }
+class ProjectsManager {
+    constructor(containerId, jsonPath) {
+        this.container = document.getElementById(containerId);
+        this.jsonPath = jsonPath;
+        this.projects = [];
     }
 
-// Projects loader 
-const Projects = [
-    {
-        title: "Vulnerability Research",
-        description: "Advanced exploit development for modern systems.",
-        image: "https://www.itsecurityguru.org/wp-content/uploads/2018/03/thumb_shutterstock_318112670_1024-800x450.jpg"
-    },
-    {
-        title: "Penetration Testing",
-        description: "Comprehensive security assessments and pentesting.",
-        image: "https://evalian.co.uk/wp-content/uploads/2020/11/What-is-penetration-testing-Evalian.png"
-    },
-    {
-        title: "Bug Bounty Hunting",
-        description: "Hunting and responsibly disclosing vulnerabilities.",
-        image: "https://miro.medium.com/v2/resize:fit:1400/0*xw5dY10MSpiF4mjR.png"
+    async fetchProjects() {
+        const res = await fetch(this.jsonPath).catch(() => null);
+        this.projects = res ? await res.json() : [];
+        console.log('✅ Projects loaded.');
+        this.loadProjects();
     }
-    ];
-    function loadProjects() {
-        const projectContainer = document.getElementById("portfolio-projects");
-        projectContainer.innerHTML = "";
-        
-        Projects.forEach(project => {
-            const projectCard = document.createElement("div");
-            projectCard.classList.add("col-md-4");
-            projectCard.innerHTML = `
-            <div class="portfolio-card">
-                <img src="${project.image}" class="img-fluid" alt="${project.title}">
-                <div class="portfolio-overlay">
+
+    loadProjects() {
+        if (!this.container) return;
+        this.container.innerHTML = "";
+
+        this.projects.forEach(project => {
+            const col = document.createElement("div");
+            col.classList.add("col-md-4", "mb-4", "d-flex");
+
+            const card = document.createElement("div");
+            card.classList.add("portfolio-card", "flex-fill", "d-flex", "flex-column");
+
+            const media = project.html
+                ? `<div class="flex-fill">${project.html}</div>`
+                : project.embed
+                    ? `<iframe src="${project.embed}" class="w-100 flex-fill" style="border:0; border-radius:8px;" loading="lazy"></iframe>`
+                    : project.image
+                        ? `<img src="${project.image}" class="img-fluid flex-fill" alt="${project.title}">`
+                        : "";
+
+            card.innerHTML = `
+                ${media}
+                <div class="portfolio-overlay mt-auto">
                     <h4>${project.title}</h4>
                     <p>${project.description}</p>
+                    ${project.tags ? `<div class="tags">
+                        ${project.tags.map(tag => `<span class="badge bg-primary">${tag}</span>`).join(' ')}
+                    </div>` : ""}
                 </div>
-            </div>
             `;
-            
-            projectContainer.appendChild(projectCard);
+
+            col.appendChild(card);
+            this.container.appendChild(col);
         });
     }
-    document.addEventListener("DOMContentLoaded", loadProjects)
+
+    init() {
+        this.fetchProjects();
+    }
+}
+
+// Initialize after DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+    const manager = new ProjectsManager("portfolio-projects", "/resources/projects.json");
+    manager.init();
+});
