@@ -1,54 +1,54 @@
 /* ===== CSS Variables (Updated) ===== */
 :root {
-    --accent-color: #00d4a1;
-    --btn-color: #0400ea5d;
-    --terminal-bg: #27041ce6;
-    --toolbar-gradient: linear-gradient(#504b45 0%, #3c3b37 100%);
-    --button-gradient: linear-gradient(#7d7871 0%, #595953 100%);
-    --exit-gradient: linear-gradient(#f37458 0%, #de4c12 100%);
-    --terminal-text-color: #ffff;
+    --accent-color: #001eff;          /* soft teal */
+    --btn-color: #00e4fd;           /* semi-transparent blue */
+    --terminal-bg: #1e1e2fe6;         /* deep gray-purple */
+    --toolbar-gradient: linear-gradient(#3b3b59 0%, #2a2a3d 100%);
+    --button-gradient: linear-gradient(#6b7280 0%, #4b5563 100%);
+    --exit-gradient: linear-gradient(#f97316 0%, #d97706 100%);
+    --terminal-text-color: #e5e7eb;   /* light gray */
     
     /* New Button Variables using improved colors */
-    --myButton-box-shadow: #f5978e;
-    --myButton-bg-start: #e63946;
-    --myButton-bg-end: #b22222;
-    --myButton-bg-color: #e63946;
-    --myButton-border: #d02718;
+    --myButton-box-shadow: #fca5a5;    /* soft red shadow */
+    --myButton-bg-start: #ef4444;      /* bright red */
+    --myButton-bg-end: #b91c1c;        /* deep red */
+    --myButton-bg-color: #ef4444;
+    --myButton-border: #991b1b;
     --myButton-text: #ffffff;
-    --myButton-text-shadow: #810e05;
+    --myButton-text-shadow: #7f1d1d;
 }
 
 /* Dark Theme */
 [data-theme="dark"] {
-    --primary-color: #1a1a1a;
-    --text-color: #ffffff;
-    --bg-overlay: rgba(0, 0, 0, 0.7);
-    --card-bg: #2a2a2a;
-    --banner-bg: #1a1a1aea;
-    --contact-bg: #333;
-    --form-bg: #555;
-    --form-border: #666;
-    --portfolio-overlay: rgba(42, 42, 42, 0.9);
-    --theme-toggler-btn: yellow; 
-    --modal-headers-color: #ff5722;
-    --modal-text-color: white;
-    --modal-title-bg-color: #222;
+    --primary-color: #121212;          /* almost black */
+    --text-color: #e5e7eb;             /* soft white */
+    --bg-overlay: rgba(0, 0, 0, 0.65);
+    --card-bg: #1f1f1f;                /* dark gray */
+    --banner-bg: #1a1a1acc;            /* translucent black */
+    --contact-bg: #242424;
+    --form-bg: #2c2c2c;
+    --form-border: #3a3a3a;
+    --portfolio-overlay: rgba(31, 31, 31, 0.85);
+    --theme-toggler-btn: #facc15;      /* bright yellow accent */
+    --modal-headers-color: #f97316;    /* orange */
+    --modal-text-color: #e5e7eb;
+    --modal-title-bg-color: #1c1c1c;
 }
 
 /* Light Theme */
 [data-theme="light"] {
-    --primary-color: #ffffff;
-    --text-color: #333333;
-    --bg-overlay: rgba(255, 255, 255, 0.8);
-    --card-bg: #f9f9f9;
-    --banner-bg: rgba(245, 245, 245, 0.9);
-    --contact-bg: #f0f0f0;
-    --form-bg: #fafafa;
-    --form-border: #e0e0e0;
+    --primary-color: #f9fafb;          /* very light gray */
+    --text-color: #1f2937;             /* dark gray-blue */
+    --bg-overlay: rgba(255, 255, 255, 0.85);
+    --card-bg: #ffffff;                /* pure white */
+    --banner-bg: rgba(243, 244, 246, 0.9);
+    --contact-bg: #f3f4f6;
+    --form-bg: #ffffff;
+    --form-border: #d1d5db;            /* light gray border */
     --portfolio-overlay: rgba(255, 255, 255, 0.9);
-    --accent-color: #007acc;
-    --theme-toggler-btn: #333333;
-    --modal-headers-color: #ff5722;
-    --modal-text-color: #000000;
-    --modal-title-bg-color: #222;
+    --accent-color: #4fd1c5;           /* same soft teal as root */
+    --theme-toggler-btn: #374151;      /* dark gray */
+    --modal-headers-color: #f97316;    /* orange */
+    --modal-text-color: #1f2937;
+    --modal-title-bg-color: #e5e7eb;   /* light gray */
 }

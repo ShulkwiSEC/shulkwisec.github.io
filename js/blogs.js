@@ -76,24 +76,26 @@ class BlogsManager {
 
       if (!match) return;
 
-      const col = document.createElement("div");
-      col.className = "col-md-4 mb-4";
-      col.innerHTML = `
-        <div class="card h-100 blog-card shadow-sm" data-index="${i}">
-          <img src="${blog.banner}" class="card-img-top" alt="${blog.title}">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">${blog.title}</h5>
-            <p class="card-text flex-grow-1">${blog.description}</p>
-            <div class="tags">
-              ${(blog.tags || [])
-                .map(t => `<span class="badge bg-primary me-1">${t}</span>`)
-                .join(" ")}
-            </div>
+      // Create the blog card directly without Bootstrap column wrapper
+      const blogCard = document.createElement("div");
+      blogCard.className = "blog-card";
+      blogCard.dataset.index = i;
+      
+      blogCard.innerHTML = `
+        <img src="${blog.banner}" class="card-img-top" alt="${blog.title}" loading="lazy">
+        <div class="card-content">
+          <h5 class="card-title">${blog.title}</h5>
+          <p class="card-text">${blog.description}</p>
+          <div class="tags-scroll">
+            ${(blog.tags || [])
+              .map(t => `<span class="tag-chip">${t}</span>`)
+              .join("")}
           </div>
         </div>
       `;
-      col.addEventListener("click", () => this.showBlog(blog, i));
-      container.appendChild(col);
+      
+      blogCard.addEventListener("click", () => this.showBlog(blog, i));
+      container.appendChild(blogCard);
     });
   }
 
@@ -101,18 +103,40 @@ class BlogsManager {
     const filter = document.getElementById("blog-tags-filter");
     filter.innerHTML = "";
 
+    // Add "All" filter option
+    const allBtn = document.createElement("button");
+    allBtn.className = "tag-chip active";
+    allBtn.innerText = "All";
+    allBtn.addEventListener("click", () => {
+      // Remove active from all other chips
+      filter.querySelectorAll(".tag-chip").forEach(chip => chip.classList.remove("active"));
+      allBtn.classList.add("active");
+      this.renderBlogs([]);
+    });
+    filter.appendChild(allBtn);
+
     this.allTags.forEach(tag => {
       const btn = document.createElement("button");
-      btn.className = "tag-chip btn btn-sm btn-outline-secondary me-2 mb-2";
+      btn.className = "tag-chip";
       btn.innerText = tag;
 
       btn.addEventListener("click", () => {
+        // Remove active from "All" button
+        filter.querySelector(".tag-chip:first-child").classList.remove("active");
+        
         btn.classList.toggle("active");
         const selected = Array.from(
           filter.querySelectorAll(".tag-chip.active"),
           el => el.innerText
         );
-        this.renderBlogs(selected);
+        
+        // If no tags are selected, show all blogs
+        if (selected.length === 0) {
+          filter.querySelector(".tag-chip:first-child").classList.add("active");
+          this.renderBlogs([]);
+        } else {
+          this.renderBlogs(selected);
+        }
       });
 
       filter.appendChild(btn);
@@ -137,6 +161,7 @@ class BlogsManager {
         }
     }
   }
+  
   static setupModalCloseEvent() {
       const modalEl = document.getElementById('blogModal');
       modalEl.addEventListener('hidden.bs.modal', () => {
