@@ -2,48 +2,71 @@
 layout: base
 title: ShulkwiSEC - Cybersecurity News
 ---
-  <meta name="robots" content="index, follow">
-  <meta name="description" content="Stay updated with the latest cybersecurity news, threats,security updates, Hacker News.">
-    <!-- Page Header -->
-    <header class="page-header text-center overflow-hidden" data-aos="fade-right" data-aos-delay="1000">
-      <div class="container">
-        <h1>Latest Hacker News</h1>
-        <p>Stay updated with the latest news from Hacker News.</p>
-      </div>
-    </header>
-    <div class="filters d-flex justify-content-center align-items-center gap-2 fixed-bottom m-5">
-      <button id="filter-top-stories" class="btn btn-primary">Top Stories</button>
-      <button id="filter-best-stories" class="btn btn-success">Best Stories</button>
-      <button id="filter-new-stories" class="btn btn-warning">New Stories</button>
-    </div>
-    <!-- News Section -->
-    <section id="news" class="py-5 overflow-hidden">
-      <div class="container">
-        <!-- Non-Embedded News -->
-        <div class="mb-5" data-aos="fade-left" data-aos-delay="1000">
-          <h2 class="mb-4" id="lableofNews">Top News Stories</h2>
-          <div class="row" id="none-embed-news">
-            <!-- News cards will be injected here -->
-          </div>
-        </div>
-      </div>
-    </section>
+<meta name="robots" content="index, follow">
+<meta name="description" content="Stay updated with the latest cybersecurity news, threats, security updates, Hacker News.">
 
-    <!-- News Reading Mode Modal -->
-    <div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="newsModalLabel"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div id="newsContent"></div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
+<style>
+.modal-fullscreen .modal-content {
+  height: 100vh;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#autoModalFrame {
+  width: 100%;
+  flex-grow: 1;
+  border: 0;
+}
+
+.filters {
+  bottom: 1rem !important;
+  z-index: 1050;
+}
+
+.card.news-card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card.news-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+</style>
+
+<header class="page-header text-center overflow-hidden" data-aos="fade-right" data-aos-delay="1000">
+  <div class="container">
+    <h1>Latest Hacker News</h1>
+    <p>Stay updated with the latest news from Hacker News.</p>
+  </div>
+</header>
+
+<div class="filters d-flex justify-content-center align-items-center gap-2 fixed-bottom m-3">
+  <button id="filter-top-stories" class="btn btn-primary btn-sm">Top Stories</button>
+  <button id="filter-best-stories" class="btn btn-success btn-sm">Best Stories</button>
+  <button id="filter-new-stories" class="btn btn-warning btn-sm">New Stories</button>
+</div>
+
+<section id="news" class="py-5 overflow-hidden">
+  <div class="container">
+    <div class="mb-5" data-aos="fade-left" data-aos-delay="1000">
+      <h2 class="mb-4" id="lableofNews">Top News Stories</h2>
+      <div class="row" id="none-embed-news"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="autoLinkModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="bg-primary text-white p-2 small" id="infoBar">Loading external link...</div>
+      <iframe id="autoModalFrame"></iframe>
+      <div class="p-2 text-end bg-light">
+        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
-    <script src="js/news.js"></script>
+  </div>
+</div>
+
+<script src="js/news.js"></script>

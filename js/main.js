@@ -6,9 +6,18 @@ class ProjectsManager {
     }
 
     async fetchProjects() {
-        const res = await fetch(this.jsonPath).catch(() => null);
-        this.projects = res ? await res.json() : [];
-        console.log('✅ Projects loaded.');
+        try {
+            const res = await fetch(this.jsonPath);
+            if (!res.ok) throw new Error("Failed to fetch JSON");
+
+            const data = await res.json();
+            this.projects = data?.resources?.projects || [];
+            console.log('✅ Projects loaded.');
+        } catch (err) {
+            console.error("❌ Could not load projects:", err);
+            this.projects = [];
+        }
+
         this.loadProjects();
     }
 
@@ -36,7 +45,7 @@ class ProjectsManager {
                 <div class="portfolio-overlay mt-auto">
                     <h4>${project.title}</h4>
                     <p>${project.description}</p>
-                    ${project.tags ? `<div class="tags">
+                    ${project.tags?.length ? `<div class="tags">
                         ${project.tags.map(tag => `<span class="badge bg-primary">${tag}</span>`).join(' ')}
                     </div>` : ""}
                 </div>
@@ -54,6 +63,6 @@ class ProjectsManager {
 
 // Initialize after DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-    const manager = new ProjectsManager("portfolio-projects", "/resources/projects.json");
+    const manager = new ProjectsManager("portfolio-projects", "/resources/template.json");
     manager.init();
 });

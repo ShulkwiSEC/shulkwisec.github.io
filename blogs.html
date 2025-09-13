@@ -36,23 +36,44 @@ title: ShulkwiSEC - Blogs
 
 <!-- Blog Reading Mode Modal -->
 <div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="blogModalLabel"></h5>
+      <div class="modal-header border-0 mt-5 mt-md-4 mt-lg-5">
+        <h5 class="modal-title fw-bold" id="blogModalLabel"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <img id="blogBanner" class="blog-banner mb-3" src="" alt="Blog Banner" />
-        <p id="blogDescription" class="lead"></p>
-        <div id="blogContent"></div>
+
+      <div class="modal-body p-4" style="max-height: 80vh; overflow-y: auto;">
+        <img id="blogBanner" class="img-fluid rounded mb-4 shadow-sm" src="" alt="Blog Banner" />
+
+        <p id="blogDescription" class="lead mb-4"></p>
+
+        <div id="blogContent" class="blog-content"></div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+
+      <div class="modal-footer flex-row align-items-start border-0 p-2">
+        <button type="button" class="btn btn-sm btn-secondary mb-2" data-bs-dismiss="modal">
           Close
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-primary" id="fullscreenBtn">
+          ⛶ Fullscreen
         </button>
       </div>
     </div>
   </div>
 </div>
+
 <script src="js/blogs.js"></script>
+<!-- fullscreen -->
+<script>
+  const modalEl = document.getElementById('blogModal');
+  const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+  fullscreenBtn.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      modalEl.requestFullscreen().catch(err => console.error(err));
+    } else {
+      document.exitFullscreen();
+    }
+  });
+</script>

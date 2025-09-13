@@ -5,6 +5,61 @@
   overflow: hidden !important;
 }
 
+/* The main container for the intro effect */
+#glitch-intro-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    z-index: 9999;
+    transition: opacity 1.5s ease; /* For the fade-out effect */
+}
+
+/* The glitch canvas background */
+#glitchCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* The typing text element */
+#typing {
+    font-size: 2rem;
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
+    z-index: 1;
+    display: none; /* Hidden until typing starts */
+    padding: 20px;
+    border: 2px solid #0f0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* The start button */
+#startButton {
+    z-index: 2;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: #0f0;
+    background-color: transparent;
+    border: 2px solid #0f0;
+    cursor: pointer;
+    text-shadow: 0 0 5px #0f0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#startButton:hover {
+    background-color: #0f0;
+    color: #000;
+}
+
 body {
     background: var(--primary-color);
     color: var(--text-color);
@@ -31,6 +86,117 @@ body {
   background: var(--primary-color);
   z-index: 9999;
 }
+
+
+.navbar-brand {
+  position: relative;
+  display: inline-block;
+  color: var(--accent-color);
+  width: 200px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.navbar-brand:hover{
+  color: var(--accent-color);
+}
+.navbar-brand::before,
+.navbar-brand::after {
+  content: "";
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: #00ff41; /* Matrix green for hacked effect */
+  box-shadow: 0 0 8px #00ff41;
+  animation: pwnedMove 2s ease-in-out infinite;
+}
+
+.navbar-brand::before {
+  top: 8px;
+  animation-delay: 0s;
+}
+
+.navbar-brand::after {
+  bottom: 8px;
+  animation-delay: 1s;
+}
+
+/* Optional: Add glitch effect to the text */
+.navbar-brand {
+  animation: glitch 3s infinite;
+}
+
+@keyframes pwnedMove {
+  0% { 
+    left: -100%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% { 
+    left: 0%;
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% { 
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes glitch {
+  0%, 90%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -1px);
+  }
+  20% {
+    transform: translate(1px, 1px);
+  }
+  30% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(1px, -1px);
+  }
+  50% {
+    filter: hue-rotate(90deg);
+  }
+  60% {
+    transform: translate(-1px, -1px);
+    filter: hue-rotate(180deg);
+  }
+}
+
+.navbar-toggler-icon {
+  background-image: none;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-color: #a11dcdd4;
+  font: 900;
+}
+
+.navbar-toggler {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+
 
 /* Curtain Menu */
 .curtain {
