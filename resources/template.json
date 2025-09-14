@@ -72,5 +72,15 @@
               "content": "IyMgNnRoIHBsYWNlIGluIE5haGFtQ29uMjAyNQ0K8J+OiSBOY3tDYXR9IDw9IHdlIG1hbmdlZCB0byBhY2hpdmUgNnRoIHBsYWNlIG9uIG5haGFtY29uMjAyNSAgDQohW05haGFtQ29uMjAyNV0oaHR0cHM6Ly9wYnMudHdpbWcuY29tL21lZGlhL0dyMG5ONnBXVUFBaUlLSz9mb3JtYXQ9anBnJm5hbWU9c21hbGwpICANCioqVGFnczoqKiAjbmFoYW1jb24yMDI1ICNjdGYg"
           }
     ]
+  },
+  "map":{
+    "blogs": {
+      "format": "blogs.html?id=",
+      "key": "id"
+    },
+    "projects": {
+      "format": "projects.html?id=",
+      "key": "id"
+    }
   }
 }

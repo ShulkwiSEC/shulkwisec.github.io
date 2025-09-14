@@ -7,38 +7,66 @@
 
     <!-- CSS Links -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" importance="high">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/blogs.css">
-    <link rel="stylesheet" href="css/news.css">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" importance="high">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar fixed-top shadow-sm">
-      <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand fw-bold" href="index.html">ShulkwiSEC</a>
-        <button class="navbar-toggler" id="menuToggle">
-          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-        </button>
-      </div>
+    <nav class="navbar-custom">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/" class="navbar-brand-custom">
+                ShulkwiSEC
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </nav>
 
-    <!-- Curtain Menu -->
-    <div id="curtainMenu" class="curtain">
-      <ul class="curtain-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="news.html">News</a></li>
-      </ul>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="">
+            <button class="menu-close" id="menuClose" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="mobile-search">
+                <input type="text" class="search-input" placeholder="Search..." id="searchInput">
+                <div id="results"></div>
+            </div>
+        </div>
+
+        <ul class="mobile-menu-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/blogs">Blogs</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/tools">Tools</a></li>
+        </ul>
     </div>
 
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <header class="page-header fade-in">
+            <h1 class="glitch-text" data-text="ShulkwiSEC - Cybersecurity News">
+                ShulkwiSEC - Cybersecurity News
+            </h1>
+            
+        </header>
+        <div class="cyber-divider"></div>
+        
 
-
-    <!-- Page Content -->
-    <meta name="robots" content="index, follow">
+        <!-- Page Content -->
+        <link rel="stylesheet" href="/css/news.css">
+<meta name="robots" content="index, follow">
 <meta name="description" content="Stay updated with the latest cybersecurity news, threats, security updates, Hacker News.">
 
 <style>
@@ -106,26 +134,26 @@
 </div>
 
 <script src="js/news.js"></script>
+    </main>
 
-    <!-- Footer Section -->
-    <footer id="contact" class="text-center" data-aos="fade-up" data-aos-delay="9000">
-        <div class="container">
-            <!-- Social Links -->
-            <div class="social-links mb-4 d-flex justify-content-center">
-                <a href="https://twitter.com/shulkwisec" class="mx-3"><i class="fab fa-twitter"></i></a>
-                <a href="https://discord.com/invite/shulkwisec" class="mx-3"><i class="fab fa-discord"></i></a>
-                <a href="https://facebook.com/shulkwisec" class="mx-3"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.tiktok.com/@shulkwisec" class="mx-3"><i class="fab fa-tiktok"></i></a>
-                <a href="https://t.me/shulkwisec" class="mx-3"><i class="fab fa-telegram"></i></a>
-                <a href="https://stackoverflow.com/users/shulkwisec" class="mx-3"><i class="fab fa-stack-overflow"></i></a>
-                <a href="https://github.com/shulkwisec" class="mx-3"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/shulkwisec" class="mx-3"><i class="fab fa-linkedin"></i></a>
-                <a href="https://wa.me/shulkwisec" class="mx-3"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:shulkwisec@gmail.com" class="mx-3"><i class="fab fa-google"></i></a>
-            </div>
-            <!-- Copyright Notice -->
-            <p class="mb-0">&copy; 2023 ShulkwiSEC. All rights reserved.</p>
-        </div>
+    <!-- Footer -->
+    <footer class="footer-cyber">
+        <div class="social-links">
+            <a href="https://twitter.com/shulkwisec" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://discord.com/invite/shulkwisec" title="Discord"><i class="fab fa-discord"></i></a>
+            <a href="https://facebook.com/shulkwisec" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@shulkwisec" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://t.me/shulkwisec" title="Telegram"><i class="fab fa-telegram"></i></a>
+            <a href="https://stackoverflow.com/users/shulkwisec" title="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+            <a href="https://github.com/shulkwisec" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/shulkwisec" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://wa.me/shulkwisec" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:shulkwisec@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </ul>
+        <div class="cyber-divider"></div>
+        <p class="mb-0" style="color: var(--text-muted); font-family: var(--font-mono);">
+            &copy; 2025 ShulkwiSEC. All rights reserved.
+        </p>
     </footer>
 
     <!-- Modals -->
@@ -136,111 +164,92 @@
     </div>
 
     <!-- intor canvas -->
-    <canvas id="glitchCanvas"></canvas>
-    <div id="typing"></div>
-
+    <!-- <canvas id="glitchCanvas"></canvas>
+    <div id="typing"></div> -->
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/intro.js"></script>
-    <script>
-        AOS.init();
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.2/purify.min.js"></script>
-    <script src="js/load.js"></script>
-
-    <!-- Navbar Scroll Effect -->
-    <script>
-        window.addEventListener("scroll", function () {
-            const navbar = document.querySelector(".navbar");
-            if (navbar) {
-                navbar.classList.toggle("navbar-scroll", window.scrollY > 50);
-            }
-        });
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener("click", function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute("href"));
-                if (target) {
-                    target.scrollIntoView({ behavior: "smooth" });
-                }
-            });
-        });
-    </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.6/purify.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Highlight.js Scripts -->
     <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js" defer></script>
     <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js" defer></script>
     <!-- Include PDF.js from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-
+    <script src="js/search.js"></script>
+    <script src="js/load.js"></script>
     <script>
+        // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
-            hljs.highlightAll();
-        });
-    </script>
-
-    <!-- Theme Toggle -->
-    <script>
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-        
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-            } else {
-                // Use browser preference
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-            }
-        });
-    </script>
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                document.querySelector('.navbar').classList.add('navbar-scroll');
-            } else {
-                document.querySelector('.navbar').classList.remove('navbar-scroll');
-            }
-        })
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+            const menuToggle = document.getElementById('menuToggle');
+            const menuClose = document.getElementById('menuClose');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const navbar = document.querySelector('.navbar-custom');
+            
+            // Toggle mobile menu
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close mobile menu
+            menuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
                 });
             });
-        });
-        document.addEventListener("DOMContentLoaded", () => {
-          const menuToggle = document.getElementById("menuToggle");
-          const curtainMenu = document.getElementById("curtainMenu");
-                
-          menuToggle.addEventListener("click", () => {
-            curtainMenu.classList.toggle("active");
-          });
-      
-          // Close menu when clicking a link
-          curtainMenu.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-              curtainMenu.classList.remove("active");
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
             });
-          });
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Initialize AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 600,
+                    easing: 'ease-out',
+                    once: true,
+                    offset: 50
+                });
+            }
+            hljs.highlightAll();
+            
+            // image modal
             const modal = document.getElementById('imgModal');
             const modalImg = document.getElementById('modalImg');
             const closeBtn = document.querySelector('.img-modal-close');
@@ -256,6 +265,20 @@
             modal.addEventListener('click', e => {
                 if (e.target === modal) modal.style.display = 'none';
             });
+            
+        });
+    </script>
+    <script>            
+        document.addEventListener("DOMContentLoaded", () => {
+          const searcher = new TemplateSearch("resources/template.json");
+          searcher.init().then(() => {
+            const input = document.getElementById("searchInput");
+            if (!input) return; // حماية لو العنصر مش موجود
+            input.addEventListener("input", () => {
+              const results = searcher.search(input.value);
+              searcher.renderResults(results);
+            });
+          });
         });
     </script>
 </body>

@@ -2,7 +2,7 @@
 /* Terminal */
 .Terminal {
     isolation: isolate; /* Create a new stacking context */
-    z-index: 8999; /* Ensure this is higher than other elements */
+    z-index: 1; /* Ensure this is higher than other elements */
     position: relative;
     top: 100px !important;
     transform: translate(-50%, -50%);
