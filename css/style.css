@@ -37,6 +37,7 @@ body {
     background: var(--primary-bg);
     color: var(--text-primary);
     line-height: 1.6;
+    max-width: 100vw !important;
     overflow-x: hidden;
     padding-top: 70px; /* Mobile navbar height */
 }
