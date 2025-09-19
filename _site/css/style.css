@@ -37,9 +37,21 @@ body {
     background: var(--primary-bg);
     color: var(--text-primary);
     line-height: 1.6;
+    max-width: 100vw !important;
     overflow-x: hidden;
     padding-top: 70px; /* Mobile navbar height */
 }
+
+html, body {
+  overflow-x: hidden;
+}
+
+.mobile-menu {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
@@ -71,6 +83,7 @@ nav{
     left: 0;
     right: 0;
     z-index: 99;
+    max-width: 100vw;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: painted;
 }
@@ -156,17 +169,19 @@ nav{
     top: 0;
     left: 0;
     width: 100%;
+    max-width: 100vw !important;
     height: 100vh;
     background: var(--primary-bg);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     transform: translateY(-100%);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
-    overflow: hidden;
+    overflow-y: auto;
     visibility: hidden;
+    padding: 2rem 1rem;
+    gap: 2rem;
 }
 
 .mobile-menu.active {
@@ -194,21 +209,21 @@ nav{
 }
 
 /* ===== MOBILE MENU HEADER ===== */
-.mobile-menu .fixed-top {
+.mobile-menu-header {
+    display: flex;
+    align-items: center;
     width: 100%;
-    padding: 1rem;
-    z-index: 1001;
+    max-width: 450px;
+    gap: 1rem;
+    padding-top: 3rem;
 }
 
 /* ===== CLOSE BUTTON ===== */
 .menu-close {
-    position: absolute;
-    top: 3rem;
-    right: 1rem;
     background: transparent;
-    border: 2px solid var(--text-primary);
-    color: var(--text-primary);
-    font-size: 1.5rem;
+    border: 2px solid var(--text-muted);
+    color: var(--text-secondary);
+    font-size: 1.2rem;
     cursor: pointer;
     border-radius: 50%;
     width: 44px;
@@ -217,7 +232,7 @@ nav{
     align-items: center;
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 10;
+    flex-shrink: 0;
 }
 
 .menu-close:hover,
@@ -231,9 +246,7 @@ nav{
 
 /* ===== MOBILE SEARCH ===== */
 .mobile-search {
-    margin: 2rem auto 0;
-    width: 90%;
-    max-width: 400px;
+    width: 100%;
     position: relative;
 }
 

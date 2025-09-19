@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Profile -->
+    <meta property="og:title" content="Ahmed Mhdi" />
+    <meta property="og:description" content="@ShulkwiSEC | Senior Software Engineer | Cybersecurity Enthusiast | Automation | n8n | CTF GEEK" />
+    <meta property="og:image" content="https://pbs.twimg.com/profile_images/1912409159569666048/jBp8N3DM_400x400.png" />
+    <meta property="og:url" content="https://shulkwisec.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>ShulkwiSEC - Cybersecurity News</title>
 
     <!-- CSS Links -->
@@ -14,7 +20,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" importance="high">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" importance="high">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -33,15 +41,14 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <div class="">
-            <button class="menu-close" id="menuClose" aria-label="Close menu">
-                <i class="fas fa-times"></i>
-            </button>
-
+        <div class="mobile-menu-header">
             <div class="mobile-search">
                 <input type="text" class="search-input" placeholder="Search..." id="searchInput">
                 <div id="results"></div>
             </div>
+            <button class="menu-close" id="menuClose" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
 
         <ul class="mobile-menu-nav">
