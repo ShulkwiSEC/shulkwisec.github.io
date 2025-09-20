@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Profile -->
@@ -55,7 +56,9 @@
             <li><a href="/">Home</a></li>
             <li><a href="/blogs">Blogs</a></li>
             <li><a href="/news">News</a></li>
-            <li><a href="/tools">Tools</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/opensource">Open Source (Public)</a></li>
+            <li><a href="/praivtesource">Closed Source (Praivte)</a></li>
         </ul>
     </div>
 
@@ -105,18 +108,19 @@
         <section id="about" class="hero" data-aos="fade-right" data-os-delay="1000" data>
             <div class="container">
                 <div class="hero-content">
-                    <h1>Cybersecurity Expert &<br><span>Bug Bounty Hunter</span> and <span>CTF Geek</span></h1>
+                    <h1><br><span>Senior Software Engineer</span> and <span>Cybersecurity Expert </span></h1>
                     <p class="lead">
-                        <section>
-                            <h1>Hi, I'm Ahmed (ShulkwiSEC)!</h1>
-                            <h3>💡 Security Specialist | Senior Software Engineer</h3>
-                            
+                        <section>                            
                             <ul>
-                                <li><strong>Expertise:</strong> Vulnerability research, penetration testing, and secure system architecture.</li>
-                                <li><strong>Development Skills:</strong> 5+ years of experience in <strong>Python (Flask, FastAPI, Django), PHP, MySQL, SQLite</strong>, and frontend technologies like <strong>Angular, Bootstrap, and Tailwind CSS</strong>.</li>
-                                <li><strong>Backend & API Development:</strong> Proficient in <strong>Nginx, server management, and building scalable, user-friendly web applications</strong>.</li>
-                                <li><strong>Passion for Innovation:</strong> A problem-solver who thrives on tackling challenges and collaborating with teams.</li>
-                                <li><strong>CTF Enthusiast:</strong> Always exploring cybersecurity challenges and competitions.</li>
+                                <pre>
+    Expertise
+    =========
+    * Vulnerability research, penetration testing, and secure system architecture.
+    Development Skills
+    ==================
+    * 5+ years of experience in <strong>Python (Flask, FastAPI)
+    <a href="about">more</a>
+                                </pre>
                             </ul>
                         </section>
                     </p>
@@ -192,7 +196,7 @@
     <!-- intor canvas -->
     <!-- <canvas id="glitchCanvas"></canvas>
     <div id="typing"></div> -->
-
+    
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -205,107 +209,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
     <script src="js/search.js"></script>
     <script src="js/load.js"></script>
-    <script>
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menuToggle');
-            const menuClose = document.getElementById('menuClose');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const navbar = document.querySelector('.navbar-custom');
-            
-            // Toggle mobile menu
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-            
-            // Close mobile menu
-            menuClose.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-            
-            // Close menu on link click
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                });
-            });
-            
-            // Close menu on escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            // Navbar scroll effect
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-            
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-            
-            // Initialize AOS
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 600,
-                    easing: 'ease-out',
-                    once: true,
-                    offset: 50
-                });
-            }
-            hljs.highlightAll();
-            
-            // image modal
-            const modal = document.getElementById('imgModal');
-            const modalImg = document.getElementById('modalImg');
-            const closeBtn = document.querySelector('.img-modal-close');
-
-            document.querySelectorAll('img').forEach(img => {
-                img.addEventListener('click', () => {
-                    modal.style.display = 'flex';
-                    modalImg.src = img.src;
-                });
-            });
-
-            closeBtn.addEventListener('click', () => modal.style.display = 'none');
-            modal.addEventListener('click', e => {
-                if (e.target === modal) modal.style.display = 'none';
-            });
-            
-        });
-    </script>
-    <script>            
-        document.addEventListener("DOMContentLoaded", () => {
-          const searcher = new TemplateSearch("resources/template.json");
-          searcher.init().then(() => {
-            const input = document.getElementById("searchInput");
-            if (!input) return; // حماية لو العنصر مش موجود
-            input.addEventListener("input", () => {
-              const results = searcher.search(input.value);
-              searcher.renderResults(results);
-            });
-          });
-        });
-    </script>
+    <script src="js/base.js"></script>
 </body>
 </html>
