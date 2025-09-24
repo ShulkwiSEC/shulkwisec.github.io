@@ -140,7 +140,6 @@
 }
 
 .btn-close {
-  filter: var(--primary-bg) == #000 ? invert(1) : invert(0);
   opacity: 0.8;
 }
 
@@ -317,17 +316,7 @@
   }
 }
 
-/* Blog Cards - Keep existing styles */
 
-/* Touch Device Optimization */
-@media (hover: none) {
-  .blog-card {
-    transition: none;
-  }
-  .blog-card:hover {
-    transform: none;
-  }
-}
 
 /* Utility */
 .img-fluid {

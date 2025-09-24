@@ -1,25 +1,4 @@
-/* News Cards */
-.news-card {
-  overflow: hidden !important;
-  background: var(--card-bg);
-  border-radius: 0.5rem;
-  transition: transform 0.3s ease;
-  color: var(--text-color);
-}
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-  width: 100%;
-}
-.card-title {
-  font-size: 1.3rem;
-  line-height: 1.4;
-  margin-bottom: 0.75rem;
-}
-.card-text {
-  font-size: 0.95rem;
-  opacity: 0.9;
-}
+
 
 /* Modal */
 #newsModal .modal-content {
@@ -142,6 +121,31 @@
   .news-card:hover {
     transform: translateY(-8px);
   }
+}
+
+/* Touch Device Optimization */
+@media (hover: none) {
+  .news-card {
+    transition: none;
+  }
+  .news-card:hover {
+    transform: none;
+  }
+}
+
+/* Utility Classes */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+  header.page-header {
+    padding: 150px 0;
+  }
+  header.page-header h1 {
+    font-size: 3.2rem;
+  }
+
+
 }
 
 /* Touch Device Optimization */

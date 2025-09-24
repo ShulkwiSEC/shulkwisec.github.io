@@ -51,17 +51,35 @@ class NewsManager {
 
     this.stories.forEach(story => {
       const col = document.createElement("div");
-      col.className = "col-md-4 mb-4";
-      col.innerHTML = `
-        <div class="card h-100 news-card" data-id="${story.id}">
-          <img src="${story.url ? `https://www.google.com/s2/favicons?domain=${story.url}` : 'default-icon.png'}" class="card-img-top" alt="${story.title}">
-          <div class="card-body">
-            <h5 class="card-title">${story.title}</h5>
-            <p class="card-text">${story.text ? story.text.slice(0,150)+'...' : 'No description available.'}</p>
-          </div>
+      col.className = "col-lg-4 col-md-6 unified-card-col";
+
+      const newsCard = document.createElement("div");
+      newsCard.className = "unified-card";
+      newsCard.dataset.id = story.id;
+
+      let description = 'No description available.';
+      if (story.text) {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = story.text;
+          description = tempDiv.textContent || tempDiv.innerText || '';
+          description = description.slice(0, 120) + (description.length > 120 ? '...' : '');
+      }
+
+      newsCard.innerHTML = `
+        <div class="unified-card-media">
+            <img src="${story.url ? `https://www.google.com/s2/favicons?domain=${story.url}` : '/images/default-icon.png'}" alt="Favicon for ${story.title}" loading="lazy" onerror="this.onerror=null;this.src='/images/default-icon.png';">
+        </div>
+        <div class="unified-card-content">
+            <h5 class="unified-card-title">${story.title}</h5>
+            <p class="unified-card-text">${description}</p>
+            <div class="unified-card-tags">
+                <span class="tag-chip">Score: ${story.score || 0}</span>
+                <span class="tag-chip">${story.by || 'anonymous'}</span>
+            </div>
         </div>
       `;
-      col.addEventListener("click", () => this.openInModal(story.url || "about:blank"));
+      newsCard.addEventListener("click", () => this.openInModal(story.url || "about:blank"));
+      col.appendChild(newsCard);
       container.appendChild(col);
     });
   }

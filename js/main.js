@@ -30,19 +30,21 @@ class ProjectsManager {
             col.classList.add("col-md-4", "mb-4", "d-flex");
 
             const card = document.createElement("div");
-            card.classList.add("portfolio-card", "flex-fill", "d-flex", "flex-column");
+            card.classList.add("portfolio-card", "flex-fill");
 
-            const media = project.html
-                ? `<div class="flex-fill">${project.html}</div>`
+            const mediaContent = project.html
+                ? project.html
                 : project.embed
-                    ? `<iframe src="${project.embed}" class="w-100 flex-fill" style="border:0; border-radius:8px;" loading="lazy"></iframe>`
+                    ? `<iframe src="${project.embed}" style="border:0;" loading="lazy"></iframe>`
                     : project.image
-                        ? `<img src="${project.image}" class="img-fluid flex-fill" alt="${project.title}">`
+                        ? `<img src="${project.image}" alt="${project.title}">`
                         : "";
 
             card.innerHTML = `
-                ${media}
-                <div class="portfolio-overlay mt-auto">
+                <div class="portfolio-media">
+                    ${mediaContent}
+                </div>
+                <div class="portfolio-overlay">
                     <h4>${project.title}</h4>
                     <p>${project.description}</p>
                     ${project.tags?.length ? `<div class="tags">

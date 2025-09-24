@@ -1,0 +1,100 @@
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--mobile-padding);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--mobile-margin);
+}
+
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+}
+
+.project-banner {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    background: var(--secondary-bg);
+}
+
+.project-content {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-title {
+    color: var(--accent-color);
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.project-link {
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-color);
+    color: var(--primary-bg);
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.project-link:hover {
+    background: var(--accent-secondary);
+}
+
+/* Loading & empty states */
+.loading, .empty-state {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.project-description-wrapper {
+  position: relative;
+  display: block;
+}
+
+.project-description-wrapper .project-description {
+  max-height: 3em; /* 2 lines approx */
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  line-height: 1.5em;
+}
+
+.project-description-wrapper .readmore-toggle {
+  display: none;
+}
+
+.project-description-wrapper .readmore-toggle:checked ~ .project-description {
+  max-height: 500px; /* large enough to show full content */
+}
+
+.project-description-wrapper .readmore-label {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--accent-color);
+  cursor: pointer;
+  font-size: 0.85rem;
+}

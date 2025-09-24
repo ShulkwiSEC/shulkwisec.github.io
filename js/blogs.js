@@ -57,23 +57,29 @@ class BlogsManager {
       const match = tagsFilter.length === 0 || (blog.tags || []).some(t => tagsFilter.includes(t));
       if (!match) return;
 
+      const col = document.createElement("div");
+      col.className = "col-lg-4 col-md-6 unified-card-col";
+
       const blogCard = document.createElement("div");
-      blogCard.className = "blog-card";
+      blogCard.className = "unified-card";
       blogCard.dataset.index = i;
 
       blogCard.innerHTML = `
-        <img src="${blog.banner}" class="card-img-top" alt="${blog.title}" loading="lazy">
-        <div class="card-content">
-          <h5 class="card-title">${blog.title}</h5>
-          <p class="card-text">${blog.description}</p>
-          <div class="tags-scroll">
-            ${(blog.tags || []).map(t => `<span class="tag-chip">${t}</span>`).join("")}
-          </div>
+        <div class="unified-card-media">
+            <img src="${blog.banner}" alt="${blog.title}" loading="lazy">
+        </div>
+        <div class="unified-card-content">
+            <h5 class="unified-card-title">${blog.title}</h5>
+            <p class="unified-card-text">${blog.description}</p>
+            <div class="unified-card-tags">
+                ${(blog.tags || []).map(t => `<span class="tag-chip">${t}</span>`).join("")}
+            </div>
         </div>
       `;
 
       blogCard.addEventListener("click", () => this.showBlog(blog, i));
-      container.appendChild(blogCard);
+      col.appendChild(blogCard);
+      container.appendChild(col);
     });
   }
 

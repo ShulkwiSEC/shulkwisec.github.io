@@ -775,3 +775,9 @@ img {
     cursor: pointer;
     z-index: 90;
 }
+
+.resume-block {
+  white-space: pre-wrap;
+  text-align: left;
+  font-family: monospace;
+}

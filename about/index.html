@@ -2,18 +2,24 @@
 layout: base
 title: ShulkwiSEC - About
 ---
+    <script src="/js/about.js"></script>
     <section id="about" class="hero" data-aos="fade-right" data-os-delay="1000" data>
         <div class="container">
             <div class="hero-content">
                 <p class="lead">
                     <section>
-                        <pre  id="resume"></pre>
+                        <pre  class="resume-block" id="resume"></pre>
                     </section>
                 </p>
             </div>
         </div>
     </section>
-    <button class="btn"><a href="about/resume.md">resume.md</a></button>
-    <button class="btn "><a href="about/resume.md">experiances.md</a></button>
-    <script src="/js/about.js"></script>
-    <script>resume('about/resume.md','#resume')</script>
+    <button class="btn" onclick="resume('resources/resume.md','#resume')">resume.md</button>
+    <button class="btn" onclick="resume('resources/experience.md','#resume')">experiances.md</button>
+
+
+    <script>
+          document.addEventListener("DOMContentLoaded", function() {
+              resume('resources/resume.md', '#resume');
+            });
+    </script>
