@@ -4,16 +4,30 @@
   <meta charset="utf-8">
   <title>Page Not Found</title>
   <script type="text/javascript">
-    // Single Page Apps routing: redirect to index.html
+    // Single Page Apps routing: redirect to index.html with the correct path
     // This script will be executed when a 404 error occurs.
     // It redirects the user to the root of the application,
-    // allowing the client-side router to handle the path.
+    // preserving the original path in the URL, allowing the client-side router to handle it.
     var path = window.location.pathname;
-    var redirect = '/'; // Assuming your base path is '/'
-    if (path.startsWith('/your-repo-name/')) { // Adjust if you ever use a project page
-      redirect = '/your-repo-name/';
+    var query = window.location.search;
+    var hash = window.location.hash;
+
+    // Construct the full path including query parameters and hash
+    var fullPath = path + query + hash;
+
+    // If your GitHub Pages is a project page (e.g., your-username.github.io/your-repo-name/)
+    // you might need to adjust the base path.
+    // For user/organization pages (your-username.github.io), the base is usually '/'.
+    var basePath = '/'; // Assuming your base path is '/'
+
+    // If the path starts with the base path, we can use it directly.
+    // Otherwise, we might need to prepend the base path.
+    if (!fullPath.startsWith(basePath)) {
+      fullPath = basePath + fullPath.substring(1); // Remove leading '/' if present, then add basePath
     }
-    window.location.replace(redirect);
+
+    // Redirect to the full path
+    window.location.replace(fullPath);
   </script>
 </head>
 <body>
