@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Page Not Found</title>
+  <script type="text/javascript">
+    // Single Page Apps routing: redirect to index.html
+    // This script will be executed when a 404 error occurs.
+    // It redirects the user to the root of the application,
+    // allowing the client-side router to handle the path.
+    var path = window.location.pathname;
+    var redirect = '/'; // Assuming your base path is '/'
+    if (path.startsWith('/your-repo-name/')) { // Adjust if you ever use a project page
+      redirect = '/your-repo-name/';
+    }
+    window.location.replace(redirect);
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
