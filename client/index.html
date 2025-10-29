@@ -12,6 +12,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="text/javascript">
+      // If the URL contains a '?p=' query parameter, it means we were redirected from 404.html.
+      // We need to rewrite the URL to the original path so React Router can handle it.
+      (function () {
+        var redirect = window.location.search;
+        if (redirect && redirect.startsWith('?p=')) {
+          var path = decodeURIComponent(redirect.substring(3)); // Remove '?p=' and decode
+          window.history.replaceState(null, null, path);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
