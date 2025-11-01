@@ -9,6 +9,7 @@ export interface BlogPost {
   banner?: string;
   tags?: string[];
   encoding?: boolean;
+  pin?: boolean;
 }
 
 function decodeContent(content: string, encoding: boolean | undefined) {
@@ -32,7 +33,8 @@ export const blogPosts: BlogPost[] = templateData.blog.posts.map(post => ({
   content: decodeContent(post.content, post.encoding),
   banner: post.banner,
   tags: post.tags,
-  encoding: post.encoding
+  encoding: post.encoding,
+  pin: post.pin === true
 }));
 
 export const siteConfig = templateData.site;

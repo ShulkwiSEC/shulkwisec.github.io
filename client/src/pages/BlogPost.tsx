@@ -4,7 +4,7 @@ import SimpleHeader from '@/components/SimpleHeader';
 import SimpleFooter from '@/components/SimpleFooter';
 import { blogPosts } from '@/data/blogPosts';
 import { Badge } from '@/components/ui/badge';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Pin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import DOMPurify from 'dompurify';
 import hljs from 'highlight.js';
@@ -89,8 +89,13 @@ export default function BlogPost() {
             {post.date}
           </time>
 
-          <h1 className="text-4xl font-bold mb-4" data-testid="text-post-title">
+          <h1 className="text-4xl font-bold mb-4 flex items-center gap-2" data-testid="text-post-title">
             {post.title}
+            {post.pin && (
+              <span className="inline-flex items-center gap-1 text-sm text-primary" title="Pinned">
+                <Pin className="w-4 h-4" />
+              </span>
+            )}
           </h1>
 
           {post.tags && post.tags.length > 0 && (

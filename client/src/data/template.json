@@ -90,14 +90,15 @@
   "blog": {
     "posts": [
       {
-        "id": "getting-started",
+        "id": "getting-started-useing-sahb",
         "date": "February 1, 2025",
         "title": { "ar": "البدء مع سحب", "en": "Getting Started with Sahb" },
         "excerpt": { "ar": "دليل سريع للتهيئة والتشغيل وضبط المحتوى.", "en": "Quick guide to install, run, and configure content." },
         "content": "## البدء مع \"سحب\" (Sahb)\n\nسحب قالب مدونة ثنائي اللغة (عربي/إنجليزي) سريع وخفيف. في هذا الملخص ستجد خطوات التثبيت والتشغيل محليًا، وكيفية ضبط المحتوى عبر `template.json` وإضافة صفحات Markdown ديناميكية.\n\n### الخطوات\n- git clone ثم npm install\n- تشغيل التطوير: npm run dev\n- تحرير المحتوى: client/src/data/template.json\n- صفحات Markdown: ضع ملفاتك في client/src/data/*.md ثم زر /page/<slug>\n\n### النشر على GitHub Pages\n- مستودع مستخدم/منظمة: base: '/'\n- مستودع مشروع: base: '/repo-name/'\n- ادفع إلى main وسيقوم GitHub Actions بالبناء تلقائيًا إلى dist/public.\n\nFor English readers, see docs/getting_starting.md for the full guide and details.",
         "encoding": false,
         "tags": ["Docs", "Getting Started", "Guide"],
-        "banner": "https://placehold.co/600x400/EEF2FF/1F2937?text=Getting+Started"
+        "banner": "https://placehold.co/600x400/EEF2FF/1F2937?text=Getting+Started",
+        "pin": true
       },
       {
         "id": "sahb-master-docs-overview",
@@ -107,7 +108,8 @@
         "content": "# Sahb — Bilingual Developer Blog Template\n\n- ثنائي اللغة مع تبديل فوري للاتجاه (RTL/LTR)\n- سمة داكنة/فاتحة مع اكتشاف تلقائي\n- أداء عالٍ عبر Vite وTailwind\n- صفحات Markdown عند /page/<slug>\n- شريط إنجازات ديناميكي في التذييل\n\nWhy Sahb? أقل إعداد، مخرجات ساكنة dist/public لأي منصة استضافة، وبنية واضحة مطوِّر-صديقة.\n\nQuick Start: git clone، npm install، npm run dev ثم حرر client/src/data/template.json.\n\nSee docs/master.md for the full setup and details.",
         "encoding": false,
         "tags": ["Docs", "Overview", "Marketing"],
-        "banner": "https://placehold.co/600x400/E8FFF7/0B3D2E?text=Sahb+Overview"
+        "banner": "https://placehold.co/600x400/E8FFF7/0B3D2E?text=Sahb+Overview",
+        "pin": true
       },
       {
         "id": "sahb-developer-contribution",
@@ -117,7 +119,8 @@
         "content": "## Developer Guide\n\n- Structure: client/src contains components/, contexts/, data/, pages/, hooks/, lib/\n- Routing: Wouter + SwipeableRouter using arrows and swipes\n- Content: template.json + client/src/data/*.md\n- UI: shadcn/ui + Tailwind\n- Language/Theme: LanguageContext and ThemeContext with localStorage\n\n## Contribution\n1. Create a branch for the feature\n2. Commit focused changes\n3. Open a PR with a clear description and screenshots if needed\n4. Verify RTL/LTR and dark/light modes\n\nRefer to docs/contribution-developers.md for the full text.",
         "encoding": false,
         "tags": ["Docs", "Contributing", "Developers"],
-        "banner": "https://placehold.co/600x400/FFF7ED/7C2D12?text=Developers+Guide"
+        "banner": "https://placehold.co/600x400/FFF7ED/7C2D12?text=Developers+Guide",
+        "pin": true
       },
       {
         "id": "sahb-user-frindley-mangment-template",

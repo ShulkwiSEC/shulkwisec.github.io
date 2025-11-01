@@ -16,6 +16,12 @@ export default function SimpleBlog() {
     return blogPosts
       .filter(post => post.title.toLowerCase().includes(searchTerm.toLowerCase()))
       .sort((a, b) => {
+        // Pinned posts first
+        const aPinned = a.pin === true;
+        const bPinned = b.pin === true;
+        if (aPinned !== bPinned) return aPinned ? -1 : 1;
+
+        // Then by date per selected order
         const dateA = new Date(a.date).getTime();
         const dateB = new Date(b.date).getTime();
         return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
@@ -52,6 +58,7 @@ export default function SimpleBlog() {
               title={post.title}
               excerpt={post.excerpt}
               link={`/post/${post.id}`}
+              pin={post.pin}
             />
           ))}
         </div>
