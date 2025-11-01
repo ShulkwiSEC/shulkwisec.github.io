@@ -51,6 +51,10 @@
       {
         "name": {"ar": "الخبرة", "en": "Experience.md"},
         "url": "/page/experience"
+      },
+       {
+        "name": {"ar":"الرؤية", "en": "vision.md"},
+        "url": "/page/vision"
       }
     ],
     "title": {
