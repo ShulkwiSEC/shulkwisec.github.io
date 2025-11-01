@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { siteConfig } from '@/data/blogPosts';
 import React, { useState, useEffect, useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'wouter';
 
 // Debounce utility function
 const debounce = (func: Function, delay: number) => {
@@ -20,8 +20,8 @@ export default function SimpleHeader() {
   const { language, setLanguage, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
   const [isShrunk, setIsShrunk] = useState(false);
-  const location = useLocation();
-  const currentPath = location.pathname;
+  const [location] = useLocation();
+  const currentPath = location;
 
   const getLinkClasses = (href: string) => {
     const baseClasses = "text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium pb-1";
@@ -66,12 +66,12 @@ export default function SimpleHeader() {
             <h1 className={`font-bold transition-[font-size] duration-500 ease-in-out ${
               isShrunk ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl md:text-3xl'
             }`}>
-              <a 
+              <Link
                 href="/" 
                 className="hover:text-primary transition-colors duration-300 inline-block hover:scale-105 transform"
               >
                 {siteConfig.title[language]}
-              </a>
+              </Link>
             </h1>
             
             {/* Subtitle with joint collapse effect */}
@@ -135,31 +135,31 @@ export default function SimpleHeader() {
           }`}>
           <ul className="flex gap-4 sm:gap-6 text-sm sm:text-base">
             <li className="transform transition-all duration-300 hover:scale-105">
-              <a 
+              <Link
                 href="/" 
                 className={getLinkClasses('/')}
                 data-testid="link-home"
               >
                 {t('home')}
-              </a>
+              </Link>
             </li>
             <li className="transform transition-all duration-300 hover:scale-105">
-              <a 
+              <Link
                 href="/about" 
                 className={getLinkClasses('/about')}
                 data-testid="link-about"
               >
                 {t('about')}
-              </a>
+              </Link>
             </li>
             {siteConfig.external && siteConfig.external.map((link, index) => (
               <li key={index} className="transform transition-all duration-300 hover:scale-105">
-                <a
+                <Link
                   href={link.url}
                   className={getLinkClasses(link.url)}
                 >
                   {link.name[language]}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

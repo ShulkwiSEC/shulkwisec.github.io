@@ -11,6 +11,7 @@ import About from "@/pages/About";
 import NotFound from "@/pages/not-found";
 import Head from "./components/Head";
 import MarkdownPage from "@/pages/MarkdownPage";
+import SwipeableRouter from "./components/SwipeableRouter";
 
 function Router() {
   return (
@@ -32,7 +33,9 @@ function App() {
           <Head />
           <TooltipProvider>
             <Toaster />
-            <Router />
+            <SwipeableRouter>
+              <Router />
+            </SwipeableRouter>
           </TooltipProvider>
         </LanguageProvider>
       </ThemeProvider>

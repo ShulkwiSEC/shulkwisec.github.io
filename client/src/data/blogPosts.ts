@@ -39,3 +39,4 @@ export const siteConfig = templateData.site;
 export const ownerConfig = templateData.owner;
 export const achievements = templateData.achievements;
 export const aboutConfig = templateData.about;
+export const swipeableRoutes = templateData.site.swipeableRoutes;

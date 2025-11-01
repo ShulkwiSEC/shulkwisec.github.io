@@ -64,7 +64,8 @@
     "description": {
       "ar": "مدونة تقنية ثنائية اللغة لمشاركة المعرفة والخبرات في تطوير الويب",
       "en": "Bilingual technical blog for sharing web development knowledge and experiences"
-    }
+    },
+    "swipeableRoutes": ["/", "/about", "/page/resume", "/page/experience"]
   },
   "owner": {
     "name": {
