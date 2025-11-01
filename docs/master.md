@@ -80,4 +80,5 @@ Markdown pages live in `client/src/data/*.md` and are routed as `/page/<slug>`.
 ## License
 
 MIT — free to use, modify, and ship.
+
 If you enjoy Sahb, consider giving the repo a star and sharing feedback or PRs!
