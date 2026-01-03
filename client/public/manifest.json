@@ -1,0 +1,116 @@
+{
+  "name": "shulkwisec",
+  "short_name": "shulkwisec",
+  "description": "Bilingual technical blog for sharing web development knowledge and experiences",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/android/android-launchericon-192-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android/android-launchericon-512-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/Presentation/1.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Homepage Layout"
+    },
+    {
+      "src": "/Presentation/2.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Blog Feed"
+    },
+    {
+      "src": "/Presentation/3.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Post View"
+    },
+    {
+      "src": "/Presentation/4.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Home"
+    },
+    {
+      "src": "/Presentation/5.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Articles"
+    },
+    {
+      "src": "/Presentation/6.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Search"
+    },
+    {
+      "src": "/Presentation/7.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Settings"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Saved Posts",
+      "short_name": "Saved",
+      "description": "View your saved blog posts",
+      "url": "/?saved=true",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "About Me",
+      "short_name": "About",
+      "description": "Learn more about the author",
+      "url": "/about",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    "education",
+    "technology"
+  ],
+  "prefer_related_applications": false
+}

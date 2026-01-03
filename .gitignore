@@ -1,0 +1,38 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/dist
+/build
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# npm/yarn/bun
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun.lockb
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific
+/attached_assets
+/client/dist
+/client/node_modules
+/manager/__pycache__
+*.pyc

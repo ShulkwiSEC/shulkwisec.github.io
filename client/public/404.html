@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Page Not Found</title>
+  <script type="text/javascript">
+    // Single Page Apps routing: redirect to index.html with path as query parameter
+    // This script will be executed when a 404 error occurs.
+    // It redirects the user to the index.html, passing the original path
+    // as a query parameter, which the client-side router can then use.
+    var path = window.location.pathname;
+    var query = window.location.search;
+    var hash = window.location.hash;
+
+    // For user/organization pages (your-username.github.io), the base is usually '/'.
+    var basePath = '/';
+
+    // Construct the new URL: basePath + ?p=originalPathAndQueryAndHash
+    // Encode the path to handle special characters
+    var newUrl = basePath + '?p=' + encodeURIComponent(path + query + hash);
+
+    window.location.replace(newUrl);
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

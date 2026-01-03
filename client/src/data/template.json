@@ -1,0 +1,659 @@
+{
+  "about": {
+    "aboutTitle": {
+      "en": "About Me",
+      "ar": "عني",
+      "zh-cn": "关于我"
+    },
+    "aboutText": {
+      "en": "Welcome to my portfolio! I’m a Senior Software Engineer and Cybersecurity enthusiast, sharing my journey in secure web development, automation, and full-stack applications.",
+      "ar": "مرحباً بكم في معرض أعمالي! أنا احمد مهندس برمجيات أول ومتحمس للأمن السيبراني، أشارك رحلتي في تطوير الويب الآمن، الأتمتة، وتطبيقات الويب الشاملة.",
+      "zh-cn": "欢迎来到我的作品集！我是一名高级软件工程师，也是网络安全爱好者，在这里分享我在安全 Web 开发、自动化和全栈应用程序方面的经验。"
+    },
+    "bio": {
+      "en": "With 5+ years of experience in Python, Flask, FastAPI, Django, PHP, MySQL, and frontend technologies like React and Tailwind CSS, I build scalable, secure, and user-friendly web applications. I also train aspiring developers in cybersecurity and full-stack development.",
+      "ar": "لدي أكثر من 5 سنوات خبرة في Python و Flask و FastAPI و Django و PHP و MySQL، وتقنيات الواجهة الأمامية مثل React و Tailwind CSS. أبني تطبيقات ويب آمنة وقابلة للتوسع وسهلة الاستخدام، وأدرب المطورين الطموحين في الأمن السيبراني وتطوير الويب الكامل.",
+      "zh-cn": "我拥有超过5年的Python、Flask、FastAPI、Django、PHP、MySQL以及React和Tailwind CSS等前端技术经验。我擅长构建安全、可扩展且用户友好的Web应用程序，并为有志成为开发者的学员提供网络安全和全栈Web开发方面的培训。"
+    },
+    "skills": {
+      "title": {
+        "en": "Technical Skills",
+        "ar": "المهارات التقنية",
+        "zh-cn": "技术技能"
+      },
+      "items": [
+        {
+          "name": "Frontend",
+          "value": "React.js, Angular, Bootstrap, Tailwind CSS, HTML, JS, Jinja templates"
+        },
+        {
+          "name": "Backend",
+          "value": "Python (Flask, FastAPI, Django), PHP, SQLAlchemy, MySQL, SQLite, WebSockets"
+        },
+        {
+          "name": "Tools & DevOps",
+          "value": "Git, Docker, n8n, API Development, Payment Gateways"
+        },
+        {
+          "name": "Cybersecurity",
+          "value": {
+            "en": "CTF, Bug Bounty, Security Best Practices, Filter Bypass",
+            "ar": "CTF، صيد الثغرات، أفضل ممارسات الأمن، تجاوز الفلاتر",
+            "zh-cn": "CTF、漏洞赏金、安全最佳实践、过滤器绕过"
+          }
+        }
+      ]
+    },
+    "contact": {
+      "title": {
+        "en": "Get in Touch",
+        "ar": "تواصل معي"
+      },
+      "links": [
+        {
+          "name": "GitHub",
+          "icon": "Github",
+          "url": "https://github.com/shulkwisec"
+        },
+        {
+          "name": "LinkedIn",
+          "icon": "Linkedin",
+          "url": "https://www.linkedin.com/in/ahmed-mhdi-34b440278/"
+        },
+        {
+          "name": "Email",
+          "icon": "Mail",
+          "url": "mailto:your@email.com"
+        },
+        {
+          "name": "Twitter",
+          "icon": "Twitter",
+          "url": "https://twitter.com/ShulkwiSEC"
+        },
+        {
+          "name": "Upwork",
+          "icon": "Upwork",
+          "url": "https://www.upwork.com/freelancers/~01abcdef1234567890"
+        },
+        {
+          "name": "Mostaql",
+          "icon": "Website",
+          "url": "https://mostaql.com/u/shulkwisec"
+        },
+        {
+          "name": "Bugcrowd",
+          "icon": "Bug",
+          "url": "https://bugcrowd.com/shulkwisec"
+        }
+      ]
+    }
+  },
+  "site": {
+    "external": [
+      {
+        "name": {
+          "ar": "السيرة الذاتية",
+          "en": "Resume.md",
+          "zh-cn": "简历.md"
+        },
+        "url": "/page/resume"
+      },
+      {
+        "name": {
+          "ar": "الخبرة",
+          "en": "Experience.md",
+          "zh-cn": "经验.md"
+        },
+        "url": "/page/experience"
+      },
+      {
+        "name": {
+          "ar": "الرؤية",
+          "en": "vision.md",
+          "zh-cn": "愿景.md"
+        },
+        "url": "/page/vision"
+      },
+      {
+        "name": {
+          "en": "upcomming-ctf.md",
+          "ar": "فعاليات_قادمة_ctf.md",
+          "zh-cn": "即将举行的CTF赛事.md"
+        },
+        "url": "/page/upcomming-ctf"
+      },
+      {
+        "name": {
+          "en": "running-ctf.md",
+          "ar": "فعاليات_ctf_الان.md",
+          "zh-cn": "CTF赛事现已举行.md"
+        },
+        "url": "/page/running-ctf"
+      }
+    ],
+    "title": {
+      "en": "shulkwisec",
+      "ar": "شلكاوي",
+      "zh-cn": "shulkwisec"
+    },
+    "subtitle": {
+      "en": "Senior Sotware Developer Interested in Technologys",
+      "ar": "مطور اول مهتم بالتقنية",
+      "zh-cn": "对技术感兴趣的高级软件开发人员"
+    },
+    "description": {
+      "en": "Bilingual technical blog for sharing web development knowledge and experiences",
+      "ar": "مدونة تقنية ثنائية اللغة لمشاركة المعرفة والخبرات في تطوير الويب",
+      "zh-cn": "分享网络开发知识和经验的双语技术博客"
+    },
+    "url": "https://shulkwisec.github.io",
+    "swipeableRoutes": [
+      "*"
+    ],
+    "pagination_per_page": 5,
+    "languages": [
+      "en",
+      "ar",
+      "zh-cn"
+    ],
+    "comments": {
+      "provider": "giscus",
+      "giscus": {
+        "repo": "ShulkwiSEC/shulkwisec.github.io",
+        "repoId": "R_kgDOQLcJmw",
+        "category": "Announcements",
+        "categoryId": "DIC_kwDOQLcJm84C0cIR",
+        "mapping": "pathname",
+        "strict": "0",
+        "reactionsEnabled": "1",
+        "emitMetadata": "0",
+        "inputPosition": "top",
+        "theme": "preferred_color_scheme",
+        "lang": "en",
+        "loading": "lazy"
+      }
+    }
+  },
+  "owner": {
+    "name": {
+      "en": "shulkwisec",
+      "ar": "شلكاوي",
+      "zh-cn": "shulkwisec"
+    },
+    "bio": {
+      "en": "Senior Sotware Developer Interested in Technologys",
+      "ar": "مطور اول مهتم بالتقنية",
+      "zh-cn": "对技术感兴趣的高级软件开发人员"
+    },
+    "email": "shulkwisec@gmail.com",
+    "social": {
+      "github": "https://github.com/shulkwisec",
+      "twitter": "https://twitter.com/shulkwisec",
+      "linkedin": "https://linkedin.com/in/shulkwisec"
+    }
+  },
+  "blog": {
+    "sync_repo": "https://github.com/ShulkwiSEC/wirteups/",
+    "posts": [
+      {
+        "id": "getting-started-useing-sahb-template-by-shulkwisec",
+        "date": "February 1, 2025",
+        "title": {
+          "en": "do yu want yur website like this? Sahb is open source ",
+          "ar": ",عايز تبني موقعك الشخصي زي كده؟",
+          "zh-cn": "你想搭建一个像这样的个人网站吗？"
+        },
+        "excerpt": {
+          "en": "Quick guide to install, run, and configure content.",
+          "ar": "دليل سريع للتهيئة والتشغيل وضبط المحتوى.",
+          "zh-cn": "设置、操作和内容调整快速指南。"
+        },
+        "content": "IyMg2KfZhNio2K/YoSDZhdi5ICLYs9it2KgiIChTYWhiKQoK2LPYrdioINmC2KfZhNioINmF2K/ZiNmG2Kkg2KvZhtin2KbZiiDYp9mE2YTYutipICjYudix2KjZii/YpdmG2KzZhNmK2LLZiikg2LPYsdmK2Lkg2YjYrtmB2YrZgS4g2YHZiiDZh9iw2Kcg2KfZhNmF2YTYrti1INiz2KrYrNivINiu2LfZiNin2Kog2KfZhNiq2KvYqNmK2Kog2YjYp9mE2KrYtNi62YrZhCDZhdit2YTZitmL2KfYjCDZiNmD2YrZgdmK2Kkg2LbYqNi3INin2YTZhdit2KrZiNmJINi52KjYsSBgdGVtcGxhdGUuanNvbmAg2YjYpdi22KfZgdipINi12YHYrdin2KogTWFya2Rvd24g2K/ZitmG2KfZhdmK2YPZitipLgoKIyMjINin2YTYrti32YjYp9iqCi0gZ2l0IGNsb25lINir2YUgbnBtIGluc3RhbGwKLSDYqti02LrZitmEINin2YTYqti32YjZitixOiBucG0gcnVuIGRldgotINiq2K3YsdmK2LEg2KfZhNmF2K3YqtmI2Yk6IGNsaWVudC9zcmMvZGF0YS90ZW1wbGF0ZS5qc29uCi0g2LXZgdit2KfYqiBNYXJrZG93bjog2LbYuSDZhdmE2YHYp9iq2YMg2YHZiiBjbGllbnQvc3JjL2RhdGEvKi5tZCDYq9mFINiy2LEgL3BhZ2UvPHNsdWc+CgojIyMg2KfZhNmG2LTYsSDYudmE2YkgR2l0SHViIFBhZ2VzCi0g2YXYs9iq2YjYr9i5INmF2LPYqtiu2K/ZhS/ZhdmG2LjZhdipOiBiYXNlOiAnLycKLSDZhdiz2KrZiNiv2Lkg2YXYtNix2YjYuTogYmFzZTogJy9yZXBvLW5hbWUvJwotINin2K/Zgdi5INil2YTZiSBtYWluINmI2LPZitmC2YjZhSBHaXRIdWIgQWN0aW9ucyDYqNin2YTYqNmG2KfYoSDYqtmE2YLYp9im2YrZi9inINil2YTZiSBkaXN0L3B1YmxpYy4=",
+        "encoding": true,
+        "tags": [
+          "Docs",
+          "Getting Started",
+          "Guide"
+        ],
+        "banner": "https://placehold.co/600x400/EEF2FF/1F2937?text=Getting+Started",
+        "pin": true
+      },
+      {
+        "id": "mal_sim-jcoe_ctf-writeup",
+        "date": "October 29, 2025",
+        "banner": "https://cqureacademy.com/wp-content/uploads/2025/08/22-1.png",
+        "content": "KipvdmVydmlldyoqOgpBbiBhbmFseXN0IGZvdW5kIGEg4oCcbWFsd2FyZS1saWtl4oCdIHNhbXBsZSBpbiBhIGNvbXByb21pc2VkIGxhYi4gSXQgbG9va3MgbGlrZSBhIGJlYWNvbiBzdHViIGJ1dCB0aGUgb3BlcmF0b3Igb2JmdXNjYXRlZCB0aGUgcmVhbCBiZWFjb24gaG9zdC4gVGhlIHNhbXBsZSBpbmNsdWRlcyB0aHJlZSBwdXp6bGUtbG9ja3M7IHNvbHZpbmcgdGhlbSB5aWVsZHMgdGhlIHNlZWQgdXNlZCB0byBkZXJpdmUgYW4gWE9SIGtleSB3aGljaCB1bmxvY2tzIHRoZSBlbWJlZGRlZCBwYXlsb2FkLiBZb3VyIGpvYiBpcyB0byByZXZlcnNlIHRoZSBwcm9ncmFtIGxvZ2ljIG9yIGludGVyYWN0aXZlbHkgc29sdmUgdGhlIHB1enpsZXMgdG8gcmVjb25zdHJ1Y3QgdGhlIGtleSBhbmQgZGVjb2RlIHRoZSBoaWRkZW4gaG9zdG5hbWUuIAoKKipPYmplY3RpdmUqKjoKUmVjb3ZlciB0aGUgaGlkZGVuIGhvc3RuYW1lIHByaW50ZWQgYnkgdGhlIGJpbmFyeSBhbmQgc3VibWl0IHRoZSBmbGFnCgoqKmNoYWxsZW5nZSBmaWxlcyoqOgotKm1hbF9zaW0qOiBgRUxGIDY0LWJpdCBMU0IgZXhlY3V0YWJsZSwgeDg2LTY0LCB2ZXJzaW9uIDEgKFNZU1YpLCBzdGF0aWNhbGx5IGxpbmtlZCwgQnVpbGRJRFtzaGExXT1kMGQwY2ZmMGU4YzM4NzFmZTY1ZmY2MDVlYWE2NmIyNjhiNDgyNWQzLCB3aXRoIGRlYnVnX2luZm8sIG5vdCBzdHJpcHBlZGAKIyMjIFdyaXRldXAKClRoZSBgbWFsX3NpbWAgYmluYXJ5IGlzIGEgc2ltcGxlIHJldmVyc2UgZW5naW5lZXJpbmcgY2hhbGxlbmdlLiBUaGUgZ29hbCBpcyB0byByZWNvdmVyIGEgaGlkZGVuIGhvc3RuYW1lLgoKIyMjIyBTdGF0aWMgQW5hbHlzaXMKClJ1bm5pbmcgYHN0cmluZ3NgIG9uIHRoZSBiaW5hcnkgcmV2ZWFscyBzZXZlcmFsIGludGVyZXN0aW5nIHN0cmluZ3M6Ci0gVGhlIGZsYWcgZm9ybWF0OiBgSkNPRV9DVEZ7Li4ufWAKLSBUaGUgcHV6emxlIHByb21wdHM6Ci0gYFtQdXp6bGUgMV0gTnVtZXJpYyByaWRkbGU6IHByb2R1Y3Qgb2YgcHJpbWVzIHN0cmljdGx5IGJldHdlZW4gNSBhbmQgMTIuYAotIGBbUHV6emxlIDJdIENhZXNhci1saWtlOiBzaGlmdCB0aGUgd29yZCAnZGVsdGEnIGJ5ICs0IChsb3dlcmNhc2UpLmAKLSBgW1B1enpsZSAzXSBTbWFsbCBBU0NJSSBzdW06IHN1bSBvZiBBU0NJSSBjb2RlcyBvZiAnQ1RGJyB1cHBlcmNhc2UuYAotIEEgbWVzc2FnZSBpbmRpY2F0aW5nIHRoYXQgdGhlIGJpbmFyeSBjb250YWlucyBhbiBvYmZ1c2NhdGVkIEMyLWxpa2Ugc3RyaW5nLgoKU29sdmluZyB0aGUgcHV6emxlcyBnaXZlcyB0aGUgZm9sbG93aW5nIGFuc3dlcnM6Ci0qKlB1enpsZSAxOioqIFRoZSBwcmltZSBudW1iZXJzIGJldHdlZW4gNSBhbmQgMTIgYXJlIDcgYW5kIDExLiBUaGUgcHJvZHVjdCBpcyA3ICogMTEgPSA3Ny4KLSoqUHV6emxlIDI6KiogU2hpZnRpbmcgImRlbHRhIiBieSArNCBnaXZlcyAiaGlweGUiLgotKipQdXp6bGUgMzoqKiBUaGUgQVNDSUkgdmFsdWVzIG9mICdDJywgJ1QnLCBhbmQgJ0YnIGFyZSA2NywgODQsIGFuZCA3MC4gVGhlIHN1bSBpcyAyMjEuCgojIyMjIER5bmFtaWMgQW5hbHlzaXMKUnVubmluZyB0aGUgYmluYXJ5IGFuZCBwcm92aWRpbmcgdGhlIGNvcnJlY3QgYW5zd2VycyB0byB0aGUgcHV6emxlcyByZXN1bHRzIGluIHRoZSBwcm9ncmFtIHByaW50aW5nIHRoZSBmbGFnOgoKYGBgCj09PSBNQUxfU0lNOiBhbmFseXNpcy1vbmx5IHNhbXBsZSAoc2FmZSkgPT09ClRoaXMgc2FtcGxlIGNvbnRhaW5zIGFuIG9iZnVzY2F0ZWQgJ0MyLWxpa2UnIHN0cmluZyBlbWJlZGRlZCBpbiB0aGUgYmluYXJ5LgpTb2x2ZSB0aGUgcHV6emxlcyB0byByZWNvbnN0cnVjdCB0aGUga2V5IGFuZCBkZWNvZGUgdGhlIGhpZGRlbiB2YWx1ZS4KCltQdXp6bGUgMV0gTnVtZXJpYyByaWRkbGU6IHByb2R1Y3Qgb2YgcHJpbWVzIHN0cmljdGx5IGJldHdlZW4gNSBhbmQgMTIuCkFuc3dlcjogT0sKW1B1enpsZSAyXSBDYWVzYXItbGlrZTogc2hpZnQgdGhlIHdvcmQgJ2RlbHRhJyBieSArNCAobG93ZXJjYXNlKS4KQW5zd2VyOiBPSwpbUHV6emxlIDNdIFNtYWxsIEFTQ0lJIHN1bTogc3VtIG9mIEFTQ0lJIGNvZGVzIG9mICdDVEYnIHVwcGVyY2FzZS4KQW5zd2VyOiBPSwoKPT09IERFQ09ERUQgUkVTVUxUID09PQpKQ09FX0NURntkYXJrLWxpZ2h0aG91c2UuY29tfQpgYGAKClRoZSBmbGFnIGlzIGBKQ09FX0NURntkYXJrLWxpZ2h0aG91c2UuY29tfWAu",
+        "title": {
+          "en": "mal_sim (JCOE_CTF) writeup",
+          "ar": "mal_sim (JCOE_CTF) writeup",
+          "zh-cn": "mal_sim（JCOE_CTF）解题过程"
+        },
+        "excerpt": {
+          "en": "mal_sim (JCOE_CTF) writeup “malware-like” sample in a compromised lab.",
+          "ar": "mal_sim (JCOE_CTF) writeup “malware-like” sample in a compromised lab.",
+          "zh-cn": "mal_sim (JCOE_CTF) 报告：在受感染的实验室中发现“类似恶意软件”的样本。"
+        },
+        "category": {
+          "ar": "عام",
+          "en": "General"
+        },
+        "tags": [
+          "Genral",
+          "Red Team",
+          "Walkthrough",
+          "CTF",
+          "JCOE_CTF"
+        ],
+        "readTime": 3,
+        "image": "/favicon.png",
+        "encoding": true
+      },
+      {
+        "id": "buffer-overflow-vulnerability-walkthrough",
+        "date": "October 29, 2025",
+        "banner": "https://miro.medium.com/v2/resize:fit:1200/1*OVGfPq4DdjRwGwoLeLw7wg.jpeg",
+        "content": "IyBCdWZmZXIgT3ZlcmZsb3cgVnVsbmVyYWJpbGl0eSBXYWxrdGhyb3VnaAoKIyMgSW50cm9kdWN0aW9uCkJ1ZmZlciBvdmVyZmxvdyBpcyBhIGNyaXRpY2FsIHZ1bG5lcmFiaWxpdHkgdGhhdCBvY2N1cnMgd2hlbiBhIHByb2dyYW0gd3JpdGVzIG1vcmUgZGF0YSB0byBhIGJ1ZmZlciB0aGFuIGl0IGNhbiBob2xkLCBsZWFkaW5nIHRvIHBvdGVudGlhbCBjb2RlIGV4ZWN1dGlvbiBvciBzeXN0ZW0gY3Jhc2hlcy4KCi0tLQoKIyMg8J+boCBVbmRlcnN0YW5kaW5nIEJ1ZmZlciBPdmVyZmxvdwoKV2hlbiBhIGZ1bmN0aW9uIGRvZXMgbm90IHByb3Blcmx5IGNoZWNrIHRoZSBzaXplIG9mIGlucHV0IGRhdGEsIGl0IGNhbiBvdmVyd3JpdGUgYWRqYWNlbnQgbWVtb3J5IGxvY2F0aW9ucywgaW5jbHVkaW5nICoqcmV0dXJuIGFkZHJlc3NlcyoqLCBhbGxvd2luZyBhbiBhdHRhY2tlciB0byBleGVjdXRlIGFyYml0cmFyeSBjb2RlLgoKIyMjIPCflKUgRXhhbXBsZSBDb2RlIHdpdGggVnVsbmVyYWJpbGl0eQpgYGBjCiNpbmNsdWRlIDxzdGRpby5oPgojaW5jbHVkZSA8c3RyaW5nLmg+Cgp2b2lkIHZ1bG5lcmFibGVGdW5jdGlvbihjaGFyICp1c2VySW5wdXQpIHsKICAgIGNoYXIgYnVmZmVyWzE2XTsgLy8gU21hbGwgYnVmZmVyCiAgICBzdHJjcHkoYnVmZmVyLCB1c2VySW5wdXQpOyAvLyBObyBib3VuZHMgY2hlY2tpbmcKICAgIHByaW50ZigiVXNlciBpbnB1dDogJXNcbiIsIGJ1ZmZlcik7Cn0KCmludCBtYWluKGludCBhcmdjLCBjaGFyICphcmd2W10pIHsKICAgIGlmIChhcmdjIDwgMikgewogICAgICAgIHByaW50ZigiVXNhZ2U6ICVzIDxpbnB1dD5cbiIsIGFyZ3ZbMF0pOwogICAgICAgIHJldHVybiAxOwogICAgfQogICAgdnVsbmVyYWJsZUZ1bmN0aW9uKGFyZ3ZbMV0pOwogICAgcmV0dXJuIDA7Cn0KYGBgCgojIyMg8J+SgCBFeHBsb2l0aW5nIHRoZSBWdWxuZXJhYmlsaXR5CjEuIENvbXBpbGUgdGhlIHByb2dyYW06CiAgICBgYGBzaAogICAgZ2NjIC1mbm8tc3RhY2stcHJvdGVjdG9yIC16IGV4ZWNzdGFjayAtbyB2dWxuIHZ1bG4uYwogICAgYGBgCjIuIFJ1biB0aGUgcHJvZ3JhbSB3aXRoIGEgbG9uZyBpbnB1dCB0byBjYXVzZSBhbiBvdmVyZmxvdzoKICAgIGBgYHNoCiAgICAuL3Z1bG4gJChweXRob24zIC1jICdwcmludCgiQSIqNDApJykKICAgIGBgYAozLiBJZiB0aGUgcHJvZ3JhbSBjcmFzaGVzLCBpdCBtZWFucyB3ZSBoYXZlIG92ZXJ3cml0dGVuIG1lbW9yeSBvdXRzaWRlIHRoZSBidWZmZXIuCgotLS0KCiMjIPCfm6EgUHJldmVudGluZyBCdWZmZXIgT3ZlcmZsb3cK4pyFIFVzZSAqKnNhZmUgc3RyaW5nIGZ1bmN0aW9ucyoqIGxpa2UgYHN0cm5jcHlgIGluc3RlYWQgb2YgYHN0cmNweWAuICAK4pyFIEVuYWJsZSAqKnN0YWNrIHByb3RlY3Rpb24qKiB1c2luZyBjb21waWxlciBmbGFnczoKICAgYGBgc2gKICAgZ2NjIC1XYWxsIC1mc3RhY2stcHJvdGVjdG9yLWFsbCAtbyBzZWN1cmVfcHJvZyBzZWN1cmUuYwogICBgYGAK4pyFIFVzZSAqKkFkZHJlc3MgU3BhY2UgTGF5b3V0IFJhbmRvbWl6YXRpb24gKEFTTFIpKiogdG8gbWFrZSBtZW1vcnkgYWRkcmVzc2VzIHVucHJlZGljdGFibGUuCgotLS0KCiMjIPCfk4wgQ29uY2x1c2lvbgpCdWZmZXIgb3ZlcmZsb3cgdnVsbmVyYWJpbGl0aWVzIGFyZSBkYW5nZXJvdXMgYnV0IGNhbiBiZSBtaXRpZ2F0ZWQgdXNpbmcgc2VjdXJlIGNvZGluZyBwcmFjdGljZXMgYW5kIG1lbW9yeSBwcm90ZWN0aW9uIG1lY2hhbmlzbXMu",
+        "title": {
+          "en": "Buffer Overflow Vulnerability Walkthrough",
+          "ar": "شرح مبسط لثغرة ال buffer over flow(BOF)",
+          "zh-cn": "缓冲区溢出（BOF）漏洞的简化解释。"
+        },
+        "excerpt": {
+          "en": "A step-by-step guide to understanding and exploiting buffer overflow vulnerabilities.",
+          "ar": "A step-by-step guide to understanding and exploiting buffer overflow vulnerabilities.",
+          "zh-cn": "逐步指南，教你如何理解和利用缓冲区溢出漏洞。"
+        },
+        "category": {
+          "ar": "عام",
+          "en": "General"
+        },
+        "tags": [
+          "Genral",
+          "Red Team",
+          "Walkthrough",
+          "Exploitation"
+        ],
+        "readTime": 4,
+        "image": "/favicon.png",
+        "encoding": true,
+        "pin": false
+      },
+      {
+        "id": "knightctf-2025-writeups-RandomseniorAdleman",
+        "date": "October 29, 2025",
+        "banner": "https://ctftime.org/media/events/kctf_logo_dark_bg.jpg",
+        "content": "IyBLbmlnaHRDVEYgMjAyNTogUmFuZG9tc2VuaW9yQWRsZW1hbgoKIyMgSW50cm9kdWN0aW9uCklmIHlvdSd2ZSBldmVyIGhhZCBhbiBpdGNoIGluIHRoZSBiYWNrIG9mIHlvdXIgYnJhaW4gYWJvdXQgY3J5cHRvZ3JhcGh5LCB5b3UgbWlnaHQgcmVjb2duaXplIHRoZSBuYW1lICoqTGVvbmFyZCBBZGxlbWFuKiouIEJvcm4gb24gRGVjZW1iZXIgMzEsIDE5NDUsIGhlIGlzIGFuIEFtZXJpY2FuIGNvbXB1dGVyIHNjaWVudGlzdCBhbmQgb25lIG9mIHRoZSBjcmVhdG9ycyBvZiB0aGUgW1JTQSBjcnlwdG9zeXN0ZW1dKGh0dHBzOi8vZW4ud2lraXBlZGlhLm9yZy93aWtpL1JTQV8oY3J5cHRvc3lzdGVtKSksIGZvciB3aGljaCBoZSByZWNlaXZlZCB0aGUgWzIwMDIgVHVyaW5nIEF3YXJkXShodHRwczovL2VuLndpa2lwZWRpYS5vcmcvd2lraS9UdXJpbmdfQXdhcmQpLiBIZSBhbHNvIHBpb25lZXJlZCB0aGUgZmllbGQgb2YgW0ROQSBjb21wdXRpbmddKGh0dHBzOi8vZW4ud2lraXBlZGlhLm9yZy93aWtpL0ROQV9jb21wdXRpbmcpIGFuZCBjb2luZWQgdGhlIHRlcm0gW2NvbXB1dGVyIHZpcnVzXShodHRwczovL2VuLndpa2lwZWRpYS5vcmcvd2lraS9Db21wdXRlcl92aXJ1cykuCgojIyBDaGFsbGVuZ2UgT3ZlcnZpZXcKSW4gdGhpcyBjaGFsbGVuZ2UsIHdlIGFyZSBnaXZlbiBhbiBSU0EgY3J5cHRvc3lzdGVtIHdpdGggYSBjdXN0b20gbWV0aG9kIGZvciBnZW5lcmF0aW5nIHRoZSBwcmltZSBudW1iZXIgXCggcCBcKS4gT3VyIGdvYWwgaXMgdG8gZGVjcnlwdCB0aGUgY2lwaGVydGV4dCBcKCBjIFwpIGFuZCByZXRyaWV2ZSB0aGUgcGxhaW50ZXh0LgoKLS0tCgojIyBHaXZlbiBJbmZvcm1hdGlvbgotICoqXCggcSBcKSoqOiBBIGtub3duIDI1Ni1iaXQgcHJpbWUgbnVtYmVyLgotICoqXCggZSBcKSoqOiBUaGUgcHVibGljIGV4cG9uZW50LgotICoqXCggYyBcKSoqOiBUaGUgY2lwaGVydGV4dCB0byBkZWNyeXB0LgotICoqSGludCoqOiBUaHJlZSBwaHJhc2VzIGFyZSBwcm92aWRlZDoKICAxLiBgInVzZWRpc3RvZmluZG91dHRoZXNlZWQiYAogIDIuIGAidGhpc2lzdGhla2V5dG9nZXR5b3Vyc2VlZCJgCiAgMy4gYCJhbm90aGVyc2VjcmV0aGVyZSJgCgpUaGUgaGludCBzdWdnZXN0cyB0aGF0IHRoZXNlIHBocmFzZXMgYXJlIHVzZWQgdG8gZGVyaXZlIGEgc2VlZCB1c2luZyBhbiAiQXhlLU9yZSIgc3dpcmwgKGxpa2VseSBYT1IpIGFuZCBhIGhhc2hpbmcgb3BlcmF0aW9uLiBUaGlzIHNlZWQgaXMgdGhlbiB1c2VkIHRvIGdlbmVyYXRlIHRoZSBwcmltZSBcKCBwIFwpLgoKLS0tCgojIyBTdGVwIDE6IFVuZGVyc3RhbmRpbmcgU2VlZCBHZW5lcmF0aW9uClRoZSBnaXZlbiBoaW50IG1lbnRpb25zIGFuICJBeGUtT3JlIiBzd2lybCwgbGlrZWx5IHJlZmVycmluZyB0byB0aGUgWE9SIG9wZXJhdGlvbiwgd2hpY2ggaXMgY29tbW9ubHkgdXNlZCBpbiBjcnlwdG9ncmFwaHkuIFRoZSBwcm9jZXNzIHRvIGRlcml2ZSB0aGUgc2VlZCBpcyBhcyBmb2xsb3dzOgoKMS4gKipFbmNvZGUgdGhlIFBocmFzZXMqKjogQ29udmVydCB0aGUgdGhyZWUgcGhyYXNlcyBpbnRvIGJ5dGUgYXJyYXlzLgogICBgYGBweXRob24KICAgYnl0ZXMxID0gcGhyYXNlMS5lbmNvZGUoKQogICBieXRlczIgPSBwaHJhc2UyLmVuY29kZSgpCiAgIGJ5dGVzMyA9IHBocmFzZTMuZW5jb2RlKCkKICAgYGBgCgoyLiAqKlBlcmZvcm0gWE9SIE9wZXJhdGlvbioqOiBYT1IgdGhlIHRocmVlIGJ5dGUgYXJyYXlzIHRvZ2V0aGVyLgogICBgYGBweXRob24KICAgeG9yX3Jlc3VsdCA9IGJ5dGVzKHggXiB5IF4geiBmb3IgeCwgeSwgeiBpbiB6aXAoYnl0ZXMxLCBieXRlczIsIGJ5dGVzMykpCiAgIGBgYAoKMy4gKipIYXNoIHRoZSBSZXN1bHQqKjogVXNlIFNIQS0yNTYgdG8gaGFzaCB0aGUgWE9SIHJlc3VsdCwgcHJvZHVjaW5nIGEgMjU2LWJpdCB2YWx1ZS4KICAgYGBgcHl0aG9uCiAgIGhhc2hfb2JqZWN0ID0gaGFzaGxpYi5zaGEyNTYoeG9yX3Jlc3VsdCkKICAgc2VlZCA9IGludC5mcm9tX2J5dGVzKGhhc2hfb2JqZWN0LmRpZ2VzdCgpLCAnYmlnJykKICAgYGBgCgo0LiAqKlNlZWQgdGhlIFJhbmRvbSBOdW1iZXIgR2VuZXJhdG9yKio6CiAgIGBgYHB5dGhvbgogICByYW5kb20uc2VlZChzZWVkKQogICBgYGAKCi0tLQoKIyMgU3RlcCAyOiBHZW5lcmF0aW5nIHRoZSBQcmltZSBcKCBwIFwpCldpdGggdGhlIHJhbmRvbSBudW1iZXIgZ2VuZXJhdG9yIHNlZWRlZCwgd2UgZ2VuZXJhdGUgXCggcCBcKToKCjEuIEdlbmVyYXRlIGEgcmFuZG9tIDI1Ni1iaXQgaW50ZWdlci4KICAgYGBgcHl0aG9uCiAgIHBfY2FuZGlkYXRlID0gcmFuZG9tLmdldHJhbmRiaXRzKDI1NikKICAgYGBgCgoyLiBGaW5kIHRoZSBuZXh0IHByaW1lIG51bWJlciBhZnRlciB0aGUgY2FuZGlkYXRlLgogICBgYGBweXRob24KICAgcCA9IG5leHRwcmltZShwX2NhbmRpZGF0ZSkKICAgYGBgCgotLS0KCiMjIFN0ZXAgMzogQ29tcHV0aW5nIFJTQSBQYXJhbWV0ZXJzCldpdGggYm90aCBcKCBwIFwpIGFuZCBcKCBxIFwpIGtub3duLCB3ZSBjb21wdXRlIHRoZSBSU0EgcGFyYW1ldGVyczoKCjEuIENvbXB1dGUgdGhlIG1vZHVsdXMgXCggbiBcKToKICAgYGBgcHl0aG9uCiAgIG4gPSBwICogcQogICBgYGAKCjIuIENvbXB1dGUgRXVsZXLigJlzIHRvdGllbnQgZnVuY3Rpb24gXCggXHBoaShuKSBcKToKICAgYGBgcHl0aG9uCiAgIHBoaV9uID0gKHAgLSAxKSAqIChxIC0gMSkKICAgYGBgCgozLiBDb21wdXRlIHRoZSBwcml2YXRlIGtleSBcKCBkIFwpOgogICBgYGBweXRob24KICAgZCA9IG1vZF9pbnZlcnNlKGUsIHBoaV9uKQogICBgYGAKCi0tLQoKIyMgU3RlcCA0OiBEZWNyeXB0aW5nIHRoZSBDaXBoZXJ0ZXh0CldpdGggdGhlIHByaXZhdGUga2V5IFwoIGQgXCksIHdlIGRlY3J5cHQgXCggYyBcKToKCjEuIENvbXB1dGUgdGhlIHBsYWludGV4dCBcKCBtIFwpOgogICBgYGBweXRob24KICAgbSA9IHBvdyhjLCBkLCBuKQogICBgYGAKCjIuIENvbnZlcnQgdGhlIHBsYWludGV4dCBpbnRlZ2VyIGludG8gYnl0ZXM6CiAgIGBgYHB5dGhvbgogICBwbGFpbnRleHRfYnl0ZXMgPSBtLnRvX2J5dGVzKChtLmJpdF9sZW5ndGgoKSArIDcpIC8vIDgsICdiaWcnKQogICBgYGAKCjMuIEF0dGVtcHQgdG8gZGVjb2RlIHRoZSBieXRlcyBpbnRvIGEgc3RyaW5nOgogICBgYGBweXRob24KICAgdHJ5OgogICAgICAgcGxhaW50ZXh0ID0gcGxhaW50ZXh0X2J5dGVzLmRlY29kZSgpCiAgICAgICBwcmludCgiRGVjcnlwdGVkIHBsYWludGV4dDoiLCBwbGFpbnRleHQpCiAgIGV4Y2VwdCBVbmljb2RlRGVjb2RlRXJyb3I6CiAgICAgICBwcmludCgiRGVjcnlwdGVkIG1lc3NhZ2UgKGFzIGJ5dGVzKToiLCBwbGFpbnRleHRfYnl0ZXMpCiAgIGBgYAoKLS0tCgojIyBGdWxsIENvZGUKYGBgcHl0aG9uCmZyb20gc3ltcHkgaW1wb3J0IG5leHRwcmltZSwgbW9kX2ludmVyc2UKaW1wb3J0IGhhc2hsaWIKaW1wb3J0IHJhbmRvbQoKcSA9IDgxOTUwMjA4NzMxNjA1MDMwMTczMDcyOTAxNDk3MjQwNjc2NDYwOTQ2MTM0NDIyNjEzMDU5OTQxNDEzNDc2MDY4NDY1NjU2MjUwMDExCmUgPSAxNTUzNwpjID0gNDc0NDI3NTQ4MDEyNTc2MTE0OTQ3NTQzOTY1MjE4OTU2ODUzMjcxOTk5Nzk4NTI5NzY0MzAyNDA0NTYyNTkwMDY2NTMwNTY4MjYzMDQ1MjA0NDAwNDAxMzY0NzM1MDY1ODQyODA2OTcxODk1MjgwMTgyODY1MTMzMzg4MDE4Njg0MTI4OTYzMDI5NDc4OTA1NDMyMjIzNzU4NQoKcGhyYXNlMSA9ICJ1c2VkaXN0b2ZpbmRvdXR0aGVzZWVkIgpwaHJhc2UyID0gInRoaXNpc3RoZWtleXRvZ2V0eW91cnNlZWQiCnBocmFzZTMgPSAiYW5vdGhlcnNlY3JldGhlcmUiCgpieXRlczEgPSBwaHJhc2UxLmVuY29kZSgpCmJ5dGVzMiA9IHBocmFzZTIuZW5jb2RlKCkKYnl0ZXMzID0gcGhyYXNlMy5lbmNvZGUoKQoKeG9yX3Jlc3VsdCA9IGJ5dGVzKHggXiB5IF4geiBmb3IgeCwgeSwgeiBpbiB6aXAoYnl0ZXMxLCBieXRlczIsIGJ5dGVzMykpCgpoYXNoX29iamVjdCA9IGhhc2hsaWIuc2hhMjU2KHhvcl9yZXN1bHQpCnNlZWQgPSBpbnQuZnJvbV9ieXRlcyhoYXNoX29iamVjdC5kaWdlc3QoKSwgJ2JpZycpCgpyYW5kb20uc2VlZChzZWVkKQoKcF9jYW5kaWRhdGUgPSByYW5kb20uZ2V0cmFuZGJpdHMoMjU2KQpwID0gbmV4dHByaW1lKHBfY2FuZGlkYXRlKQoKbiA9IHAgKiBxCgpwaGlfbiA9IChwIC0gMSkgKiAocSAtIDEpCgpkID0gbW9kX2ludmVyc2UoZSwgcGhpX24pCgptID0gcG93KGMsIGQsIG4pCgpwbGFpbnRleHRfYnl0ZXMgPSBtLnRvX2J5dGVzKChtLmJpdF9sZW5ndGgoKSArIDcpIC8vIDgsICdiaWcnKQoKdHJ5OgogICAgcGxhaW50ZXh0ID0gcGxhaW50ZXh0X2J5dGVzLmRlY29kZSgpCiAgICBwcmludCgiRGVjcnlwdGVkIHBsYWludGV4dDoiLCBwbGFpbnRleHQpCmV4Y2VwdCBVbmljb2RlRGVjb2RlRXJyb3I6CiAgICBwcmludCgiRGVjcnlwdGVkIG1lc3NhZ2UgKGFzIGJ5dGVzKToiLCBwbGFpbnRleHRfYnl0ZXMpCmBgYAoKIyMgR29vZCBMdWNrIQ==",
+        "title": {
+          "en": "Knightctf 2025 / RandomseniorAdleman writeup",
+          "ar": "حل تحدي RandomseniorAdelman من kinghtctf25",
+          "zh-cn": "kinghtctf25 解决了 RandomseniorAdelman 挑战"
+        },
+        "excerpt": {
+          "en": "RSA cryptosystem",
+          "ar": "حل تحدي RandomseniorAdelman من kinghtctf25",
+          "zh-cn": "kinghtctf25 解决了 RandomseniorAdelman 挑战"
+        },
+        "category": {
+          "ar": "عام",
+          "en": "General"
+        },
+        "tags": [
+          "Genral",
+          "Red Team",
+          "Walkthrough",
+          "CTF"
+        ],
+        "readTime": 3,
+        "image": "/favicon.png",
+        "encoding": true
+      },
+      {
+        "id": "kashictf-self-destruct",
+        "date": "October 29, 2025",
+        "banner": "https://ctftime.org/media/cache/7c/19/7c1951eeb9a9cf552b9dd16eefecfe57.png",
+        "content": "IyMjIEthc2hpQ1RGIDIwMjUgLyBTZWxmIERlc3RydWN0CiMjIyMjIENoYWxsZW5nZSBEZXNjcmlwdGlvbjoKIVtpbWFnZV0oL2ltYWdlcy93cml0ZXVwcy9rYXNoaWN0ZjI1L1NlbGZfRGVzdHJ1Y3QvY2hhbGxlbmdlLnBuZykKPCEtLSBlbmRIZWFkZXIgLS0+Cgo8IS0tIGJvZHkgLS0+CgpTbywgd2UgbmVlZCB0byBkb3dubG9hZCB0aGUgKFZESSBmaWxlKVs6Om9uaG92ZXIgVGhpcyBpcyBjYWxsZWQgYSBWaXJ0dWFsIERpc2sgSW1hZ2UgKFZESSkgZmlsZS4gVGhpcyBmb3JtYXQgaXMgdXNlZCB3aGVuIHlvdSBjcmVhdGUgYSBuZXcgdmlydHVhbCBtYWNoaW5lIHdpdGggYSBuZXcgZGlzay5dIGZvciBpbnZlc3RpZ2F0aW9uLiBBZnRlciBkb3dubG9hZGluZywgSSB0cmllZCBsb2FkaW5nIGl0IG9uIFZpcnR1YWxCb3gsIGJ1dCBpdCBkaWRu4oCZdCB3b3JrIGJlY2F1c2UgdGhlIGZpbGUgd2FzIGNvcnJ1cHRlZC4KCiFbaW1hZ2VdKC9pbWFnZXMvd3JpdGV1cHMva2FzaGljdGYyNS9TZWxmX0Rlc3RydWN0L2NvcnJ1cHRpb24ucG5nKQoKSSB0cmllZCBzZXZlcmFsIG1ldGhvZHMgdG8gZml4IGl0LCBidXQgbm90aGluZyB3b3JrZWQuIPCfmIIKCiMjIyBIb3cgZGlkIEkgc29sdmUgaXQ/CkxldCdzIGdvIGJhY2sgdG8gaG93IFZESSBmaWxlcyB3b3JrIGFuZCBob3cgdGhleSBhcmUgZm9ybWF0dGVkLgoKIyMjIyBEZWVwIERpdmUgaW50byBWaXJ0dWFsIEhhcmQgRGlza3MKTGlrZSBhIHBoeXNpY2FsIGhhcmQgZGlzaywgYSB2aXJ0dWFsIGRpc2sgYWxzbyBoYXMgYSBzaXplIG9yIGNhcGFjaXR5LiBUaGUgZGlmZmVyZW5jZSBiZXR3ZWVuIGEgcGh5c2ljYWwgaGFyZCBkaXNrIGFuZCBhIHZpcnR1YWwgZGlzayBpcyB0aGF0IHlvdSBjYW4gY2hhbmdlIHRoZSBzaXplIG9mIGEgdmlydHVhbCBkaXNrIGFmdGVyIGl0cyBjcmVhdGlvbiwgZXZlbiBpZiBpdCBjb250YWlucyBkYXRhLiBXaXRoIHBoeXNpY2FsIGRpc2tzLCB5b3UgY2Fu4oCZdCBkbyB0aGF0LgoKVmlydHVhbCBoYXJkIGRpc2tzIGNhbiBiZSBmb3JtYXR0ZWQgdXNpbmcgdGhlIHNhbWUgZmlsZSBzeXN0ZW1zIGFzIHBoeXNpY2FsIGhhcmQgZGlza3MuIFlvdSBjYW4gZXZlbiBlbmNyeXB0IGRpc2tzIGlmIHRoZSBmaWxlIHN5c3RlbSBzdXBwb3J0cyBkaXNrIGVuY3J5cHRpb24gKGUuZy4sIE5URlMpLgoKSXTigJlzIHZlcnkgZWFzeSB0byBjcmVhdGUgb3IgZGVsZXRlIGEgdmlydHVhbCBoYXJkIGRpc2ssIHJlZ2FyZGxlc3Mgb2YgdGhlIGRpc2sgdHlwZSB5b3UgaW50ZW5kIHRvIHVzZS4gVGhleSBhcmUgcG9ydGFibGUgYW5kIGVhc3kgdG8gbWlncmF0ZSBhbW9uZyBzZXJ2ZXJzLCBpbmNyZWFzaW5nIHJlZHVuZGFuY3kgYW5kIGhpZ2ggYXZhaWxhYmlsaXR5LgoKT25lIGRpc2FkdmFudGFnZSBvZiBhIHZpcnR1YWwgaGFyZCBkaXNrIGlzIHRoYXQgaXQgaXMgcmVsYXRpdmVseSBzbG93IGNvbXBhcmVkIHRvIHBoeXNpY2FsIGhhcmQgZGlza3MsIGVzcGVjaWFsbHkgaWYgdGhlIFZNIGlzIHJ1bm5pbmcgb24gYSBtZWNoYW5pY2FsIGhhcmQgZHJpdmUgaW5zdGVhZCBvZiBhIFNvbGlkIFN0YXRlIERyaXZlIChTU0QpLiBUaGlzIGhhcHBlbnMgZHVlIHRvIHRoZSBvdmVyaGVhZCBhc3NvY2lhdGVkIHdpdGggdmlydHVhbGl6YXRpb24uIEFub3RoZXIgcmVhc29uIGZvciBzbG93IHBlcmZvcm1hbmNlIGluIHZpcnR1YWwgaGFyZCBkaXNrcyBpcyBoYXZpbmcgdG9vIG1hbnkgc25hcHNob3RzIGFzc29jaWF0ZWQgd2l0aCBhIFZNLgoKWWVzLCBwbGFpbiB0ZXh0IGZpbGVzIHN0b3JlZCBpbnNpZGUgYSBWaXJ0dWFsIEhhcmQgRGlzayAoVkhEKSBsaWtlIGBkb3dubG9hZGVkLnZkaWAgd2lsbCBzdGlsbCBiZSBzdG9yZWQgYXMgcGxhaW4gdGV4dCB3aXRoaW4gdGhlIHZpcnR1YWwgZGlzayBmaWxlLiBUaGUgYC52ZGlgIChWaXJ0dWFsIERpc2sgSW1hZ2UpIGZpbGUsIHVzZWQgYnkgVmlydHVhbEJveCwgYWN0cyBhcyBhIGNvbnRhaW5lciBmb3IgdGhlIHZpcnR1YWwgZGlzaywgc2ltaWxhciB0byBob3cgYSBwaHlzaWNhbCBoYXJkIGRyaXZlIHN0b3JlcyBkYXRhLgoKKipbRnVsbCBEb2N1bWVudF0oaHR0cHM6Ly9ncmVzaGFuYm92aXRoYW50aHJpZ2UubWVkaXVtLmNvbS9kaWZmZXJlbnQtZGlzay1pbWFnZS10eXBlcy1pbi12aXJ0dWFsaXphdGlvbi12ZGktdm1kay12aGQtdmhkeC1mYjFiMGRmZDBkZGMpKioKCllvdSBtaWdodCB0aGluayDwn6SUIHdlIGNhbiBub3cgbW91bnQgdGhlIGZpbGVzLCBidXQgZG9u4oCZdCBmb3JnZXQgd2UgYXJlIGRlYWxpbmcgd2l0aCBhIGNvcnJ1cHRlZCBmaWxlLgoKIyMjIEV4cGxvcmluZyB0aGUgQ29ycnVwdGVkIEZpbGUKQWZ0ZXIgdGhpcyByZWFsaXphdGlvbiwgSSByYW4gYHN0cmluZ3NgIG9uIGBkb3dubG9hZGVkLnZkaWAgdG8gdmlldyBhbGwgdGhlIHN0cmluZ3MgaW5zaWRlIHRoZSBiaW5hcnkgZmlsZS4gSG93ZXZlciwgc2luY2UgdGhlIG91dHB1dCB3YXMgdmVyeSBsYXJnZSwgaXQgdG9vayBhIGNvbnNpZGVyYWJsZSBhbW91bnQgb2YgdGltZS4KClRvIG5hcnJvdyB0aGUgc2NvcGUsIEkgc3RhcnRlZCBleHBsb3JpbmcgdGhlIGNvcnJ1cHRlZCBmaWxlIHVzaW5nIGBmZGlza2A6CgpgYGBiYXNoCmZkaXNrIGRvd25sb2FkZWQudmRpCmBgYAoKQWZ0ZXIgaW52ZXN0aWdhdGluZywgSSBmb3VuZCBhIGNodW5rIHdpdGggYW4gdW5rbm93biBzeXN0ZW0gZmlsZSB0eXBlLiBJIGR1bXBlZCBpdCBhbmQgYXBwZW5kZWQgYW5vdGhlciBjaHVuayB3aXRoIHRoZSBgZXh0NGAgZmlsZXN5c3RlbSB0byBgb3V0LnJhd2AuCgpBbHRob3VnaCBgb3V0LnJhd2Agd2FzIHN0aWxsIGxhcmdlLCBpdCB3YXMgc2lnbmlmaWNhbnRseSBzbWFsbGVyIHRoYW4gdGhlIG9yaWdpbmFsIGZpbGUuCgojIyMgRXh0cmFjdGluZyBQbGFpbiBUZXh0IENodW5rcwpOZXh0LCBJIGV4YW1pbmVkIHRoZSBkdW1wIGZpbGUgdXNpbmcgYHN0cmluZ3NgOgoKYGBgYmFzaApzdHJpbmdzIG91dC5yYXcgfCBncmVwIGZsYWcKYGBgCgpUbyBmaWx0ZXIgb3V0IHVubmVjZXNzYXJ5IGRhdGEsIEkgZ3JlcHBlZCBvbmx5IGZvciBkYXRhIGNvbnRhaW5pbmcgdGhlIHdvcmQgYGZsYWdgLiBBZnRlciBhYm91dCBhIG1pbnV0ZSwgYHN0cmluZ3NgIHN0YXJ0ZWQgb3V0cHV0dGluZyByZWxldmFudCBkYXRhLgoKIVtvdXRwdXRdKC9pbWFnZXMvd3JpdGV1cHMva2FzaGljdGYyNS9TZWxmX0Rlc3RydWN0L291dHB1dC5wbmcpCgpBcyB5b3UgY2FuIHNlZSwgdGhlIGZsYWcgd2FzIHNwbGl0IGludG8gY2h1bmtzLiBXZSBjb3VsZCByZWNvbnN0cnVjdCBpdCBhbmQgc3VibWl0IGl0LgoKPCEtLSBlbmRCb2R5IC0tPgoKPCEtLSBmb290ZXIgLS0+CiMjIENvbGxlY3Rpb246Ci0gRXh0cmFjdCBkYXRhIGZyb20gdGhlIGNvcnJ1cHRlZCBWREkgZmlsZS4KLSBJZGVudGlmeSB1c2VmdWwgZmlsZSBzeXN0ZW0gY2h1bmtzLgotIFVzZSBgc3RyaW5nc2AgYW5kIGBncmVwYCB0byBmaW5kIGZsYWctcmVsYXRlZCBkYXRhLgotIFJlY29uc3RydWN0IHRoZSBmbGFnIGZyb20gZXh0cmFjdGVkIHRleHQuCjwhLS0gRW5kZm9vdGVyIC0tPgoKKkdvb2QgTHVjayEq",
+        "title": {
+          "en": "KashiCTF / Self Destruct",
+          "ar": "KashiCTF / Self Destruct",
+          "zh-cn": "Kashi CTF / 自毁"
+        },
+        "excerpt": {
+          "en": "KashiCTF / Self Destruct / Writeup",
+          "ar": "KashiCTF / Self Destruct / Writeup",
+          "zh-cn": "Kashi CTF / 自毁 / 报告"
+        },
+        "category": {
+          "ar": "عام",
+          "en": "General"
+        },
+        "tags": [
+          "Genral",
+          "KashiCTF",
+          "CTF",
+          "Walkthrough",
+          "Writeup",
+          "Exploitation",
+          "Red Team"
+        ],
+        "readTime": 3,
+        "image": "/favicon.png",
+        "encoding": true
+      },
+      {
+        "id": "bugbountysa-cli-tool-post",
+        "date": "October 29, 2025",
+        "banner": "https://github.com/ShulkwiSEC.png",
+        "content": "IyBidWdib3VudHkuc2EgQ0xJIFRvb2wKCkEgY29tbWFuZC1saW5lIGludGVyZmFjZSB0b29sIGZvciBtYW5hZ2luZyBhbmQgYW5hbHl6aW5nIEJ1ZyBCb3VudHkgU0EgcHJvZ3JhbXMuIFRoaXMgdG9vbCBoZWxwcyBzZWN1cml0eSByZXNlYXJjaGVycyB0cmFjayBwcm9ncmFtcywgYW5hbHl6ZSBzY29wZXMsIGFuZCBleHRyYWN0IGRvbWFpbnMgZnJvbSB0aGUgQnVnIEJvdW50eSBTQSBwbGF0Zm9ybS4KCiMjIEZlYXR1cmVzCgotIMOwwp/ClMKNIEZldGNoIGFuZCBhbmFseXplIEJ1ZyBCb3VudHkgU0EgcHJvZ3JhbXMKLSDDsMKfwpPCiiBEaXNwbGF5IGRldGFpbGVkIHByb2dyYW0gYW5hbHlzaXMgaW5jbHVkaW5nIGJvdW50eSByYW5nZXMKLSDDsMKfwozCkCBFeHRyYWN0IGFuZCBtYW5hZ2UgcHJvZ3JhbSBkb21haW5zCi0gw7DCn8KSwr4gU2F2ZSBwcm9ncmFtIGRhdGEgbG9jYWxseSBmb3Igb2ZmbGluZSBhY2Nlc3MKLSDDsMKfwo7CryBGaWx0ZXIgcHJvZ3JhbXMgYnkgbmFtZSBvciBzdGF0dXMKLSDDsMKfwpPCnCBNdWx0aXBsZSBvdXRwdXQgZm9ybWF0cyAoSlNPTi9UWFQpCgojIyBJbnN0YWxsYXRpb24KCiMjIyBVc2luZyBwaXAKCmBgYGJhc2gKcGlwIGluc3RhbGwgYnVnYm91bnR5c2EKYGBgCgojIyMgRnJvbSBTb3VyY2UKCmBgYGJhc2gKZ2l0IGNsb25lIGh0dHBzOi8vZ2l0aHViLmNvbS9TaHVsa3dpU0VDL2J1Z2JvdW50eXNhLmdpdApjZCBidWdib3VudHlzYQpwaXAgaW5zdGFsbCAtZSAuCmBgYAoKIyMgVXNhZ2UKCiMjIyBCYXNpYyBDb21tYW5kcwoKYGBgYmFzaAojIFNob3cgYWxsIHByb2dyYW1zIHdpdGggYW5hbHlzaXMKYnVnYm91bnR5c2EKCiMgRXh0cmFjdCBkb21haW5zIG9ubHkKYnVnYm91bnR5c2EgLS1kb21haW5zCgojIFNhdmUgYWxsIGRhdGEKYnVnYm91bnR5c2EgLS1zYXZlCgojIFByb2Nlc3Mgc3BlY2lmaWMgcHJvZ3JhbQpidWdib3VudHlzYSAtLXByb2dyYW0gIlByb2dyYW0gTmFtZSIKCiMgU2hvdyBvbmx5IGFjdGl2ZSBwcm9ncmFtcwpidWdib3VudHlzYSAtLWFjdGl2ZS1vbmx5CgojIEV4cG9ydCBhbGwgZG9tYWlucyB0byBhIGZpbGUKYnVnYm91bnR5c2EgLS1hbGwtZG9tYWlucyAtLW91dHB1dC1maWxlIGRvbWFpbnMudHh0CgojIEpTT04gb3V0cHV0CmJ1Z2JvdW50eXNhIC0tZm9ybWF0IGpzb24KYGBgCgojIyMgQ29tbWFuZCBMaW5lIE9wdGlvbnMKCnwgT3B0aW9uIHwgRGVzY3JpcHRpb24gfAp8LS0tLS0tLS18LS0tLS0tLS0tLS0tLXwKfCBgLS1zYXZlYCB8IFNhdmUgZGF0YSB0byBvdXRwdXQgZGlyZWN0b3J5IHwKfCBgLS1vdXRwdXQtZGlyIERJUmAgfCBTcGVjaWZ5IG91dHB1dCBkaXJlY3RvcnkgKGRlZmF1bHQ6IG91dHB1dCkgfAp8IGAtLW91dHB1dC1maWxlIEZJTEVgIHwgU2F2ZSBvdXRwdXQgdG8gYSBmaWxlIHwKfCBgLS1mb3JtYXQge2pzb24sdHh0fWAgfCBPdXRwdXQgZm9ybWF0IHwKfCBgLS1kb21haW5zYCB8IFNob3cgZG9tYWlucyBvbmx5IHwKfCBgLS1hbGwtZG9tYWluc2AgfCBFeHBvcnQgYWxsIGRvbWFpbnMgaW4gYSBzaW5nbGUgbGlzdCB8CnwgYC0tbm8tYW5hbHlzaXNgIHwgU2tpcCBhbmFseXNpcyBvdXRwdXQgfAp8IGAtdiwgLS12ZXJib3NlYCB8IFZlcmJvc2Ugb3V0cHV0IHwKfCBgLS1xdWlldGAgfCBTdXBwcmVzcyBhbGwgbm9uLWVycm9yIG91dHB1dCB8CnwgYC0tcHJvZ3JhbSBOQU1FYCB8IFByb2Nlc3Mgc3BlY2lmaWMgcHJvZ3JhbSBieSBuYW1lIHwKfCBgLS1hY3RpdmUtb25seWAgfCBPbmx5IHByb2Nlc3MgYWN0aXZlIHByb2dyYW1zIHwKCiMjIE91dHB1dCBTdHJ1Y3R1cmUKCldoZW4gdXNpbmcgYC0tc2F2ZWAsIHRoZSB0b29sIGNyZWF0ZXMgdGhlIGZvbGxvd2luZyBkaXJlY3Rvcnkgc3RydWN0dXJlOgoKYGBgCm91dHB1dC8Kw6LClMKcw6LClMKAw6LClMKAIHByb2dyYW1zLmpzb24Kw6LClMKUw6LClMKAw6LClMKAIHByb2dyYW1fbmFtZS8KICAgIMOiwpTClMOiwpTCgMOiwpTCgCBzY29wZXMvCiAgICAgICAgw6LClMKcw6LClMKAw6LClMKAIHNjb3BlX3tpZH0uanNvbgogICAgICAgIMOiwpTClMOiwpTCgMOiwpTCgCBkb21haW5zLnR4dApgYGAKCiMjIEV4YW1wbGUgT3V0cHV0CgojIyMgUHJvZ3JhbSBBbmFseXNpcwpgYGAKw6LClMKMw6LClMKAw6LClMKAw6LClMKAWyBQcm9ncmFtOiBFeGFtcGxlIFByb2dyYW0gXcOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgMOiwpTCgArDosKUwoIgU3RhdHVzICAgICAgIDogQUNUSVZFCsOiwpTCgiBUeXBlICAgICAgICAgOiBQVUJMSUMKw6LClMKCIFBsYXRmb3JtICAgICA6IFdlYgrDosKUwoIgU3RhcnQgRGF0ZSAgIDogMjAyNS0wMi0yNQrDosKUwoIgRW5kIERhdGUgICAgIDogMjAyNS0wNS0xMiAoMjYgZGF5cyByZW1haW5pbmcpCsOiwpTCgiBEdXJhdGlvbiAgICAgOiA3NiBkYXlzCsOiwpTCgiBQb2xpY3kgU2l6ZSAgOiAyMjg2IGNoYXJzCsOiwpTCgiBPdXQgb2YgU2NvcGUgOiAxNzY2IGNoYXJzCgrDosKUwpzDosKUwoDDosKUwoDDosKUwoBbIEJvdW50eSBSYW5nZXMgKFNBUikgXQrDosKVwpLDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwqTDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwqTDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpDDosKVwpUKw6LClMKCIFNldmVyaXR5ICAgw6LClMKCIFJhbmdlICAgICAgIMOiwpTCgiBWaXN1YWwgICAgICAgICAgICAgICAgICAgICAgICAgw6LClMKCCsOiwpXCnsOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCqsOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCqsOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCoQrDosKUwoIgQ3JpdGljYWwgICDDosKUwoIgNTIzOCDDosKAwpMgNzAwMCDDosKUwoIgNTIzOMOiwoDCkzcwMDAgU0FSIFvDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqBdIMOiwpTCggrDosKUwoIgSGlnaCAgICAgICDDosKUwoIgMjcyOSDDosKAwpMgNTA4MiDDosKUwoIgMjcyOcOiwoDCkzUwODIgU0FSIFvDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqBdICAgICDDosKUwoIKw6LClMKCIE1lZGl1bSAgICAgw6LClMKCIDkxNiDDosKAwpMgMjYzNSAgw6LClMKCIDkxNsOiwoDCkzI2MzUgU0FSIFvDosKWwqDDosKWwqDDosKWwqDDosKWwqDDosKWwqBdICAgICAgICAgICDDosKUwoIKw6LClMKCIExvdyAgICAgICAgw6LClMKCIDUwMCDDosKAwpMgODg1ICAgw6LClMKCIDUwMMOiwoDCkzg4NSBTQVIgW8OiwpbCoF0gICAgICAgICAgICAgICAgw6LClMKCCsOiwpXCmMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCp8OiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCp8OiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCkMOiwpXCmwpgYGAKCiMjIENvbmZpZ3VyYXRpb24KCiMjIyBFbnZpcm9ubWVudCBWYXJpYWJsZXMKQ29weSBgLmVudi5leGFtcGxlYCB0byBgLmVudmAgYW5kIHNldCB5b3VyIGNvbmZpZ3VyYXRpb246CmBgYGJhc2gKY3AgLmVudi5leGFtcGxlIC5lbnYKYGBgCgpSZXF1aXJlZCBlbnZpcm9ubWVudCB2YXJpYWJsZXM6Ci0gYEFDQ09VTlRfVE9LRU5gOiBZb3VyIEJ1ZyBCb3VudHkgU0EgQVBJIHRva2VuCgpUaGUgdG9vbCB1c2VzIHRoZSBmb2xsb3dpbmcgY29uZmlndXJhdGlvbiBzZXR0aW5nczoKLSBgQVBJX0VORFBPSU5UYDogVGhlIEJ1ZyBCb3VudHkgU0EgQVBJIGVuZHBvaW50Ci0gYEhFQURFUlNgOiBBUEkgYXV0aGVudGljYXRpb24gaGVhZGVycwotIGBPVVRQVVRfRElSYDogRGVmYXVsdCBvdXRwdXQgZGlyZWN0b3J5IGZvciBzYXZlZCBkYXRhCgojIyBDb250cmlidXRpbmcKCkNvbnRyaWJ1dGlvbnMgYXJlIHdlbGNvbWUhIFBsZWFzZSBmZWVsIGZyZWUgdG8gc3VibWl0IGEgUHVsbCBSZXF1ZXN0LiBGb3IgbWFqb3IgY2hhbmdlcywgcGxlYXNlIG9wZW4gYW4gaXNzdWUgZmlyc3QgdG8gZGlzY3VzcyB3aGF0IHlvdSB3b3VsZCBsaWtlIHRvIGNoYW5nZS4KCiMjIExpY2Vuc2UKClRoaXMgcHJvamVjdCBpcyBsaWNlbnNlZCB1bmRlciB0aGUgTUlUIExpY2Vuc2UgLSBzZWUgdGhlIFtMSUNFTlNFXShMSUNFTlNFKSBmaWxlIGZvciBkZXRhaWxzLgoKIyMgQXV0aG9yCgotIFNodWxrd2lTRUMKLSBUd2l0dGVyOiBbQFNodWxrd2lTRUNdKGh0dHBzOi8vdHdpdHRlci5jb20vU2h1bGt3aVNFQykKLSBHaXRIdWI6IFtTaHVsa3dpU0VDXShodHRwczovL2dpdGh1Yi5jb20vU2h1bGt3aVNFQykKCiMjIEFja25vd2xlZGdtZW50cwoKLSBCdWcgQm91bnR5IFNBIFBsYXRmb3JtIGZvciBwcm92aWRpbmcgdGhlIEFQSQotIFRoZSBidWcgYm91bnR5IGNvbW11bml0eSBpbiBTYXVkaSBBcmFiaWE=",
+        "title": {
+          "en": "bugbountysa CLI Tool",
+          "ar": "bugbountysa CLI Tool",
+          "zh-cn": "bugbountysa CLI 工具"
+        },
+        "excerpt": {
+          "en": "The first CLI tool to manage BugBounty.SA programs",
+          "ar": "The first CLI tool to manage BugBounty.SA programs",
+          "zh-cn": "首个用于管理 BugBounty.SA 项目的 CLI 工具"
+        },
+        "category": {
+          "ar": "أدوات",
+          "en": "Tools"
+        },
+        "tags": [
+          "BugBounty.SA",
+          "CLI",
+          "OpenSource",
+          "Security Tools",
+          "Automation"
+        ],
+        "readTime": 2,
+        "image": "/favicon.png",
+        "encoding": true
+      }
+    ],
+    "externalSources": [
+      "https://github.com/ShulkwiSEC/wirteups/"
+    ]
+  },
+  "achievements": [
+    {
+      "title": {
+        "en": "websnap",
+        "ar": "websnap",
+        "zh-cn": "websnap"
+      },
+      "subtitle": {
+        "en": "Open-source web scraping tool for cybersecurity professionals CLI geeks",
+        "ar": "أداة مفتوحة المصدر لاستخلاص البيانات مخصصة لمتخصصي الأمن السيبراني ومحبي CLI",
+        "zh-cn": "一款专为网络安全专业人员和命令行爱好者设计的开源数据提取工具。"
+      },
+      "fallback": "https://github.com/ShulkwiSEC/websnap",
+      "banner": "https://github.com/ShulkwiSEC.png"
+    },
+    {
+      "title": {
+        "en": "CTFPlatform",
+        "ar": "CTFPlatform",
+        "zh-cn": "CTFPlatform"
+      },
+      "subtitle": {
+        "en": "Mini CTF platform for local events",
+        "ar": "منصة CTF مصغرة للاستخدام المحلي والفعاليات الصغيرة",
+        "zh-cn": "一个适用于本地和小规模活动的迷你CTF平台"
+      },
+      "fallback": "https://github.com/ShulkwiSEC/CTFPlatform"
+    },
+    {
+      "title": {
+        "en": "bugbountysa",
+        "ar": "bugbountysa",
+        "zh-cn": "bugbountysa"
+      },
+      "subtitle": {
+        "en": "The first CLI tool to bugbounty.sa programs management ⚙",
+        "ar": "أول أداة CLI لإدارة برامج bugbounty.sa",
+        "zh-cn": "首个用于管理 bugbounty.sa 项目的 CLI 工具"
+      },
+      "fallback": "https://github.com/ShulkwiSEC/bugbountysa"
+    },
+    {
+      "title": {
+        "en": "dumbemu",
+        "ar": "dumbemu",
+        "zh-cn": "dumbemu"
+      },
+      "subtitle": {
+        "en": "A lightweight, dependency-minimal PE emulator built on Unicorn Engine for Windows binaries",
+        "ar": "محاكي خفيف لتنفيذ ملفات PE على مستوى الدوال باستخدام Unicorn Engine دون تبعيات ويندوز",
+        "zh-cn": "一个轻量级的模拟器，使用 Unicorn Engine 在函数级别执行 PE 文件，无需 Windows 依赖项。"
+      },
+      "fallback": "https://github.com/ShulkwiSEC/dumbemu"
+    },
+    {
+      "title": {
+        "en": "MDH Platform",
+        "ar": "منصة MDH",
+        "zh-cn": "MDH平台"
+      },
+      "subtitle": {
+        "en": "Advanced Medical Management Platform ⚙",
+        "ar": "منصة متقدمة لإدارة المنشآت الطبية",
+        "zh-cn": "一个用于管理医疗设施的先进平台"
+      },
+      "fallback": "#"
+    },
+    {
+      "title": {
+        "en": "Passport Authority Management System",
+        "ar": "نظام إدارة الجوازات",
+        "zh-cn": "护照管理系统"
+      },
+      "subtitle": {
+        "en": "Passport Management System for the Embassy of Sudan in Egypt 🇸🇩",
+        "ar": "نظام لإدارة الجوازات لسفارة السودان في مصر 🇸🇩",
+        "zh-cn": "苏丹驻埃及大使馆护照管理系统🇸🇩"
+      },
+      "fallback": "#"
+    },
+    {
+      "title": {
+        "en": "lmspyw4re",
+        "ar": "lmspyw4re",
+        "zh-cn": "lmspyw4re"
+      },
+      "subtitle": {
+        "en": "Personal malware tool for file encryption/decryption with self-modifying code in a C2 environment ⚙",
+        "ar": "أول أداة شخصية لي لتشفير وفك تشفير الملفات مع تعديل ذاتي للكود ضمن C2",
+        "zh-cn": "我的第一个个人工具，用于在 C2 框架内使用自适应代码加密和解密文件。"
+      },
+      "fallback": "#"
+    },
+    {
+      "title": {
+        "en": "Mawkfak",
+        "ar": "موقفك",
+        "zh-cn": "موقفك"
+      },
+      "subtitle": {
+        "en": "Parking management and monitoring system with AI agents for private and public companies ⚙",
+        "ar": "نظام لإدارة ومراقبة مواقف السيارات في الشركات باستخدام وكلاء ذكاء اصطناعي",
+        "zh-cn": "利用人工智能代理管理和监控企业停车的系统。"
+      },
+      "fallback": "#"
+    }
+  ],
+  "translations": {
+    "siteTitle": {
+      "en": "My Dev Blog",
+      "ar": "مدونتي التقنية",
+      "zh-cn": "我的科技博客"
+    },
+    "siteSubtitle": {
+      "en": "Thoughts on programming",
+      "ar": "أفكار حول البرمجة",
+      "zh-cn": "关于编程的想法"
+    },
+    "home": {
+      "en": "Home",
+      "ar": "الرئيسية",
+      "zh-cn": "家"
+    },
+    "about": {
+      "en": "About",
+      "ar": "عني",
+      "zh-cn": "关于我"
+    },
+    "archive": {
+      "en": "Archive",
+      "ar": "الأرشيف",
+      "zh-cn": "档案"
+    },
+    "readMore": {
+      "en": "Read more",
+      "ar": "اقرأ المزيد",
+      "zh-cn": "阅读更多"
+    },
+    "newer": {
+      "en": "Newer",
+      "ar": "الأحدث",
+      "zh-cn": "最新的"
+    },
+    "older": {
+      "en": "Older",
+      "ar": "الأقدم",
+      "zh-cn": "最老"
+    },
+    "filterByTitle": {
+      "en": "Filter by title",
+      "ar": "التصفية حسب العنوان",
+      "zh-cn": "按标题筛选"
+    },
+    "sortByDate": {
+      "en": "Sort by date",
+      "ar": "الفرز حسب التاريخ",
+      "zh-cn": "按日期排序"
+    },
+    "newestFirst": {
+      "en": "Newest first",
+      "ar": "الأحدث أولاً",
+      "zh-cn": "最新优先"
+    },
+    "oldestFirst": {
+      "en": "Oldest first",
+      "ar": "الأقدم أولاً",
+      "zh-cn": "最早的在前"
+    },
+    "allTags": {
+      "en": "All tags",
+      "ar": "كل العلامات",
+      "zh-cn": "所有迹象"
+    },
+    "aboutTitle": {
+      "en": "About",
+      "ar": "عني",
+      "zh-cn": "关于我"
+    },
+    "aboutText": {
+      "en": "Web developer and tech blogger.",
+      "ar": "مطور ويب ومدون تقني.",
+      "zh-cn": "网站开发人员和科技博主。"
+    },
+    "builtWith": {
+      "en": "Built with: ",
+      "ar": "مبني باستخدام: ",
+      "zh-cn": "使用以下技术构建："
+    },
+    "builtBy": {
+      "en": "Built by: ",
+      "ar": "تم البناء بواسطة: ",
+      "zh-cn": "建造者："
+    },
+    "heroTitle": {
+      "en": "Building Digital Experiences",
+      "ar": "بناء تجارب رقمية",
+      "zh-cn": "构建数字体验"
+    },
+    "heroSubtitle": {
+      "en": "Turning ideas into code",
+      "ar": "تحويل الأفكار إلى واقع",
+      "zh-cn": "将想法变为现实"
+    },
+    "viewPortfolio": {
+      "en": "View Portfolio",
+      "ar": "شاهد أعمالي",
+      "zh-cn": "查看我的作品"
+    },
+    "getInTouch": {
+      "en": "Get in Touch",
+      "ar": "تواصل معي",
+      "zh-cn": "联系我"
+    },
+    "blogTitle": {
+      "en": "Blog",
+      "ar": "المدونة",
+      "zh-cn": "博客"
+    },
+    "blogSubtitle": {
+      "en": "Latest articles",
+      "ar": "أحدث المقالات",
+      "zh-cn": "最新文章"
+    },
+    "Comments": {
+      "en": "Comments",
+      "ar": "التعليقات",
+      "zh-cn": "评论"
+    },
+    "ReadLater": {
+      "en": "Read Later",
+      "ar": "اقرأ لاحقاً"
+    },
+    "Saved": {
+      "en": "Saved",
+      "ar": "تم الحفظ"
+    },
+    "SavedPosts": {
+      "en": "Saved Posts",
+      "ar": "المقالات المحفوظة"
+    },
+    "NoSavedPosts": {
+      "en": "No saved posts yet.",
+      "ar": "لا توجد مقالات محفوظة بعد."
+    },
+    "Share": {
+      "en": "Share",
+      "ar": "مشاركة"
+    },
+    "LinkCopied": {
+      "en": "Link Copied",
+      "ar": "تم نسخ الرابط"
+    },
+    "LinkCopiedDesc": {
+      "en": "Blog post link copied to clipboard.",
+      "ar": "تم نسخ رابط المقال إلى الحافظة."
+    },
+    "BacktoHome": {
+      "en": "Back to Home",
+      "ar": "العودة إلى الصفحة الرئيسية",
+      "zh-cn": "返回首页"
+    },
+    "back": {
+      "en": "back",
+      "ar": "العودة",
+      "zh-cn": "后退"
+    },
+    "PostNotFound": {
+      "en": "Post Not Found",
+      "ar": "المقالة غير موجودة",
+      "zh-cn": "未找到文章"
+    },
+    "PostNotFoundText": {
+      "en": "The blog post you're looking for doesn't exist.",
+      "ar": "المقالة التي تبحث عنها غير موجودة.",
+      "zh-cn": "您正在寻找的文章不存在。"
+    },
+    "views": {
+      "en": "Views",
+      "ar": "مشاهدة",
+      "zh-cn": "观看次数"
+    }
+  }
+}
