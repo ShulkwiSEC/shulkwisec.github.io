@@ -64,7 +64,7 @@ export default function ShareButton({
         >
             <Share2 className="w-4 h-4" />
             {showLabel && (
-                <span>{t('Share') || 'Share'}</span>
+                <span className="hidden sm:inline">{t('Share') || 'Share'}</span>
             )}
         </Button>
     );

@@ -43,7 +43,7 @@ export default function SaveButton({
                 <Bookmark className="w-4 h-4" />
             )}
             {showLabel && (
-                <span>{saved ? t('Saved') : t('ReadLater')}</span>
+                <span className="hidden sm:inline">{saved ? t('Saved') : t('ReadLater')}</span>
             )}
         </Button>
     );

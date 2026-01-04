@@ -44,7 +44,7 @@ export default function Views({
         )}>
             <Eye className="w-4 h-4" />
             <span className="font-medium whitespace-nowrap">
-                {views.toLocaleString()} {showLabel && (t('views') || 'Views')}
+                {views.toLocaleString()} <span className={cn(showLabel ? "hidden sm:inline" : "hidden")}>{t('views') || 'Views'}</span>
             </span>
         </div>
     );

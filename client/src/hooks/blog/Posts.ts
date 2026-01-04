@@ -12,16 +12,44 @@ export const useBlogPosts = () => {
         let isMounted = true;
 
         const loadPosts = async () => {
-            // Access sync_repo dynamically
-            const syncRepo = (blogConfig as any)?.sync_repo;
+            // Access externalSources (array) or sync_repo (string) dynamically
+            const config = blogConfig as any;
+            const externalSources = config?.externalSources as string[] | undefined;
+            const singleRepo = config?.sync_repo as string | undefined;
 
-            if (syncRepo && typeof syncRepo === 'string') {
+            let reposToSync: string[] = [];
+
+            if (externalSources && Array.isArray(externalSources)) {
+                reposToSync = [...externalSources];
+            } else if (singleRepo) {
+                reposToSync = [singleRepo];
+            }
+
+            // Clean up list
+            reposToSync = reposToSync.filter(url => url && url.trim() !== "");
+
+            if (reposToSync.length > 0) {
                 try {
-                    console.log(`Syncing with repo: ${syncRepo}`);
-                    const ghPosts = await fetchGitHubPosts(syncRepo);
+                    console.log(`Syncing with repos: ${reposToSync.join(', ')}`);
+
+                    // Create a timeout promise to prevent infinite loading
+                    const timeout = new Promise<never>((_, reject) =>
+                        setTimeout(() => reject(new Error("Timeout syncing GitHub posts")), 5000)
+                    );
+
+                    const fetchPromise = Promise.all(
+                        reposToSync.map(repo => fetchGitHubPosts(repo))
+                    );
+
+                    // Race against timeout
+                    const allPostsResults = await Promise.race([fetchPromise, timeout]) as any[];
+
+                    // Flatten results
+                    const allGhPosts = allPostsResults.flat();
+
                     if (isMounted) {
-                        // Merge posts, preventing duplicates if any (though IDs should differ)
-                        setPosts([...staticPosts, ...ghPosts]);
+                        // Combine static and dynamic posts
+                        setPosts([...staticPosts, ...allGhPosts]);
                     }
                 } catch (error) {
                     console.error("Failed to sync GitHub posts", error);

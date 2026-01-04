@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { useParams } from 'wouter';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -9,6 +9,23 @@ import 'highlight.js/styles/atom-one-dark.css';
 import DOMPurify from 'dompurify';
 import { Skeleton } from '@/components/ui/skeleton';
 
+
+// Configure marked options
+marked.use({
+  breaks: true,
+  gfm: true,
+});
+
+// Configure DOMPurify to open external links in new tab
+DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+  if (node.tagName === 'A' && node.hasAttribute('href')) {
+    const href = node.getAttribute('href');
+    if (href && (href.startsWith('http') || href.startsWith('//'))) {
+      node.setAttribute('target', '_blank');
+      node.setAttribute('rel', 'noopener noreferrer');
+    }
+  }
+});
 
 export default function MarkdownPage() {
   const { slug } = useParams();
@@ -33,16 +50,30 @@ export default function MarkdownPage() {
     }
   }, [slug]);
 
+  const htmlContent = useMemo(() => {
+    const rawHtml = marked.parse(markdown) as string;
+    return DOMPurify.sanitize(rawHtml, {
+      ADD_TAGS: ['rssapp-wall', 'iframe'],
+      ADD_ATTR: ['id', 'src', 'width', 'height', 'frameborder', 'allow', 'allowfullscreen', 'target']
+    });
+  }, [markdown]);
+
   useEffect(() => {
     if (contentRef.current && !loading) {
+      // 1. Syntax Highlighting
       const codeBlocks = contentRef.current.querySelectorAll('pre code');
       codeBlocks.forEach(codeBlock => {
+        hljs.highlightElement(codeBlock as HTMLElement);
+
+        // 2. Add Copy Button
         const pre = codeBlock.parentElement;
         if (pre) {
+          if (pre.querySelector('.copy-btn')) return;
+
           pre.style.position = 'relative';
           const copyButton = document.createElement('button');
           copyButton.innerText = 'Copy';
-          copyButton.className = 'absolute top-2 right-2 bg-gray-700 text-white px-2 py-1 rounded text-xs';
+          copyButton.className = 'copy-btn absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white px-2 py-1 rounded text-xs transition-colors';
           copyButton.addEventListener('click', () => {
             navigator.clipboard.writeText(codeBlock.textContent || '');
             copyButton.innerText = 'Copied!';
@@ -54,7 +85,7 @@ export default function MarkdownPage() {
         }
       });
     }
-  }, [markdown, loading]);
+  }, [htmlContent, loading]);
 
   useEffect(() => {
     if (markdown.includes('<rssapp-wall')) {
@@ -69,19 +100,10 @@ export default function MarkdownPage() {
     }
   }, [markdown]);
 
-  const createMarkup = (html: string) => {
-    return {
-      __html: DOMPurify.sanitize(html, {
-        ADD_TAGS: ['rssapp-wall', 'iframe'],
-        ADD_ATTR: ['id', 'src', 'width', 'height', 'frameborder', 'allow', 'allowfullscreen', 'target']
-      })
-    };
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title={slug ? slug.charAt(0) : ''}
+        title={slug ? slug.charAt(0).toUpperCase() + slug.slice(1) : ''}
         canonicalPath={`/page/${slug}`}
       />
       <Header />
@@ -100,7 +122,7 @@ export default function MarkdownPage() {
           <div
             ref={contentRef}
             className="prose prose-slate dark:prose-invert max-w-none"
-            dangerouslySetInnerHTML={createMarkup(marked.parse(markdown) as string)}
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
         )}
       </main>
