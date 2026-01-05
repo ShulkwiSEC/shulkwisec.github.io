@@ -347,103 +347,13 @@
 
 @layer utilities {
   .scrollbar-none {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none;    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
-}
-
-/* Premium Prose (Markdown) Overrides */
-.prose {
-  --tw-prose-body: hsl(var(--foreground) / 0.9);
-  --tw-prose-headings: hsl(var(--foreground));
-  --tw-prose-links: hsl(var(--primary));
-  --tw-prose-bold: hsl(var(--foreground));
-  --tw-prose-counters: hsl(var(--muted-foreground));
-  --tw-prose-bullets: hsl(var(--primary) / 0.5);
-  --tw-prose-hr: hsl(var(--border));
-  --tw-prose-quotes: hsl(var(--foreground));
-  --tw-prose-quote-borders: hsl(var(--primary));
-  --tw-prose-captions: hsl(var(--muted-foreground));
-  --tw-prose-code: hsl(var(--foreground));
-  --tw-prose-pre-code: hsl(var(--foreground));
-  --tw-prose-pre-bg: #1e1e1e;
-  --tw-prose-th-borders: hsl(var(--border));
-  --tw-prose-td-borders: hsl(var(--border));
-  max-width: 100% !important;
-}
-
-.prose pre {
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  box-shadow: var(--shadow-sm);
-  background-color: #1e1e1e !important;
-  position: relative !important;
-  margin: 2rem 0 !important;
-}
-
-.prose code:not(pre code) {
-  background-color: hsl(var(--muted));
-  padding: 0.2em 0.4em;
-  border-radius: 0.3em;
-  font-weight: 500;
-  font-size: 0.9em;
-}
-
-.prose blockquote {
-  font-style: italic;
-  background-color: hsl(var(--muted) / 0.3);
-  padding: 1rem 1.5rem;
-  border-radius: 0 0.5rem 0.5rem 0;
-  border-left-width: 4px;
-  border-left-color: hsl(var(--primary));
-}
-
-.prose table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
-  font-size: 0.9rem;
-}
-
-.prose th {
-  background-color: hsl(var(--muted));
-  padding: 0.75rem;
-  text-align: left;
-  border: 1px solid hsl(var(--border));
-}
-
-.prose td {
-  padding: 0.75rem;
-  border: 1px solid hsl(var(--border));
-}
-
-.prose img {
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  margin: 2rem auto;
-}
-
-/* Copy button styling refinement */
-.copy-btn {
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-  transform: translateY(-2px);
-  z-index: 10;
-}
-
-pre:hover .copy-btn {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* External Link Decoration */
-.prose a[target="_blank"]::after {
-  content: " \2197"; /* Arrow icon */
-  font-size: 0.8em;
-  opacity: 0.6;
 }
