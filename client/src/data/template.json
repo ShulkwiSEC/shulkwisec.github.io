@@ -414,10 +414,7 @@
         "encoding": true
       }
     ],
-    "externalSources": [
-      "https://github.com/ShulkwiSEC/wirteups/",
-      "https://github.com/ShulkwiSEC/BHMEA2024/"
-    ]
+    "externalSources": []
   },
   "achievements": [
     {

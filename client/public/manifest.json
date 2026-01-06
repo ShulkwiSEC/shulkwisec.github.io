@@ -6,7 +6,7 @@
   "id": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "theme_color": "#0F0F10",
   "orientation": "portrait",
   "scope": "/",
   "lang": "ar",
@@ -110,7 +110,10 @@
   ],
   "categories": [
     "education",
-    "technology"
+    "technology",
+    "cyber security",
+    "ctf",
+    "research"
   ],
   "prefer_related_applications": false
 }
