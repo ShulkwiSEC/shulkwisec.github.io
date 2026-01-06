@@ -160,9 +160,9 @@
       "provider": "giscus",
       "giscus": {
         "repo": "ShulkwiSEC/shulkwisec.github.io",
-        "repoId": "R_kgDOQLcJmw",
+        "repoId": "R_kgDOQzOSlQ",
         "category": "Announcements",
-        "categoryId": "DIC_kwDOQLcJm84C0cIR",
+        "categoryId": "DIC_kwDOQzOSlc4C0ik6",
         "mapping": "pathname",
         "strict": "0",
         "reactionsEnabled": "1",
