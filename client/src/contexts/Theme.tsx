@@ -24,6 +24,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
     localStorage.setItem('theme', theme);
+
+    // Update theme-color meta tag for PWA status bar
+    const themeColor = theme === 'dark' ? '#0F0F10' : '#ffffff';
+    const metaTags = document.querySelectorAll('meta[name="theme-color"]');
+    metaTags.forEach(tag => {
+      tag.setAttribute('content', themeColor);
+    });
   }, [theme]);
 
   const toggleTheme = () => {

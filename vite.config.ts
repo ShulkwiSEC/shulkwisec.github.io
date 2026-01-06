@@ -32,6 +32,7 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
+    allowedHosts: ['b646c0435b0e.ngrok-free.app'],
     fs: {
       strict: true,
       deny: ["**/.*"],
