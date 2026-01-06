@@ -26,86 +26,117 @@
     rel="stylesheet">
 
   <style>
-    /* Premium PWA Install Prompt Styles */
+ /* Premium PWA Install Prompt Styles */
+  #pwa-install-banner {
+    position: fixed;
+    bottom: 1.5rem; /* Slightly higher for modern mobile safe areas */
+    left: 50%;
+    transform: translateX(-50%) translateY(200%);
+    width: 92%; /* Use slightly more width on mobile */
+    max-width: 500px;
+    padding: 1rem;
+    background: rgba(15, 15, 16, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    color: white;
+    pointer-events: auto;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+  }
+  
+  #pwa-install-banner.show {
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  /* Mobile-Specific Adjustment */
+  @media (max-width: 480px) {
     #pwa-install-banner {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(200%);
-      width: 90%;
-      max-width: 500px;
-      padding: 1rem;
-      background: rgba(15, 15, 16, 0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 1.5rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-      color: white;
-      pointer-events: auto;
-    }
-
-    #pwa-install-banner.show {
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .pwa-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 0.75rem;
-      background: white;
-      padding: 4px;
-      flex-shrink: 0;
-    }
-
-    .pwa-text {
-      flex-grow: 1;
-    }
-
-    .pwa-text h3 {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 700;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .pwa-text p {
-      margin: 0;
-      font-size: 0.8rem;
-      opacity: 0.7;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .pwa-actions {
-      display: flex;
+      flex-wrap: wrap; /* Allows buttons to wrap to a new line if needed */
+      padding: 0.8rem;
       gap: 0.5rem;
     }
-
-    .pwa-btn {
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 0.75rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Inter', sans-serif;
+  
+    .pwa-text {
+      /* Ensures text doesn't push buttons off-screen */
+      min-width: 120px; 
     }
-
-    .pwa-btn-install {
-      background: #ffffff;
-      color: #000000;
+  
+    .pwa-actions {
+      width: 100%; /* Force buttons to their own row on very small screens */
+      justify-content: flex-end;
+      margin-top: 0.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 0.5rem;
     }
-
-    .pwa-btn-close {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-    }
+  }
+  
+  .pwa-icon {
+    width: 40px; /* Reduced slightly for mobile */
+    height: 40px;
+    border-radius: 0.5rem;
+    background: white;
+    padding: 2px;
+    flex-shrink: 0;
+  }
+  
+  .pwa-text {
+    flex-grow: 1;
+    overflow: hidden; /* Prevents text from expanding the container */
+  }
+  
+  .pwa-text h3 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .pwa-text p {
+    margin: 0;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .pwa-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  
+  .pwa-btn {
+    border: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .pwa-btn-install {
+    background: #ffffff;
+    color: #000000;
+  }
+  
+  .pwa-btn-close {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
 
     .pwa-btn:active {
       transform: scale(0.95);
