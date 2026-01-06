@@ -24,18 +24,116 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
+
+  <style>
+    /* Premium PWA Install Prompt Styles */
+    #pwa-install-banner {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(200%);
+      width: 90%;
+      max-width: 500px;
+      padding: 1rem;
+      background: rgba(15, 15, 16, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      color: white;
+      pointer-events: auto;
+    }
+
+    #pwa-install-banner.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .pwa-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 0.75rem;
+      background: white;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+
+    .pwa-text {
+      flex-grow: 1;
+    }
+
+    .pwa-text h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .pwa-text p {
+      margin: 0;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .pwa-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .pwa-btn {
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .pwa-btn-install {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .pwa-btn-close {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .pwa-btn:active {
+      transform: scale(0.95);
+    }
+
+    html,
+    body {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      white-space: normal;
+    }
+
+    body * {
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+  </style>
+
   <script type="text/javascript">
-    // If the URL contains a '?p=' query parameter, it means we were redirected from 404.html.
-    // We need to rewrite the URL to the original path so React Router can handle it.
     (function () {
       var redirect = window.location.search;
       if (redirect && redirect.startsWith('?p=')) {
-        var path = decodeURIComponent(redirect.substring(3)); // Remove '?p=' and decode
+        var path = decodeURIComponent(redirect.substring(3));
         window.history.replaceState(null, null, path);
       }
     })();
 
-    // Register Service Worker for PWA
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
@@ -43,25 +141,52 @@
           .catch(err => console.log('SW Registration Failed', err));
       });
     }
+
+    // PWA Install Logic
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      // Show the banner if it hasn't been dismissed in this session
+      if (!sessionStorage.getItem('pwa-dismissed')) {
+        setTimeout(() => {
+          document.getElementById('pwa-install-banner').classList.add('show');
+        }, 3000);
+      }
+    });
+
+    function installPWA() {
+      if (!deferredPrompt) return;
+      document.getElementById('pwa-install-banner').classList.remove('show');
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the PWA install');
+        }
+        deferredPrompt = null;
+      });
+    }
+
+    function dismissPWA() {
+      document.getElementById('pwa-install-banner').classList.remove('show');
+      sessionStorage.setItem('pwa-dismissed', 'true');
+    }
   </script>
   <script async src="https://counterapi.com/counterapi.embed.js"></script>
 </head>
-<style>
-  html,
-  body {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    white-space: normal;
-  }
-
-  body * {
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-</style>
 
 <body>
+  <div id="pwa-install-banner">
+    <img src="/favicon.png" alt="App Icon" class="pwa-icon">
+    <div class="pwa-text">
+      <h3 id="pwa-title">shulkwisec</h3>
+      <p id="pwa-desc">Install for a better experience</p>
+    </div>
+    <div class="pwa-actions">
+      <button class="pwa-btn pwa-btn-install" onclick="installPWA()">Install</button>
+      <button class="pwa-btn pwa-btn-close" onclick="dismissPWA()">✕</button>
+    </div>
+  </div>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
