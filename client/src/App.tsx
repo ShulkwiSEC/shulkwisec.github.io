@@ -12,6 +12,7 @@ import NotFound from "@/pages/NotFound";
 import SEO from "@/components/layout/SEO";
 import MarkdownPage from "@/pages/MarkdownPage";
 import SwipeableRouter from "@/components/layout/Router";
+import { ImageModalProvider } from "@/contexts/ImageModal";
 
 function AppRoutes() {
   return (
@@ -30,18 +31,19 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <LanguageProvider>
-          <SEO />
-          <TooltipProvider>
-            <Toaster />
-            <SwipeableRouter>
-              <AppRoutes />
-            </SwipeableRouter>
-          </TooltipProvider>
+          <ImageModalProvider>
+            <SEO />
+            <TooltipProvider>
+              <Toaster />
+              <SwipeableRouter>
+                <AppRoutes />
+              </SwipeableRouter>
+            </TooltipProvider>
+          </ImageModalProvider>
         </LanguageProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
 }
-
 export default App;
 

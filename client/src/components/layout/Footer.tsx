@@ -58,7 +58,7 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground flex items-center gap-1.5">
               {t('builtBy')}
               <span className="font-semibold text-foreground hover:text-primary transition-colors duration-300">
-                Shulkwisec
+                shulkwisec
               </span>
             </p>
           </div>
@@ -114,7 +114,7 @@ export default function Footer() {
         >
           <div className="text-center pt-4 border-t border-border/40">
             <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Shulkwisec. All rights reserved.
+              © {new Date().getFullYear()} shulkwisec. All rights reserved.
             </p>
           </div>
         </div>

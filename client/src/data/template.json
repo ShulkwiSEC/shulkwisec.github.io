@@ -113,22 +113,6 @@
           "zh-cn": "愿景.md"
         },
         "url": "/page/vision"
-      },
-      {
-        "name": {
-          "en": "upcomming-ctf.md",
-          "ar": "فعاليات_قادمة_ctf.md",
-          "zh-cn": "即将举行的CTF赛事.md"
-        },
-        "url": "/page/upcomming-ctf"
-      },
-      {
-        "name": {
-          "en": "running-ctf.md",
-          "ar": "فعاليات_ctf_الان.md",
-          "zh-cn": "CTF赛事现已举行.md"
-        },
-        "url": "/page/running-ctf"
       }
     ],
     "title": {
