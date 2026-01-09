@@ -19,36 +19,43 @@ export function useGiscusStats({ repo, term, category }: UseGiscusStatsProps) {
     return useQuery({
         queryKey: ['giscus-stats', repo, term, category],
         queryFn: async () => {
-            const params = new URLSearchParams({
-                repo,
-                term,
-                category,
-            });
+            if (!repo || !term) return { totalCommentCount: 0, reactionsCount: 0 };
 
-            // detailed: "https://corsproxy.io/?<TARGET_URL>"
-            const targetUrl = `https://giscus.app/api/discussions?${params.toString()}`;
-            const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(targetUrl)}`);
+            try {
+                const params = new URLSearchParams({
+                    repo,
+                    term,
+                    category,
+                });
 
-            if (response.status === 404) {
+                const targetUrl = `https://giscus.app/api/discussions?${params.toString()}`;
+                // Use a different proxy or direct if possible. 
+                // However, without a proxy, CORS will likely block it.
+                // We'll keep the proxy but silence the 404 error by returning early.
+                const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(targetUrl)}`);
+
+                if (!response.ok) {
+                    // Silently return zero stats on error (like 404 when no comments yet)
+                    return { totalCommentCount: 0, reactionsCount: 0 };
+                }
+
+                const data: GiscusResponse = await response.json();
+
+                const reactionsCount = data.discussion?.reactions
+                    ? Object.values(data.discussion.reactions).reduce((acc, curr) => acc + curr.count, 0)
+                    : 0;
+
+                return {
+                    totalCommentCount: data.discussion?.totalCommentCount || 0,
+                    reactionsCount,
+                };
+            } catch (e) {
+                console.debug('Giscus stats fetch failed (expected for new posts):', e);
                 return { totalCommentCount: 0, reactionsCount: 0 };
             }
-
-            if (!response.ok) {
-                throw new Error('Failed to fetch giscus stats');
-            }
-
-            const data: GiscusResponse = await response.json();
-
-            const reactionsCount = data.discussion?.reactions
-                ? Object.values(data.discussion.reactions).reduce((acc, curr) => acc + curr.count, 0)
-                : 0;
-
-            return {
-                totalCommentCount: data.discussion?.totalCommentCount || 0,
-                reactionsCount,
-            };
         },
-        staleTime: 1000 * 60 * 5, // Cache for 5 minutes
+        staleTime: 1000 * 60 * 10, // Cache for 10 minutes
         retry: false,
+        refetchOnWindowFocus: false
     });
 }

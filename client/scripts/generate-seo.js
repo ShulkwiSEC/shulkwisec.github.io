@@ -1,14 +1,19 @@
+```javascript
 import fs from 'fs';
 import path from 'path';
 
 const CLIENT_DIR = path.join(process.cwd(), 'client');
 const DATA_DIR = path.join(CLIENT_DIR, 'src', 'data');
-const PUBLIC_DIR = path.join(CLIENT_DIR, 'public');
+const DIST_DIR = path.join(process.cwd(), 'dist', 'public');
+
+// Priority: Use build output if it exists, otherwise fallback to source (for dev)
+const TARGET_DIR = fs.existsSync(DIST_DIR) ? DIST_DIR : path.join(CLIENT_DIR, 'public');
+const INDEX_FILE = path.join(fs.existsSync(DIST_DIR) ? DIST_DIR : CLIENT_DIR, 'index.html');
 
 const TEMPLATE_FILE = path.join(DATA_DIR, 'template.json');
-const INDEX_FILE = path.join(CLIENT_DIR, 'index.html');
-const SITEMAP_FILE = path.join(PUBLIC_DIR, 'sitemap.xml');
-const ROBOTS_FILE = path.join(PUBLIC_DIR, 'robots.txt');
+const SITEMAP_FILE = path.join(TARGET_DIR, 'sitemap.xml');
+const ROBOTS_FILE = path.join(TARGET_DIR, 'robots.txt');
+const MANIFEST_FILE = path.join(TARGET_DIR, 'manifest.json');
 
 function decodeContent(content) {
   if (!content) return '';
@@ -29,9 +34,9 @@ function cleanText(text) {
     .replace(/<[^>]*>/g, '') // Remove all other HTML tags
     .replace(/!\[.*?\]\(.*?\)/g, '') // Remove images
     .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Remove links
-    .replace(/[*_`#>\-]/g, ' ') // Remove markdown symbols
-    .replace(/\s+/g, ' ') // Collapse whitespace
-    .trim();
+    .replace(/[*_`# >\-]/g, ' ') / / Remove markdown symbols
+  .replace(/\s+/g, ' ') // Collapse whitespace
+  .trim();
 }
 
 function extractMeta(content, defaultTitle, defaultDesc, defaultImg, baseUrl) {
@@ -102,7 +107,7 @@ async function run() {
 
     let html = masterHtml.replace('</head>', `  ${socialMeta.trim()}\n</head>`);
 
-    const dir = path.join(PUBLIC_DIR, route);
+    const dir = path.join(TARGET_DIR, route);
     if (route !== '/') {
       if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
       fs.writeFileSync(path.join(dir, 'index.html'), html);
@@ -135,7 +140,7 @@ async function run() {
   fs.writeFileSync(INDEX_FILE, mainHtml);
 
   // 4. Update manifest.json
-  const manifestPath = path.join(PUBLIC_DIR, 'manifest.json');
+  const manifestPath = path.join(TARGET_DIR, 'manifest.json');
   if (fs.existsSync(manifestPath)) {
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
     manifest.name = baseTitle;
