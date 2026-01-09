@@ -99,10 +99,10 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 backdrop-blur-sm transition-[padding,background-color,box-shadow] duration-500 ease-out ${isShrunk ? 'py-2' : 'py-4 sm:py-6'}`}
+      className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-500 ease-out ${isShrunk ? 'py-2 bg-background/80 border-b border-border/50 shadow-sm' : 'py-4 sm:py-6 bg-transparent border-b border-transparent'}`}
       style={{
         paddingTop: `calc(var(--safe-top) + ${isShrunk ? '0.5rem' : '1rem'})`,
-        transition: 'padding-top 0.5s ease-out'
+        transition: 'all 0.5s ease-out'
       }}
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
@@ -110,11 +110,11 @@ export default function Header() {
           {/* Logo and Title Section */}
           <div className={`flex flex-col transition-[gap] duration-500 ease-in-out ${isShrunk ? 'gap-0' : 'gap-1'
             }`}>
-            <h1 className={`font-bold transition-[font-size] duration-500 ease-in-out ${isShrunk ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl md:text-3xl'
+            <h1 className={`font-bold transition-[font-size] duration-500 ease-in-out ${isShrunk ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl md:text-3xl font-black'
               }`}>
               <Link
                 href="/"
-                className="hover:text-primary transition-colors duration-300 inline-block hover:scale-105 transform"
+                className="hover:text-primary transition-all duration-300 inline-block hover:scale-105 transform hover:drop-shadow-[0_0_8px_rgba(var(--primary-rgb),0.3)]"
               >
                 {siteConfig.title[language]}
               </Link>

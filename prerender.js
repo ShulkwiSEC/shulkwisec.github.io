@@ -75,6 +75,7 @@ async function run() {
         // Image Logic: Use extracted images, or fall back to banner/site default
         let imageTags = '';
         const imagesToUse = meta.images && meta.images.length > 0 ? meta.images : (meta.image ? [meta.image] : []);
+        const primaryImage = imagesToUse[0]?.startsWith('http') ? imagesToUse[0] : `${siteUrl}${imagesToUse[0] || '/favicon.png'}`;
 
         imagesToUse.forEach(img => {
             let absoluteUrl = img.startsWith('http') ? img :
@@ -83,28 +84,47 @@ async function run() {
             imageTags += `<meta name="twitter:image" content="${absoluteUrl}">\n    `;
         });
 
-        // If no images found, we can choose to add favicon or nothing. 
-        // User asked for "no favicon" if possible, so we only add it if imagesToUse is empty?
-        // Actually, user said "take much image..., no favicon".
-        // Let's add favicon ONLY if absolutely no images found to avoid broken cards.
         if (imagesToUse.length === 0) {
             const fav = `${siteUrl}/favicon.png`;
             imageTags += `<meta property="og:image" content="${fav}">\n    `;
             imageTags += `<meta name="twitter:image" content="${fav}">\n    `;
         }
 
+        // Structured Data (JSON-LD)
+        const jsonLd = {
+            "@context": "https://schema.org",
+            "@type": meta.date ? "BlogPosting" : "WebPage",
+            "headline": fullTitle,
+            "description": desc,
+            "image": primaryImage,
+            "url": url,
+            "author": {
+                "@type": "Person",
+                "name": template.owner.name[lang] || template.owner.name['en'],
+                "url": siteUrl
+            }
+        };
+
+        if (meta.date) {
+            jsonLd.datePublished = new Date(meta.date).toISOString();
+            jsonLd.dateModified = new Date(meta.date).toISOString();
+        }
+
         // Tags to inject
         const seoTags = `
     <title>${fullTitle}</title>
     <meta name="description" content="${desc}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="${meta.date ? 'article' : 'website'}">
     <meta property="og:title" content="${fullTitle}">
     <meta property="og:description" content="${desc}">
     <meta property="og:url" content="${url}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${fullTitle}">
     <meta name="twitter:description" content="${desc}">
-    ${imageTags}`;
+    ${imageTags}
+    <script type="application/ld+json">
+    ${JSON.stringify(jsonLd, null, 2)}
+    </script>`;
 
         // Replace </head> to inject tags
         let finalHtml = baseHtml
@@ -131,7 +151,8 @@ async function run() {
             createPage(`/post/${post.id}`, {
                 title: post.title[lang] || post.title['en'],
                 description: post.excerpt?.[lang] || post.excerpt?.['en'],
-                image: post.banner
+                image: post.banner,
+                date: post.date // Pass date for JSON-LD
             });
         });
     }

@@ -20,6 +20,21 @@ export default defineConfig({
   build: {
     outDir: '../dist/public',
     emptyOutDir: true,
+    target: 'esnext',
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react')) return 'vendor-react';
+            if (id.includes('framer-motion')) return 'vendor-animation';
+            if (id.includes('lucide')) return 'vendor-icons';
+            if (id.includes('highlight.js')) return 'vendor-highlight';
+            if (id.includes('marked') || id.includes('dompurify')) return 'vendor-parser';
+            return 'vendor';
+          }
+        },
+      },
+    },
   },
   root: path.resolve(__dirname, "client"),
   publicDir: path.resolve(__dirname, "client", "public"),
