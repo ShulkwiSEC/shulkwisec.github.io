@@ -1,4 +1,3 @@
-```javascript
 import fs from 'fs';
 import path from 'path';
 
@@ -34,9 +33,9 @@ function cleanText(text) {
     .replace(/<[^>]*>/g, '') // Remove all other HTML tags
     .replace(/!\[.*?\]\(.*?\)/g, '') // Remove images
     .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Remove links
-    .replace(/[*_`# >\-]/g, ' ') / / Remove markdown symbols
-  .replace(/\s+/g, ' ') // Collapse whitespace
-  .trim();
+    .replace(/[*_`#>\-]/g, ' ') // Remove markdown symbols
+    .replace(/\s+/g, ' ') // Collapse whitespace
+    .trim();
 }
 
 function extractMeta(content, defaultTitle, defaultDesc, defaultImg, baseUrl) {
