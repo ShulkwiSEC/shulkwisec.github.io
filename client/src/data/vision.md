@@ -2,17 +2,7 @@
 - منتظر 0xl4ugh 2025 ctf event
 - 0xl4ugh -> منافسينا كفريق w4llz فضروري نشارك/نجلدهم 🏌️ في فعالياتهم 
 - بالاضافة الى ان بعرف منهم **طباخين** 🧑‍🍳معلمين ف اتوقع اننا بنستمتع (المقصود بي طباخ هو مبدعين في كتابة تحديات ال <abbr title="Capture the Flag (CTF) is a cybersecurity competition that is used to test and develop computer security skills. It was first developed in 1996 at DEF CON, the largest cybersecurity conference in the United States which is hosted annually in Las Vegas, Nevada.[3] The conference hosts a weekend of cybersecurity competitions, including their flagship CTF.">ctf</abbr>)
-<style>
-  .image-container {
-    display: flex;
-    justify-content: center; /* or flex-start for left, flex-end for right */
-    gap: 5px; /* Space between images */
-  }
-  .image-container img {
-    width: 20vw; /* Example fixed width */
-    height: auto; /* Maintain aspect ratio */
-  }
-</style>
+<style>.image-container {display: flex;justify-content: center;gap: 5px;}.image-container img{width: 20vw;height: auto;}</style>
 
 <div class="image-container">
   <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExODBlbmFjdW04Yml6NTZjc3loOGFoY3VmZWVjenpxMmQ2d3pvbHJteCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/demgpwJ6rs2DS/giphy.gif" alt="Chef GIF">

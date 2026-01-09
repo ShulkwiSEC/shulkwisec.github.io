@@ -56,22 +56,36 @@ const SEO: React.FC<SEOProps> = ({
             // 1. Title: First h1 text
             const firstH1 = document.querySelector("h1")?.innerText?.trim();
 
-            // 2. Description: First <p> text inside <main> or <article>
-            const contentArea = document.querySelector("main, article") || document.body;
-            const firstP = contentArea.querySelector("p")?.innerText?.trim().substring(0, 160);
+            // 2. Description: Find the first substantial paragraph
+            let firstP = "";
+            const contentArea = document.querySelector("article") || document.querySelector("main") || document.body;
+            const paragraphs = Array.from(contentArea.querySelectorAll("p, div.prose > *")); // Look in paragraphs and prose children
 
-            // 3. Image: src of the first <img> in content area (ignore small icons/logos)
+            for (const p of paragraphs) {
+                const text = (p as HTMLElement).innerText?.trim() || "";
+                // Skip navigation, footer, or very short text that isn't a summary
+                if (text.length > 50 && !p.closest("footer") && !p.closest("nav")) {
+                    firstP = text.substring(0, 160) + (text.length > 160 ? "..." : "");
+                    break;
+                }
+            }
+
+            // 3. Image: Find the most significant image
             const allImgs = Array.from(contentArea.querySelectorAll("img"));
             const firstMainImg = allImgs.find(img => {
-                const className = (img.className || '').toString().toLowerCase();
-                const id = (img.id || '').toString().toLowerCase();
                 const src = (img.getAttribute('src') || '').toLowerCase();
+                const parent = img.parentElement;
 
-                // Heuristic to ignore small icons/logos/avatars
-                const isExcluded = /logo|icon|avatar|favicon|nav|brand|sidebar|profile/i.test(className + id + src);
-                const isTooSmall = img.naturalWidth > 0 && img.naturalWidth < 120; // Ignore very small images if loaded
+                // Exclude based on common patterns for logos/icons
+                if (src.includes("favicon") || src.includes("logo") || src.includes("icon") || src.endsWith(".svg")) return false;
 
-                return !isExcluded && !isTooSmall && src.length > 0;
+                // Exclude if inside nav or footer
+                if (img.closest("nav") || img.closest("footer")) return false;
+
+                // Priority to Markdown/Post images
+                // Check if image is reasonably sized (if size info available) or looks like content
+                const isMarkdownImage = parent?.tagName === 'P' || parent?.classList.contains('prose');
+                return isMarkdownImage && src.length > 0;
             });
 
             setAutoData(prev => ({
@@ -83,7 +97,7 @@ const SEO: React.FC<SEOProps> = ({
 
         const scheduleScrape = () => {
             clearTimeout(timeoutId);
-            timeoutId = setTimeout(scrapeDOM, 500);
+            timeoutId = setTimeout(scrapeDOM, 1000); // Give it a second for content to render
         };
 
         // Initial scrape after route change or mount

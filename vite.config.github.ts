@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 
 // GitHub Pages deployment configuration
 export default defineConfig({
-  base: '/', // Change this to '/your-repo-name/' for GitHub Pages if using project pages
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: {
