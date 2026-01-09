@@ -5,9 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "generate-seo": "node client/scripts/generate-seo.js",
-    "build": "vite build --config vite.config.github.ts",
-    "postbuild": "npm run generate-seo"
+    "build": "vite build --config vite.config.github.ts"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
