@@ -7,32 +7,40 @@ const __dirname = path.dirname(__filename);
 
 // Helper to extract basic metadata from Markdown content
 function getMetaFromMdContent(content) {
-    // 1. Image (md or html)
-    const mdImage = content.match(/!\[.*?\]\((.*?)\)/);
-    const htmlImage = content.match(/<img[^>]+src=["']([^"']+)["']/);
-    const image = mdImage ? mdImage[1] : (htmlImage ? htmlImage[1] : null);
+    const images = [];
+    // 1. Extract ALL Images
+    let match;
+    const mdImageRegex = /!\[.*?\]\((.*?)\)/g;
+    while ((match = mdImageRegex.exec(content)) !== null) {
+        if (match[1]) images.push(match[1]);
+    }
 
-    // 2. Title (# Title or **Title**)
+    const htmlImageRegex = /<img[^>]+src=["']([^"']+)["']/g;
+    while ((match = htmlImageRegex.exec(content)) !== null) {
+        if (match[1]) images.push(match[1]);
+    }
+
+    // 2. Extract Title
     const titleMatch = content.match(/^#\s+(.*)/m) || content.match(/^\*\*?(.*?)\*\*?$/m);
     const title = titleMatch ? titleMatch[1].trim() : null;
 
-    // 3. Description (Clean text)
-    const cleanContent = content
-        .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-        .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-        .replace(/<!--[\s\S]*?-->/g, '')
-        .replace(/#+\s+.*?\n/g, '')
-        .replace(/!\[.*?\]\(.*?\)/g, '')
-        .replace(/<[^>]*>/g, '')
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-        .replace(/[*_`~]/g, '')
-        .replace(/\s+/g, ' ')
+    // 3. Extract and Clean Description
+    let descText = content
+        .replace(/<style[\s\S]*?<\/style>/gi, '') // Remove style blocks
+        .replace(/<script[\s\S]*?<\/script>/gi, '') // Remove script blocks
+        .replace(/!\[.*?\]\(.*?\)/g, '') // Remove md images
+        .replace(/<img[^>]+>/g, '') // Remove html images
+        .replace(/#+\s+.*$/gm, '') // Remove headers
+        .replace(/<[^>]+>/g, ' ') // Replace HTML tags with space
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Keep link text
+        .replace(/[*_`~-]/g, '') // Remove formatting chars
+        .replace(/\s+/g, ' ') // Collapse whitespace
         .trim();
 
     return {
         title,
-        description: cleanContent.substring(0, 160) + (cleanContent.length > 160 ? '...' : ''),
-        image
+        description: descText.substring(0, 200) + (descText.length > 200 ? '...' : ''),
+        images: images
     };
 }
 
@@ -59,16 +67,31 @@ async function run() {
 
     // Function to create index.html in subfolder
     const createPage = (route, meta) => {
-        // Determine image URL
-        let imageUrl = `${siteUrl}/favicon.png`;
-        if (meta.image) {
-            imageUrl = meta.image.startsWith('http') ? meta.image :
-                meta.image.startsWith('/') ? `${siteUrl}${meta.image}` : `${siteUrl}/${meta.image}`;
-        }
-
         const fullTitle = meta.title ? `${meta.title} | ${siteTitle}` : siteTitle;
         const url = `${siteUrl}${route}`;
-        const desc = meta.description || template.site.description[lang];
+        // Fallback description only if extracted one is empty
+        const desc = meta.description && meta.description.length > 10 ? meta.description : template.site.description[lang];
+
+        // Image Logic: Use extracted images, or fall back to banner/site default
+        let imageTags = '';
+        const imagesToUse = meta.images && meta.images.length > 0 ? meta.images : (meta.image ? [meta.image] : []);
+
+        imagesToUse.forEach(img => {
+            let absoluteUrl = img.startsWith('http') ? img :
+                img.startsWith('/') ? `${siteUrl}${img}` : `${siteUrl}/${img}`;
+            imageTags += `<meta property="og:image" content="${absoluteUrl}">\n    `;
+            imageTags += `<meta name="twitter:image" content="${absoluteUrl}">\n    `;
+        });
+
+        // If no images found, we can choose to add favicon or nothing. 
+        // User asked for "no favicon" if possible, so we only add it if imagesToUse is empty?
+        // Actually, user said "take much image..., no favicon".
+        // Let's add favicon ONLY if absolutely no images found to avoid broken cards.
+        if (imagesToUse.length === 0) {
+            const fav = `${siteUrl}/favicon.png`;
+            imageTags += `<meta property="og:image" content="${fav}">\n    `;
+            imageTags += `<meta name="twitter:image" content="${fav}">\n    `;
+        }
 
         // Tags to inject
         const seoTags = `
@@ -77,24 +100,29 @@ async function run() {
     <meta property="og:type" content="website">
     <meta property="og:title" content="${fullTitle}">
     <meta property="og:description" content="${desc}">
-    <meta property="og:image" content="${imageUrl}">
     <meta property="og:url" content="${url}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${fullTitle}">
     <meta name="twitter:description" content="${desc}">
-    <meta name="twitter:image" content="${imageUrl}">`;
+    ${imageTags}`;
 
         // Replace </head> to inject tags
-        // Also try to strip existing title/meta description to prevent dupes (simple regex)
         let finalHtml = baseHtml
             .replace(/<title>.*?<\/title>/, '')
             .replace(/<meta name="description".*?>/, '')
+            .replace(/<meta property="og:title".*?>/, '')
+            .replace(/<meta property="og:description".*?>/, '')
+            .replace(/<meta property="og:image".*?>/g, '')
+            .replace(/<meta property="og:url".*?>/, '')
+            .replace(/<meta name="twitter:title".*?>/, '')
+            .replace(/<meta name="twitter:description".*?>/, '')
+            .replace(/<meta name="twitter:image".*?>/g, '')
             .replace('</head>', `${seoTags}\n</head>`);
 
         const targetDir = path.join(distDir, route);
         if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
         fs.writeFileSync(path.join(targetDir, 'index.html'), finalHtml);
-        console.log(`  ✓ Created: ${route}`);
+        console.log(`  ✓ Created: ${route} (Img: ${imagesToUse.length}, Desc: ${desc.substring(0, 20)}...)`);
     };
 
     // 1. Process Blog Posts
@@ -123,7 +151,7 @@ async function run() {
                 const extracted = getMetaFromMdContent(mdContent);
                 meta.title = extracted.title || meta.title;
                 meta.description = extracted.description;
-                meta.image = extracted.image;
+                meta.images = extracted.images;
             }
 
             createPage(page.url, meta);
