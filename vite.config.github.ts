@@ -25,11 +25,25 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('react')) return 'vendor-react';
+            // Group core framework together for stability
+            if (
+              id.includes('react') ||
+              id.includes('react-dom') ||
+              id.includes('wouter') ||
+              id.includes('scheduler')
+            ) {
+              return 'vendor-core';
+            }
             if (id.includes('framer-motion')) return 'vendor-animation';
             if (id.includes('lucide')) return 'vendor-icons';
             if (id.includes('highlight.js')) return 'vendor-highlight';
-            if (id.includes('marked') || id.includes('dompurify')) return 'vendor-parser';
+            if (
+              id.includes('marked') ||
+              id.includes('dompurify') ||
+              id.includes('recharts')
+            ) {
+              return 'vendor-utils';
+            }
             return 'vendor';
           }
         },
