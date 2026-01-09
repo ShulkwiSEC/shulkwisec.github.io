@@ -1,4 +1,4 @@
-const CACHE_NAME = 'shulkwisec-v2';
+const CACHE_NAME = 'shulkwisec-v3';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
