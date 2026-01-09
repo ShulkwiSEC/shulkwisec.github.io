@@ -21,8 +21,8 @@
 
 /* Edge Fade for Scrollable items */
 .scroll-mask {
-  mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
 }
 
 .will-animate {
@@ -382,7 +382,73 @@
     /* Firefox */
   }
 
+
   .scrollbar-none::-webkit-scrollbar {
     display: none;
+  }
+
+  .tinker-container {
+    @apply relative flex items-center overflow-hidden bg-white/40 dark:bg-background/80 backdrop-blur-xl rounded-full border border-black/[0.05] dark:border-white/[0.1] px-2 py-1 sm:px-3 sm:py-1.5 mt-4 transition-all duration-500;
+    box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05), inset 0 0 20px rgba(0, 0, 0, 0.01);
+  }
+
+  .tinker-label {
+    @apply flex items-center gap-1 sm:gap-1.5 px-3 py-0.5 sm:px-4 sm:py-1 bg-primary text-primary-foreground rounded-full text-[9px] sm:text-[10px] font-bold tracking-wider uppercase border border-primary/20 shrink-0 me-4 sm:me-6 shadow-md;
+    position: relative;
+    z-index: 20;
+  }
+
+  .tinker-track {
+    @apply flex items-center flex-nowrap w-max gap-6 sm:gap-10;
+    will-change: transform;
+    min-height: 24px;
+  }
+
+  @screen sm {
+    .tinker-track {
+      min-height: 32px;
+    }
+  }
+
+  .tinker-item {
+    @apply flex items-center gap-2 sm:gap-3 text-[11px] sm:text-[13px] no-underline transition-all duration-300 hover:opacity-100 opacity-80 dark:opacity-90 py-1 px-3 sm:px-4 rounded-lg;
+  }
+
+  .tinker-item:hover {
+    @apply bg-black/5 dark:bg-white/10;
+  }
+
+  .tinker-item:hover .tinker-title {
+    @apply text-primary;
+  }
+
+  .tinker-dot {
+    @apply w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-primary/30 border border-primary/20 shrink-0 mx-2 sm:mx-4 transition-all duration-500;
+    box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.1);
+  }
+
+  .tinker-item:hover+.tinker-dot {
+    @apply rotate-[135deg] bg-primary/60 scale-125;
+    box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.3);
+  }
+
+  .tinker-title {
+    @apply font-black tracking-tight text-foreground/90 dark:text-foreground transition-colors duration-300;
+  }
+
+  [dir="rtl"] .tinker-title {
+    @apply font-bold tracking-normal;
+  }
+
+  .tinker-subtitle {
+    @apply text-muted-foreground/60 dark:text-muted-foreground/70 text-[9px] sm:text-[11px] font-medium transition-colors duration-300;
+  }
+
+  .tinker-item:hover .tinker-subtitle {
+    @apply text-muted-foreground;
+  }
+
+  [dir="rtl"] .tinker-subtitle {
+    @apply text-right leading-relaxed;
   }
 }

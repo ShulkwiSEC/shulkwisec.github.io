@@ -696,6 +696,11 @@
       "en": "Views",
       "ar": "مشاهدة",
       "zh-cn": "观看次数"
+    },
+    "achievementsLabel": {
+      "en": "Achievements",
+      "ar": "الإنجازات",
+      "zh-cn": "成就"
     }
   }
 }

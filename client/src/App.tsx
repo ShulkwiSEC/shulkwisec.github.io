@@ -12,9 +12,6 @@ import NotFound from "@/pages/NotFound";
 import SEO from "@/components/layout/SEO";
 import MarkdownPage from "@/pages/MarkdownPage";
 import SwipeableRouter from "@/components/layout/Router";
-import Loader from "@/components/common/Loader";
-import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
 
 function AppRoutes() {
   return (
@@ -29,25 +26,6 @@ function AppRoutes() {
 }
 
 function App() {
-  const [loading, setLoading] = useState(() => {
-    // Check if user has already seen the loader in this session
-    if (typeof window !== "undefined") {
-      return !sessionStorage.getItem("hasSeenLoader");
-    }
-    return true;
-  });
-
-  useEffect(() => {
-    if (!loading) return;
-
-    // Artificial delay to show the creative loader
-    const timer = setTimeout(() => {
-      setLoading(false);
-      sessionStorage.setItem("hasSeenLoader", "true");
-    }, 2800);
-    return () => clearTimeout(timer);
-  }, [loading]);
-
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
@@ -55,15 +33,9 @@ function App() {
           <SEO />
           <TooltipProvider>
             <Toaster />
-            <AnimatePresence mode="wait">
-              {loading ? (
-                <Loader key="loader" />
-              ) : (
-                <SwipeableRouter key="router">
-                  <AppRoutes />
-                </SwipeableRouter>
-              )}
-            </AnimatePresence>
+            <SwipeableRouter>
+              <AppRoutes />
+            </SwipeableRouter>
           </TooltipProvider>
         </LanguageProvider>
       </ThemeProvider>

@@ -1,10 +1,11 @@
-import { Moon, Sun, Globe, ChevronDown } from 'lucide-react';
+import { Moon, Sun, Globe, Trophy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/Language';
 import { useTheme } from '@/contexts/Theme';
-import { siteConfig } from '@/lib/data';
+import { siteConfig, achievements } from '@/lib/data';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useLocation, Link } from 'wouter';
+
 
 // Debounce utility function
 const debounce = (func: Function, delay: number) => {
@@ -23,6 +24,48 @@ export default function Header() {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [location] = useLocation();
   const currentPath = location;
+
+  const trackRef = useRef<HTMLDivElement>(null);
+  const isPaused = useRef(false);
+
+  useEffect(() => {
+    if (!achievements.length || !trackRef.current) return;
+
+    const track = trackRef.current;
+    let offset = language === 'ar' ? 0 : 0; // Will be adjusted in first frame
+    let animationId: number;
+    let lastHalfWidth = 0;
+    const speed = 1.2;
+
+    const animate = () => {
+      if (!isPaused.current) {
+        const halfWidth = track.scrollWidth / 2;
+
+        if (halfWidth > 0) {
+          // Detect if content changed or loaded and reset if necessary
+          if (lastHalfWidth === 0) {
+            lastHalfWidth = halfWidth;
+            offset = 0;
+          }
+
+          offset -= speed;
+          if (offset <= -halfWidth) offset = 0;
+
+          track.style.transform = `translate3d(${offset}px, 0, 0)`;
+        }
+      }
+      animationId = requestAnimationFrame(animate);
+    };
+
+    const timeoutId = setTimeout(() => {
+      animationId = requestAnimationFrame(animate);
+    }, 200);
+
+    return () => {
+      clearTimeout(timeoutId);
+      cancelAnimationFrame(animationId);
+    };
+  }, [achievements.length, language]);
 
   const getLinkClasses = (href: string) => {
     const baseClasses = "text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium pb-1";
@@ -56,68 +99,72 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-[60] w-full pointer-events-none will-animate"
+      className={`sticky top-0 z-50 backdrop-blur-sm transition-[padding,background-color,box-shadow] duration-500 ease-out ${isShrunk ? 'py-2' : 'py-4 sm:py-6'}`}
       style={{
-        paddingTop: `var(--safe-top)`,
-        transition: 'padding var(--island-speed) var(--island-ease)'
+        paddingTop: `calc(var(--safe-top) + ${isShrunk ? '0.5rem' : '1rem'})`,
+        transition: 'padding-top 0.5s ease-out'
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 max-w-5xl flex justify-center">
-        <div
-          className={`
-            pointer-events-auto flex items-center justify-between gap-4 px-5 sm:px-8
-            transition-all duration-700 ease-[var(--island-ease)] will-animate
-            ${isShrunk
-              ? 'mt-3 w-auto min-w-[300px] h-14 rounded-[2.5rem] bg-background/85 backdrop-blur-2xl border border-white/15 dark:border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.15)]'
-              : 'w-full h-24 rounded-3xl bg-background/60 backdrop-blur-xl border border-transparent shadow-none'
-            }
-          `}
-        >
-          {/* Brand/Logo - Left Docked */}
-          <div className="flex flex-col flex-shrink-0">
-            <h1 className={`font-bold tracking-tight transition-all duration-700 ease-[var(--island-ease)] ${isShrunk ? 'text-lg' : 'text-2xl sm:text-3xl'
+      <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+        <div className="flex items-center justify-between">
+          {/* Logo and Title Section */}
+          <div className={`flex flex-col transition-[gap] duration-500 ease-in-out ${isShrunk ? 'gap-0' : 'gap-1'
+            }`}>
+            <h1 className={`font-bold transition-[font-size] duration-500 ease-in-out ${isShrunk ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl md:text-3xl'
               }`}>
               <Link
                 href="/"
-                className="hover:text-primary transition-colors duration-300 transform active:scale-95 inline-block"
+                className="hover:text-primary transition-colors duration-300 inline-block hover:scale-105 transform"
               >
                 {siteConfig.title[language]}
               </Link>
             </h1>
+
+            {/* Subtitle with joint collapse effect */}
+            <div
+              className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out ${isShrunk ? 'max-h-0 opacity-0' : 'max-h-10 opacity-100'
+                }`}
+            >
+              <p className="text-muted-foreground text-xs sm:text-sm">
+                {siteConfig.subtitle[language]}
+              </p>
+            </div>
           </div>
 
-          {/* Dynamic Spacer */}
-          <div className={`transition-all duration-700 ease-[var(--island-ease)] ${isShrunk ? 'w-4 sm:w-12' : 'flex-grow'}`} />
-
-          {/* Action Island - Right Docked */}
-          <div className="flex items-center gap-1.5 sm:gap-3">
+          {/* Action Buttons */}
+          <div className={`flex items-center transition-[gap] duration-500 ease-in-out ${isShrunk ? 'gap-1' : 'gap-2'
+            }`}>
+            {/* Language Selector */}
             <div className="relative">
               <Button
                 size="icon"
                 variant="ghost"
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="h-10 w-10 rounded-full hover:bg-primary/10 transition-all active:scale-90"
+                data-testid="button-language-toggle"
+                className={`transition-[height,width] duration-500 hover:scale-110 hover:bg-accent ${isShrunk ? 'h-8 w-8' : 'h-9 w-9'
+                  }`}
               >
-                <Globe className="h-5 w-5" />
+                <Globe className={`transition-[height,width] duration-500 ${isShrunk ? 'h-4 w-4' : 'h-5 w-5'
+                  }`} />
               </Button>
 
               {isLangOpen && (
-                <div className="absolute end-0 top-full mt-4 min-w-[130px] rounded-2xl shadow-2xl bg-popover/95 backdrop-blur-2xl border border-border p-2 animate-in fade-in slide-in-from-top-2 duration-300 z-[70]">
-                  {((siteConfig as any).languages || ['en', 'ar']).map((lang: string) => (
-                    <button
-                      key={lang}
-                      onClick={() => {
-                        setLanguage(lang);
-                        setIsLangOpen(false);
-                      }}
-                      className={`block w-full text-center px-4 py-2.5 text-sm rounded-xl transition-all ${language === lang
-                          ? 'bg-primary text-primary-foreground font-bold shadow-sm'
-                          : 'hover:bg-accent text-popover-foreground'
-                        }`}
-                    >
-                      {lang.toUpperCase()}
-                    </button>
-                  ))}
+                <div className="absolute right-0 top-full mt-2 min-w-[100px] w-auto rounded-md shadow-lg bg-popover ring-1 ring-black ring-opacity-5 focus:outline-none z-50 animate-in fade-in zoom-in-95 duration-200 bg-white dark:bg-zinc-950 border border-border">
+                  <div className="py-1">
+                    {((siteConfig as any).languages || ['en', 'ar']).map((lang: string) => (
+                      <button
+                        key={lang}
+                        onClick={() => {
+                          setLanguage(lang);
+                          setIsLangOpen(false);
+                        }}
+                        className={`block w-full text-left px-4 py-2 text-sm whitespace-nowrap hover:bg-accent hover:text-accent-foreground transition-colors ${language === lang ? 'font-bold text-primary' : 'text-popover-foreground'
+                          }`}
+                      >
+                        {lang.toUpperCase()}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -126,48 +173,97 @@ export default function Header() {
               size="icon"
               variant="ghost"
               onClick={toggleTheme}
-              className="h-10 w-10 rounded-full hover:bg-primary/10 transition-all group active:scale-90"
+              data-testid="button-theme-toggle"
+              className={`transition-[height,width] duration-500 hover:scale-110 hover:bg-accent hover:rotate-180 ${isShrunk ? 'h-8 w-8' : 'h-9 w-9'
+                }`}
             >
               {theme === 'dark' ? (
-                <Sun className="h-5 w-5 transition-transform duration-500 group-hover:rotate-90" />
+                <Sun className={`transition-[height,width] duration-500 ${isShrunk ? 'h-4 w-4' : 'h-5 w-5'
+                  }`} />
               ) : (
-                <Moon className="h-5 w-5 transition-transform duration-500 group-hover:-rotate-12" />
+                <Moon className={`transition-[height,width] duration-500 ${isShrunk ? 'h-4 w-4' : 'h-5 w-5'
+                  }`} />
               )}
             </Button>
           </div>
         </div>
-      </div>
 
-      {/* Navigation - Professional Staggered Assembly */}
-      <nav
-        className={`mt-4 px-4 flex justify-center overflow-hidden transition-all duration-700 ease-[var(--island-ease)] ${isShrunk ? 'max-h-0 opacity-0 -translate-y-8 pointer-events-none' : 'max-h-24 opacity-100 translate-y-0'
-          }`}
-      >
-        <ul
-          className="flex items-center gap-2 sm:gap-4 text-sm font-medium bg-background/50 backdrop-blur-2xl px-5 py-3 rounded-[1.5rem] border border-white/10 dark:border-white/5 shadow-xl overflow-x-auto scrollbar-none whitespace-nowrap max-w-full scroll-mask will-animate"
-          style={{ pointerEvents: 'auto' }}
-        >
-          {[
-            { label: t('home'), href: '/' },
-            { label: t('about'), href: '/about' },
-            ...(siteConfig.external || []).map((link: any) => ({ label: link.name[language], href: link.url }))
-          ].map((item, i) => (
-            <li
-              key={i}
-              className="flex-shrink-0 transition-all duration-700 ease-[var(--island-ease)]"
-              style={{
-                transitionDelay: isShrunk ? '0ms' : `${i * 50}ms`,
-                transform: isShrunk ? 'scale(0.8) translateY(-10px)' : 'scale(1) translateY(0)',
-                opacity: isShrunk ? 0 : 1
-              }}
-            >
-              <Link href={item.href} className={getLinkClasses(item.href)}>
-                {item.label}
+        {/* Navigation with joint accordion effect */}
+        <nav
+          className={`overflow-hidden transition-[max-height,opacity,margin-top] duration-500 ease-in-out ${isShrunk
+            ? 'max-h-0 opacity-0 mt-0'
+            : 'max-h-48 opacity-100 mt-4'
+            }`}>
+          <ul className="flex gap-4 sm:gap-6 text-sm sm:text-base overflow-x-auto whitespace-nowrap scrollbar-none px-1">
+            <li className="transform transition-all duration-300 hover:scale-105">
+              <Link
+                href="/"
+                className={getLinkClasses('/')}
+                data-testid="link-home"
+              >
+                {t('home')}
               </Link>
             </li>
-          ))}
-        </ul>
-      </nav>
+            <li className="transform transition-all duration-300 hover:scale-105">
+              <Link
+                href="/about"
+                className={getLinkClasses('/about')}
+                data-testid="link-about"
+              >
+                {t('about')}
+              </Link>
+            </li>
+            {siteConfig.external && siteConfig.external.map((link: { name: Record<string, string>; url: string }, index: number) => (
+              <li key={index} className="transform transition-all duration-300 hover:scale-105">
+                <Link
+                  href={link.url}
+                  className={getLinkClasses(link.url)}
+                >
+                  {link.name[language]}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          {achievements && achievements.length > 0 && (
+            <div className="tinker-container" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+              <div className="tinker-label" style={{ zIndex: 2 }}>
+                <Trophy size={14} className="fill-current" />
+                <span>{t('achievementsLabel')}</span>
+              </div>
+              <div
+                className="flex-1 overflow-hidden scroll-mask"
+                onMouseEnter={() => { isPaused.current = true; }}
+                onMouseLeave={() => { isPaused.current = false; }}
+                style={{ direction: 'ltr' }}
+              >
+                <div
+                  ref={trackRef}
+                  className="tinker-track"
+                  style={{ position: 'relative', left: 0 }}
+                >
+                  {[...achievements, ...achievements].map((achievement, idx) => (
+                    <div key={idx} className="flex items-center shrink-0" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+                      <a
+                        href={achievement.fallback}
+                        className="tinker-item"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ whiteSpace: 'nowrap' }}
+                      >
+                        <span className="tinker-title">{achievement.title[language]}</span>
+                        <span className="tinker-subtitle ms-2">
+                          {achievement.subtitle[language]}
+                        </span>
+                      </a>
+                      <div className="tinker-dot" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </nav>
+      </div>
     </header>
   );
 }
