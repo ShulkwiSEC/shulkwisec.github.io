@@ -157,31 +157,30 @@
       word-break: break-word;
     }
   </style>
-  <script
-    type="text/javascript">    (function () { var redirect = window.location.search; if (redirect && redirect.startsWith('?p=')) { var path = decodeURIComponent(redirect.substring(3)); window.history.replaceState(null, null, path); } })(); if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(reg => {
-              console.log('SW Registered');
-              // Check for updates
-              reg.addEventListener('updatefound', () => {
-                const newWorker = reg.installing;
-                newWorker.addEventListener('statechange', () => {
-                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                    // New content is available, show notification
-                    showUpdateBanner();
-                  }
-                });
+  <script type="text/javascript">    (function () { var redirect = window.location.search; if (redirect && redirect.startsWith('?p=')) { var path = decodeURIComponent(redirect.substring(3)); window.history.replaceState(null, null, path); } })(); if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => {
+            console.log('SW Registered');
+            // Check for updates
+            reg.addEventListener('updatefound', () => {
+              const newWorker = reg.installing;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // New content is available, show notification
+                  showUpdateBanner();
+                }
               });
-            })
-            .catch(err => console.log('SW Registration Failed', err));
-        });
-      }
+            });
+          })
+          .catch(err => console.log('SW Registration Failed', err));
+      });
+    }
 
-      function showUpdateBanner() {
-        const banner = document.createElement('div');
-        banner.id = 'pwa-update-banner';
-        banner.innerHTML = `
+    function showUpdateBanner() {
+      const banner = document.createElement('div');
+      banner.id = 'pwa-update-banner';
+      banner.innerHTML = `
         <div style="position: fixed; bottom: 20px; right: 20px; background: #2563eb; color: white; padding: 12px 20px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 9999; display: flex; items-center: center; gap: 12px; font-family: sans-serif; animation: slideIn 0.5s ease-out;">
           <span style="font-size: 14px; font-weight: 500;">New version available!</span>
           <button onclick="window.location.reload()" style="background: white; color: #2563eb; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s;">Refresh</button>
@@ -190,9 +189,68 @@
           @keyframes slideIn { from { transform: translateX(120%); } to { transform: translateX(0); } }
         </style>
       `;
-        document.body.appendChild(banner);
+      document.body.appendChild(banner);
+    }
+    // PWA Install Logic
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      console.log('🎉 PWA Install Prompt Event Fired!');
+      e.preventDefault();
+      deferredPrompt = e;
+
+      // Check if dismissed
+      const dismissed = sessionStorage.getItem('pwa-dismissed');
+      console.log('PWA Dismissed in session?', dismissed);
+
+      // Show the banner if it hasn't been dismissed in this session
+      if (!dismissed) {
+        console.log('⏰ Showing PWA banner in 3 seconds...');
+        setTimeout(() => {
+          document.getElementById('pwa-install-banner').classList.add('show');
+          console.log('✅ PWA Banner shown!');
+        }, 3000);
+      } else {
+        console.log('❌ PWA Banner blocked by session storage');
       }
-      // PWA Install Logic    let deferredPrompt;    window.addEventListener('beforeinstallprompt', (e) => {      e.preventDefault();      deferredPrompt = e;      // Show the banner if it hasn't been dismissed in this session      if (!sessionStorage.getItem('pwa-dismissed')) {        setTimeout(() => {          document.getElementById('pwa-install-banner').classList.add('show');        }, 3000);      }    });    function installPWA() {      if (!deferredPrompt) return;      document.getElementById('pwa-install-banner').classList.remove('show');      deferredPrompt.prompt();      deferredPrompt.userChoice.then((choiceResult) => {        if (choiceResult.outcome === 'accepted') {          console.log('User accepted the PWA install');        }        deferredPrompt = null;      });    }    function dismissPWA() {      document.getElementById('pwa-install-banner').classList.remove('show');      sessionStorage.setItem('pwa-dismissed', 'true');    }  </script>
+    });
+
+    // Debug: Check if event listener is set up
+    console.log('PWA Install listener registered');
+
+    function installPWA() {
+      if (!deferredPrompt) {
+        console.log('⚠️ No deferred prompt available');
+        return;
+      }
+      console.log('Installing PWA...');
+      document.getElementById('pwa-install-banner').classList.remove('show');
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('✅ User accepted the PWA install');
+        } else {
+          console.log('❌ User declined the PWA install');
+        }
+        deferredPrompt = null;
+      });
+    }
+
+    function dismissPWA() {
+      console.log('PWA Banner dismissed');
+      document.getElementById('pwa-install-banner').classList.remove('show');
+      sessionStorage.setItem('pwa-dismissed', 'true');
+    }
+
+    // Debug function: Force show banner (for testing)
+    window.testPWABanner = function () {
+      console.log('🧪 Forcing PWA banner to show...');
+      sessionStorage.removeItem('pwa-dismissed');
+      document.getElementById('pwa-install-banner').classList.add('show');
+    };
+
+    console.log('💡 To test PWA banner manually, run: testPWABanner()');
+  </script>
   <script async src="https://counterapi.com/counterapi.embed.js"></script>
   <title>shulkwisec</title>
   <meta name="description" content="Bilingual technical blog for sharing web development knowledge and experiences" />

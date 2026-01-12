@@ -99,7 +99,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-500 ease-out ${isShrunk ? 'py-2 bg-background/80 border-b border-border/50 shadow-sm' : 'py-4 sm:py-6 bg-transparent border-b border-transparent'}`}
+      className={`sticky top-0 z-50  transition-all ease-out ${isShrunk ? 'py-2 bg-background/80 border-b border-border/50 shadow-sm' : 'py-4 sm:py-6 bg-transparent border-b border-transparent'}`}
       style={{
         paddingTop: `calc(var(--safe-top) + ${isShrunk ? '0.5rem' : '1rem'})`,
         transition: 'all 0.5s ease-out'
@@ -114,7 +114,7 @@ export default function Header() {
               }`}>
               <Link
                 href="/"
-                className="hover:text-primary transition-all duration-300 inline-block hover:scale-105 transform hover:drop-shadow-[0_0_8px_rgba(var(--primary-rgb),0.3)]"
+                className="transition-colors duration-300"
               >
                 {siteConfig.title[language]}
               </Link>
@@ -141,7 +141,7 @@ export default function Header() {
                 variant="ghost"
                 onClick={() => setIsLangOpen(!isLangOpen)}
                 data-testid="button-language-toggle"
-                className={`transition-[height,width] duration-500 hover:scale-110 hover:bg-accent ${isShrunk ? 'h-8 w-8' : 'h-9 w-9'
+                className={`transition-[height,width] duration-500 hover:scale-105 hover:bg-accent ${isShrunk ? 'h-8 w-8' : 'h-9 w-9'
                   }`}
               >
                 <Globe className={`transition-[height,width] duration-500 ${isShrunk ? 'h-4 w-4' : 'h-5 w-5'
