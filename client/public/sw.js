@@ -1,7 +1,7 @@
-const CACHE_NAME = 'shulkwisec-v5-media';
-const STATIC_CACHE = 'shulkwisec-static-v5';
-const MEDIA_CACHE = 'shulkwisec-media-v5';
-const DOCUMENT_CACHE = 'shulkwisec-docs-v5';
+const CACHE_NAME = 'shulkwisec-v6-media';
+const STATIC_CACHE = 'shulkwisec-static-v6';
+const MEDIA_CACHE = 'shulkwisec-media-v6';
+const DOCUMENT_CACHE = 'shulkwisec-docs-v6';
 
 const ASSETS_TO_CACHE = [
     '/',
