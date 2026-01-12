@@ -8,22 +8,23 @@ import { useTheme } from '@/contexts/Theme';
 import Giscus from '@giscus/react';
 import { commentsConfig } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
-import { ArrowLeft, Pin } from 'lucide-react';
+import { ArrowLeft, Pin, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import SaveButton from '@/components/common/Save';
 import ShareButton from '@/components/common/Share';
 import Views from '@/components/common/Views';
 import SEO from '@/components/layout/SEO';
+import { useMediaModal } from '@/contexts/MediaModal';
 
 import DOMPurify from 'dompurify';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
-import { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
 
-import { BlogPost as BlogPostType } from '@/types/blog';
+import { BlogPost as BlogPostType, BannerMedia } from '@/types/blog';
 
 // Configure marked options
 marked.use({
@@ -58,6 +59,12 @@ export default function BlogPost() {
     damping: 30,
     restDelta: 0.001
   });
+
+  // State for video banner
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  // Media modal for clickable banners
+  const { showMedia } = useMediaModal();
 
   // Calculate reading metrics
   const stats = useMemo(() => {
@@ -144,12 +151,22 @@ export default function BlogPost() {
 
   const postTitle = post.title[language] || post.title['en'] || Object.values(post.title)[0] || '';
 
+  // Extract banner URL from string or BannerMedia object
+  const getBannerUrl = (banner: string | BannerMedia | undefined): string | undefined => {
+    if (!banner) return undefined;
+    if (typeof banner === 'string') return banner;
+    if (typeof banner === 'object' && banner.url) return banner.url;
+    return undefined;
+  };
+
+  const bannerUrl = getBannerUrl(post.banner);
+
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
         title={postTitle}
         description={post.excerpt[language] || post.excerpt['en']}
-        image={post.banner}
+        image={bannerUrl}
         article={true}
         publishedTime={post.date}
         tags={post.tags}
@@ -180,13 +197,137 @@ export default function BlogPost() {
             style={{ scaleX }}
           />
 
-          {post.banner && (
-            <img
-              src={post.banner}
-              alt={postTitle}
-              className="w-full h-64 object-cover rounded-xl shadow-lg mb-8"
-            />
-          )}
+          {/* Banner Section - Full Media Support */}
+          {post.banner && (() => {
+            const bannerData: BannerMedia | null = typeof post.banner === 'string'
+              ? { url: post.banner, type: 'image' }
+              : post.banner;
+
+            if (!bannerData) return null;
+
+            // Determine media type from URL if not specified
+            const getBannerType = (media: BannerMedia): BannerMedia['type'] => {
+              if (media.type) return media.type;
+              const url = media.url.toLowerCase();
+              if (url.match(/\.(mp4|webm|ogg|mov)$/)) return 'video';
+              if (url.match(/\.(gif)$/)) return 'gif';
+              if (url.match(/\.(jpg|jpeg|png|webp|svg)$/)) return 'image';
+              if (url.includes('youtube.com') || url.includes('youtu.be') || url.includes('vimeo.com')) return 'embed';
+              if (url.includes('slides.google.com') || url.includes('slideshare.net')) return 'slides';
+              if (url.match(/\.(pdf|doc|docx|ppt|pptx)$/)) return 'doc';
+              return 'image';
+            };
+
+            const mediaType = getBannerType(bannerData);
+            const altText = bannerData.alt || postTitle;
+
+            // Handler to open media in modal - ALL types now open in modal
+            const handleMediaClick = () => {
+              showMedia(bannerData);
+            };
+
+            const bannerContent = (() => {
+              switch (mediaType) {
+                case 'video':
+                  return (
+                    <div
+                      className="relative group cursor-pointer"
+                      onClick={handleMediaClick}
+                    >
+                      <video
+                        className="w-full h-full object-cover pointer-events-none"
+                        poster={bannerData.thumbnail}
+                        preload="metadata"
+                      >
+                        <source src={bannerData.url} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                        <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Play className="w-10 h-10 text-primary-foreground ml-1" />
+                        </div>
+                      </div>
+                      <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1.5 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                        Click to play fullscreen
+                      </div>
+                    </div>
+                  );
+
+                case 'gif':
+                case 'image':
+                  return (
+                    <div className="relative group cursor-pointer" onClick={handleMediaClick}>
+                      <img
+                        src={bannerData.url}
+                        alt={altText}
+                        className="w-full h-full object-cover group-hover:opacity-95 transition-opacity"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1.5 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                        Click to expand
+                      </div>
+                    </div>
+                  );
+
+                case 'embed':
+                case 'slides':
+                  return (
+                    <div
+                      className="relative w-full group cursor-pointer"
+                      style={{ paddingBottom: '56.25%' }}
+                      onClick={handleMediaClick}
+                    >
+                      <iframe
+                        src={bannerData.url}
+                        className="absolute inset-0 w-full h-full pointer-events-none"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        title={altText}
+                      />
+                      <div className="absolute inset-0 bg-transparent group-hover:bg-black/10 transition-colors" />
+                      <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1.5 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        Click to view fullscreen
+                      </div>
+                    </div>
+                  );
+
+                case 'doc':
+                  return (
+                    <div
+                      className="relative w-full bg-muted/30 flex items-center justify-center p-8 cursor-pointer hover:bg-muted/40 transition-colors group"
+                      onClick={handleMediaClick}
+                    >
+                      {bannerData.thumbnail ? (
+                        <>
+                          <img
+                            src={bannerData.thumbnail}
+                            alt={altText}
+                            className="w-full h-full object-contain max-h-96"
+                            loading="lazy"
+                          />
+                          <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1.5 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                            Click to view
+                          </div>
+                        </>
+                      ) : (
+                        <div className="text-center">
+                          <div className="text-6xl mb-4">📄</div>
+                          <p className="text-sm text-muted-foreground">Click to view document</p>
+                        </div>
+                      )}
+                    </div>
+                  );
+
+                default:
+                  return null;
+              }
+            })();
+
+            return (
+              <div className="relative w-full h-auto max-h-[500px] mb-8 rounded-xl overflow-hidden shadow-lg bg-muted/20">
+                {bannerContent}
+              </div>
+            );
+          })()}
 
           <div className="flex items-center gap-3 text-sm text-muted-foreground mb-6">
             <time data-testid="text-post-date">{post.date}</time>

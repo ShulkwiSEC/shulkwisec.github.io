@@ -168,6 +168,7 @@ export default function SimpleBlog() {
                 excerpt={post.excerpt[language] || post.excerpt['en'] || Object.values(post.excerpt)[0] || ''}
                 link={`/post/${post.id}`}
                 pin={post.pin}
+                banner={post.banner}
               />
             ))
           ) : (

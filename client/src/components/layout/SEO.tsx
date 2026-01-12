@@ -133,9 +133,20 @@ const SEO: React.FC<SEOProps> = ({
     const fullTitle = autoData.title ? `${autoData.title} | ${siteTitle}` : `${siteTitle} - ${siteSubtitle}`;
     const metaDescription = autoData.description || siteDescription;
     const metaImageRaw = autoData.image;
-    const metaImage = metaImageRaw
-        ? (metaImageRaw.startsWith('http') ? metaImageRaw : `${siteUrl}${metaImageRaw}`)
+
+    // Handle both string and BannerMedia object types
+    const getImageUrl = (image: any): string | undefined => {
+        if (!image) return undefined;
+        if (typeof image === 'string') return image;
+        if (typeof image === 'object' && image.url) return image.url;
+        return undefined;
+    };
+
+    const imageUrl = getImageUrl(metaImageRaw);
+    const metaImage = imageUrl
+        ? (imageUrl.startsWith('http') ? imageUrl : `${siteUrl}${imageUrl}`)
         : `${siteUrl}/favicon.png`;
+
 
     const canonicalUrl = `${siteUrl}${canonicalPath || location}`;
 

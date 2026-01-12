@@ -1,0 +1,247 @@
+{
+    "examples": [
+        {
+            "name": "Simple Image Banner (String)",
+            "description": "The simplest way to add a banner - just provide a URL",
+            "example": {
+                "id": "example-simple-image",
+                "date": "January 15, 2026",
+                "title": {
+                    "en": "My Blog Post with Simple Banner"
+                },
+                "excerpt": {
+                    "en": "This post has a simple image banner"
+                },
+                "content": "...",
+                "banner": "https://placehold.co/1200x630/EEF2FF/1F2937?text=Blog+Banner",
+                "tags": [
+                    "example"
+                ]
+            }
+        },
+        {
+            "name": "Image Banner (Object)",
+            "description": "Rich image banner with alt text",
+            "example": {
+                "id": "example-image-object",
+                "date": "January 15, 2026",
+                "title": {
+                    "en": "Blog Post with Rich Image Banner"
+                },
+                "excerpt": {
+                    "en": "This post has a rich image banner with metadata"
+                },
+                "content": "...",
+                "banner": {
+                    "url": "https://placehold.co/1200x630/EEF2FF/1F2937?text=CTF+Writeup",
+                    "type": "image",
+                    "alt": "CTF Challenge Writeup Banner"
+                },
+                "tags": [
+                    "ctf",
+                    "writeup"
+                ]
+            }
+        },
+        {
+            "name": "GIF Banner",
+            "description": "Animated GIF banner",
+            "example": {
+                "id": "example-gif-banner",
+                "date": "January 15, 2026",
+                "title": {
+                    "en": "Animated Tutorial"
+                },
+                "excerpt": {
+                    "en": "This post has an animated GIF banner"
+                },
+                "content": "...",
+                "banner": {
+                    "url": "https://example.com/animation.gif",
+                    "type": "gif",
+                    "alt": "Animated demonstration of the exploit"
+                },
+                "tags": [
+                    "tutorial"
+                ]
+            }
+        },
+        {
+            "name": "Video Banner",
+            "description": "Video banner with custom thumbnail",
+            "example": {
+                "id": "example-video-banner",
+                "date": "January 15, 2026",
+                "title": {
+                    "en": "Video Tutorial: Advanced Exploitation"
+                },
+                "excerpt": {
+                    "en": "This post has a video banner with custom thumbnail"
+                },
+                "content": "...",
+                "banner": {
+                    "url": "https://example.com/demo-video.mp4",
+                    "type": "video",
+                    "alt": "Exploitation demonstration video",
+                    "thumbnail": "https://example.com/video-thumbnail.jpg"
+                },
+                "tags": [
+                    "video",
+                    "tutorial",
+                    "exploitation"
+                ]
+            }
+        },
+        {
+            "name": "YouTube Embed Banner",
+            "description": "Embedded YouTube video",
+            "example": {
+                "id": "example-youtube-banner",
+                "date": "January 15, 2026",
+                "title": {
+                    "en": "Conference Talk: Web Security"
+                },
+                "excerpt": {
+                    "en": "This post has an embedded YouTube video"
+                },
+                "content": "...",
+                "banner": {
+                    "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    "type": "embed",
+                    "alt": "Conference talk on web security"
+                },
+                "tags": [
+                    "conference",
+                    "video"
+                ]
+            }
+        },
+        {
+            "name": "Vimeo Embed Banner",
+            "description": "Embedded Vimeo video",
+            "example": {
+                "id": "example-vimeo-banner",
+                "date": "January 15, 2026",
+                "title": {
+                    "en": "Workshop Recording"
+                },
+                "excerpt": {
+                    "en": "This post has an embedded Vimeo video"
+                },
+                "content": "...",
+                "banner": {
+                    "url": "https://player.vimeo.com/video/123456789",
+                    "type": "embed",
+                    "alt": "Security workshop recording"
+                },
+                "tags": [
+                    "workshop",
+                    "video"
+                ]
+            }
+        },
+        {
+            "name": "Google Slides Banner",
+            "description": "Embedded Google Slides presentation",
+            "example": {
+                "id": "example-slides-banner",
+                "date": "January 15, 2026",
+                "title": {
+                    "en": "Presentation: Modern Web Security"
+                },
+                "excerpt": {
+                    "en": "This post has embedded Google Slides"
+                },
+                "content": "...",
+                "banner": {
+                    "url": "https://docs.google.com/presentation/d/e/2PACX-PRESENTATION_ID/embed?start=false&loop=false&delayms=3000",
+                    "type": "slides",
+                    "alt": "Web security presentation slides"
+                },
+                "tags": [
+                    "presentation",
+                    "slides"
+                ]
+            }
+        },
+        {
+            "name": "Document Banner with Thumbnail",
+            "description": "PDF document with custom preview thumbnail",
+            "example": {
+                "id": "example-doc-banner",
+                "date": "January 15, 2026",
+                "title": {
+                    "en": "Research Paper: Advanced Techniques"
+                },
+                "excerpt": {
+                    "en": "This post has a document banner with preview"
+                },
+                "content": "...",
+                "banner": {
+                    "url": "https://example.com/research-paper.pdf",
+                    "type": "doc",
+                    "alt": "Research paper on advanced exploitation techniques",
+                    "thumbnail": "https://example.com/paper-preview.jpg"
+                },
+                "tags": [
+                    "research",
+                    "paper"
+                ]
+            }
+        },
+        {
+            "name": "Document Banner without Thumbnail",
+            "description": "Document with fallback icon",
+            "example": {
+                "id": "example-doc-no-thumb",
+                "date": "January 15, 2026",
+                "title": {
+                    "en": "Technical Documentation"
+                },
+                "excerpt": {
+                    "en": "This post has a document banner without thumbnail"
+                },
+                "content": "...",
+                "banner": {
+                    "url": "https://example.com/documentation.pdf",
+                    "type": "doc",
+                    "alt": "Technical documentation PDF"
+                },
+                "tags": [
+                    "documentation"
+                ]
+            }
+        },
+        {
+            "name": "Auto-Detection Example",
+            "description": "Let the system auto-detect the media type from URL",
+            "example": {
+                "id": "example-auto-detect",
+                "date": "January 15, 2026",
+                "title": {
+                    "en": "Auto-Detected Media Type"
+                },
+                "excerpt": {
+                    "en": "This banner type will be auto-detected"
+                },
+                "content": "...",
+                "banner": {
+                    "url": "https://example.com/video.mp4",
+                    "alt": "This will be auto-detected as video"
+                },
+                "tags": [
+                    "auto-detect"
+                ]
+            }
+        }
+    ],
+    "notes": [
+        "The 'type' field is optional - the system will auto-detect based on URL",
+        "Always provide 'alt' text for accessibility",
+        "For videos, providing a 'thumbnail' improves user experience",
+        "For documents, a 'thumbnail' provides a visual preview",
+        "Simple string banners are still supported for backward compatibility",
+        "Embedded content (YouTube, Vimeo, Slides) uses 16:9 aspect ratio",
+        "All banners are displayed at a fixed height of 256px (h-64)"
+    ]
+}

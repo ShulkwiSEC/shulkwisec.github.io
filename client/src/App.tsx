@@ -12,7 +12,7 @@ import NotFound from "@/pages/NotFound";
 import SEO from "@/components/layout/SEO";
 import MarkdownPage from "@/pages/MarkdownPage";
 import SwipeableRouter from "@/components/layout/Router";
-import { ImageModalProvider } from "@/contexts/ImageModal";
+import { MediaModalProvider } from "@/contexts/MediaModal";
 
 function AppRoutes() {
   return (
@@ -31,7 +31,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <LanguageProvider>
-          <ImageModalProvider>
+          <MediaModalProvider>
             <SEO />
             <TooltipProvider>
               <Toaster />
@@ -39,7 +39,7 @@ function App() {
                 <AppRoutes />
               </SwipeableRouter>
             </TooltipProvider>
-          </ImageModalProvider>
+          </MediaModalProvider>
         </LanguageProvider>
       </ThemeProvider>
     </QueryClientProvider>
