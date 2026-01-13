@@ -35,6 +35,7 @@ jobs:
 
       - name: Build
         run: |
+          rm -rf dist/public
           npm run build
           # Create 404.html to handle client-side routing refreshes
           cp dist/public/index.html dist/public/404.html

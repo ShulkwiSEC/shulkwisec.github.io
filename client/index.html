@@ -157,39 +157,59 @@
       word-break: break-word;
     }
   </style>
-  <script type="text/javascript">    (function () { var redirect = window.location.search; if (redirect && redirect.startsWith('?p=')) { var path = decodeURIComponent(redirect.substring(3)); window.history.replaceState(null, null, path); } })(); if ('serviceWorker' in navigator) {
+  <script type="text/javascript">    (function () { var redirect = window.location.search; if (redirect && redirect.startsWith('?p=')) { var path = decodeURIComponent(redirect.substring(3)); window.history.replaceState(null, null, path); } })();
+
+    if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
+        // updateViaCache: 'none' forces the browser to bypass its own cache for sw.js script
+        navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' })
           .then(reg => {
             console.log('SW Registered');
-            // Check for updates
+
+            // Check for updates periodically
+            setInterval(() => reg.update(), 60 * 60 * 1000); // Once an hour
+
             reg.addEventListener('updatefound', () => {
               const newWorker = reg.installing;
               newWorker.addEventListener('statechange', () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // New content is available, show notification
-                  showUpdateBanner();
+                  showUpdateBanner(newWorker);
                 }
               });
             });
           })
           .catch(err => console.log('SW Registration Failed', err));
       });
+
+      // Handle the actual reload when the controller changes
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (refreshing) return;
+        refreshing = true;
+        window.location.reload();
+      });
     }
 
-    function showUpdateBanner() {
+    function showUpdateBanner(worker) {
       const banner = document.createElement('div');
       banner.id = 'pwa-update-banner';
       banner.innerHTML = `
-        <div style="position: fixed; bottom: 20px; right: 20px; background: #2563eb; color: white; padding: 12px 20px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 9999; display: flex; items-center: center; gap: 12px; font-family: sans-serif; animation: slideIn 0.5s ease-out;">
-          <span style="font-size: 14px; font-weight: 500;">New version available!</span>
-          <button onclick="window.location.reload()" style="background: white; color: #2563eb; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s;">Refresh</button>
+        <div style="position: fixed; bottom: 20px; right: 20px; background: #000; color: white; padding: 16px 24px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 9999; display: flex; align-items: center; gap: 16px; font-family: 'Inter', sans-serif; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 14px; font-weight: 600;">Update Available</span>
+            <span style="font-size: 11px; opacity: 0.7;">New version of shulkwisec is ready</span>
+          </div>
+          <button id="sw-update-btn" style="background: white; color: black; border: none; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s;">Refresh Now</button>
         </div>
         <style>
-          @keyframes slideIn { from { transform: translateX(120%); } to { transform: translateX(0); } }
+          @keyframes slideIn { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+          #sw-update-btn:hover { transform: scale(1.05); background: #f0f0f0; }
         </style>
       `;
       document.body.appendChild(banner);
+      document.getElementById('sw-update-btn').onclick = () => {
+        worker.postMessage({ type: 'SKIP_WAITING' });
+      };
     }
     // PWA Install Logic
     let deferredPrompt;

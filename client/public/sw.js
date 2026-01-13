@@ -1,7 +1,7 @@
-const CACHE_NAME = 'shulkwisec-v6-media';
-const STATIC_CACHE = 'shulkwisec-static-v6';
-const MEDIA_CACHE = 'shulkwisec-media-v6';
-const DOCUMENT_CACHE = 'shulkwisec-docs-v6';
+const CACHE_NAME = 'shulkwisec-v7-media';
+const STATIC_CACHE = 'shulkwisec-static-v7';
+const MEDIA_CACHE = 'shulkwisec-media-v7';
+const DOCUMENT_CACHE = 'shulkwisec-docs-v7';
 
 const ASSETS_TO_CACHE = [
     '/',
@@ -71,7 +71,7 @@ function getCacheStrategy(request) {
 
     // HTML pages
     if (request.mode === 'navigate' || extension === 'html') {
-        return { cache: STATIC_CACHE, strategy: 'network-first', maxAge: 24 * 60 * 60 * 1000 }; // 1 day
+        return { cache: STATIC_CACHE, strategy: 'network-first', maxAge: 60 * 60 * 1000 }; // 1 hour (reduced from 1 day)
     }
 
     // Default: stale-while-revalidate
