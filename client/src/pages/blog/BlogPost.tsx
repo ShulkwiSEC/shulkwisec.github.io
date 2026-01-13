@@ -238,6 +238,10 @@ export default function BlogPost() {
                         className="w-full h-full object-cover pointer-events-none"
                         poster={bannerData.thumbnail}
                         preload="metadata"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
                       >
                         <source src={bannerData.url} type="video/mp4" />
                         Your browser does not support the video tag.

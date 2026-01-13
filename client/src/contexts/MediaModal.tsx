@@ -85,6 +85,16 @@ export function MediaModalProvider({ children }: { children: React.ReactNode }) 
         return () => document.removeEventListener("click", handleClick);
     }, []);
 
+    const videoRef = React.useRef<HTMLVideoElement>(null);
+
+    const handlePlayVideo = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (videoRef.current) {
+            videoRef.current.play();
+            setIsVideoPlaying(true);
+        }
+    };
+
     const renderMediaContent = () => {
         if (!selectedMedia) return null;
 
@@ -95,6 +105,7 @@ export function MediaModalProvider({ children }: { children: React.ReactNode }) 
                 return (
                     <div className="relative w-full h-full flex items-center justify-center bg-black/90 rounded-lg">
                         <video
+                            ref={videoRef}
                             className="max-w-full max-h-[85vh] rounded-lg"
                             poster={thumbnail}
                             controls={isVideoPlaying}
@@ -107,8 +118,11 @@ export function MediaModalProvider({ children }: { children: React.ReactNode }) 
                             Your browser does not support the video tag.
                         </video>
                         {!isVideoPlaying && (
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+                            <div
+                                className="absolute inset-0 flex items-center justify-center cursor-pointer group"
+                                onClick={handlePlayVideo}
+                            >
+                                <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
                                     <Play className="w-10 h-10 text-primary-foreground ml-1" />
                                 </div>
                             </div>
@@ -225,6 +239,10 @@ export function MediaModalProvider({ children }: { children: React.ReactNode }) 
 
             <Dialog open={!!selectedMedia} onOpenChange={closeModal}>
                 <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 overflow-hidden bg-transparent border-none">
+                    <div className="sr-only">
+                        <h2>Media Preview</h2>
+                        <p>{selectedMedia?.alt || 'Media content'}</p>
+                    </div>
                     <button
                         onClick={closeModal}
                         className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center transition-colors"

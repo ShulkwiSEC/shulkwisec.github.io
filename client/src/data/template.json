@@ -179,6 +179,35 @@
   "blog": {
     "posts": [
       {
+        "id": "identity-from-msg-useing-text-id-soft-biometrics-anonymity-crying-in-coraner",
+        "date": "January 13, 2026",
+        "title": {
+          "en": "identity user from msg anonymity crying in corner",
+          "ar": "اكتشاف هوية المرسل من رسالة فقط ، الخصوصية تبكي في الزاوية",
+          "zh-cn": "仅凭一条信息就能发现发件人的身份；隐私荡然无存。"
+        },
+        "excerpt": {
+          "en": "",
+          "ar": "اكتشاف هوية المرسل من رسالة فقط . من خلال العلم و الفيزياء فقط",
+          "zh-cn": "仅凭一条信息，就能通过科学和物理学手段，找出发件人的身份。"
+        },
+        "content": "IyDwn5W177iPIFRleHRJRDogVGhlIEROQSBvZiBXcml0aW5nCiMjIyAqSWRlbnRpZnlpbmcgQXV0aG9ycyB3aXRoIFNvZnQgQmlvbWV0cmljcyoKCldyaXRpbmcgaXNuJ3QganVzdCBhYm91dCB2b2NhYnVsYXJ54oCUaXQncyBhYm91dCB0aGUgKipMaW5ndWlzdGljIEdsdWUqKiB0aGF0IGhvbGRzIHlvdXIgdGhvdWdodHMgdG9nZXRoZXIuIEludHJvZHVjaW5nICoqVGV4dElEKiosIHRoZSBuZXh0IGZyb250aWVyIGluICoqU29mdCBCaW9tZXRyaWNzKiouCgohW1N0eWxvbWV0cnkgSGlzdG9yeV0oaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1NodWxrd2lTRUMvdGV4dElEL3JlZnMvaGVhZHMvbWFpbi9zY3JlZW5zaG90cy9TdHlsb21ldHJ5LWZyb20td2lraS5wbmcpCgojIyDimqEgSG93IGl0IFdvcmtzIQpHZXQgcmVhZHkgZm9yIHNvbWUgc2VyaW91cyBsaW5ndWlzdGljIHBoeXNpY3MhIEhlcmUgaXMgaG93ICoqVGV4dElEKiogdHJhY2tzIGEgbWluZCB0aHJvdWdoIGl0cyB3cml0aW5nOgoKKiAgICoqVGhlIFB1bHNlIENhcHR1cmUhKio6IFdlIHRyYW5zZm9ybSByYXcgdGV4dCBpbnRvIGEgaGlnaC1kaW1lbnNpb25hbCAqKjcwLURpbWVuc2lvbmFsIFZlY3RvcioqLiBXZSBhcmUgdHJhY2tpbmcgdGhlIHdvcmRzIHlvdSB1c2UgKnN1YmNvbnNjaW91c2x5KiDigJQgdGhlIHRpbnkgImdsdWUiIHdvcmRzIHRoYXQgc2VydmUgYXMgeW91ciAqKlNvZnQgQmlvbWV0cmljKiogYW5jaG9ycyEKKiAgICoqR2VvbWV0cmljIFJhbmstU3luYyEqKjogVGhpcyBpcyBwdXJlIG1hdGggaW4gYWN0aW9uISBXZSB1c2UgKipDb3NpbmUgU2ltaWxhcml0eSoqIHRvIG1lYXN1cmUgdGhlIGV4YWN0IG1hdGhlbWF0aWNhbCAiYW5nbGUiIGJldHdlZW4gdHdvIHN0eWxlcy4gV2hlbiB0aGUgYW5nbGVzIHN5bmMsIHdlJ3ZlIGZvdW5kIG91ciBtYXRjaCEKKiAgICoqSWRlbnRpdHkgRXhwbG9zaW9uISoqOiBCeSBjb21wYXJpbmcgdGhlc2UgYmlvbWV0cmljIHByb2ZpbGVzIGF0IGxpZ2h0LXNwZWVkLCB3ZSBjYW4gcmlwIHRocm91Z2ggdGhvdXNhbmRzIG9mIGxpbmVzIG9mIHRleHQgdG8gZmluZCB0aGUgb25lIHRydWUgYXV0aG9yLiBJdOKAmXMgY29uc2lzdGVudCwgdW5kZW5pYWJsZSwgYW5kICoqaXTigJlzIGluY3JlZGlibHkgZXhjaXRpbmchKiog8J+nrPCflKUKCiMjIyDwn6eqIFByb29mIGl0IFdvcmtzCkluIG91ciBsYXRlc3QgdGVzdHMsIHRoZSAqKlRleHRJRCoqIGVuZ2luZSBzdWNjZXNzZnVsbHkgc2VwYXJhdGVkIGlkZW50aWNhbCAxOXRoLWNlbnR1cnkgbGl0ZXJhcnkgc3R5bGVzIHdpdGggc3VyZ2ljYWwgcHJlY2lzaW9uOgoKIVtFbmdpbmUgT3V0cHV0XShodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vU2h1bGt3aVNFQy90ZXh0SUQvcmVmcy9oZWFkcy9tYWluL3NjcmVlbnNob3RzL3BvYy0xLnBuZykKCioqVGV4dElEKiogaXMgbm93IG9wZW4tc291cmNlLiBTaW1wbGUsIGNsZWFuLCBhbmQgdW5kZW5pYWJsZSBzb2Z0IGJpb21ldHJpY3MuCgpbQ2hlY2sgb3V0IHRoZSBTb3VyY2UgQ29kZV0oaHR0cDovL2dpdGh1Yi5jb20vU2h1bGt3aVNFQy90ZXh0SUQp",
+        "tags": [
+          "anonymity",
+          "tor",
+          "physics",
+          "science",
+          "privacy",
+          "cybersecurity"
+        ],
+        "pin": false,
+        "banner": {
+          "type": "video",
+          "url": "https://raw.githubusercontent.com/ShulkwiSEC/textID/refs/heads/main/screenshots/Banner_Video_For_TextID_Project.mp4"
+        },
+        "encoding": true
+      },
+      {
         "id": "be-technically-skilled-before-be-hacker",
         "date": "January 04, 2026",
         "title": {

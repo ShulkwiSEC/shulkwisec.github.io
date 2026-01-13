@@ -68,12 +68,13 @@ export default function BlogItem({ id, date, title, excerpt, link, pin, banner }
           return (
             <div className="relative group">
               <video
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover pointer-events-none"
                 poster={bannerData.thumbnail}
-                controls={isVideoPlaying}
-                onPlay={() => setIsVideoPlaying(true)}
-                onPause={() => setIsVideoPlaying(false)}
                 preload="metadata"
+                autoPlay
+                muted
+                loop
+                playsInline
               >
                 <source src={bannerData.url} type="video/mp4" />
                 Your browser does not support the video tag.
