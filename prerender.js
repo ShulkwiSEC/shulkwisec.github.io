@@ -74,8 +74,21 @@ async function run() {
 
         // Image Logic: Use extracted images, or fall back to banner/site default
         let imageTags = '';
-        const imagesToUse = meta.images && meta.images.length > 0 ? meta.images : (meta.image ? [meta.image] : []);
-        const primaryImage = imagesToUse[0]?.startsWith('http') ? imagesToUse[0] : `${siteUrl}${imagesToUse[0] || '/favicon.png'}`;
+
+        // Ensure we extract the URL string if the image is a BannerMedia object
+        const getUrl = (img) => {
+            if (!img) return null;
+            if (typeof img === 'string') return img;
+            if (typeof img === 'object' && img.url) return img.url;
+            return null;
+        };
+
+        const imagesToUse = (meta.images && meta.images.length > 0 ? meta.images : (meta.image ? [meta.image] : []))
+            .map(getUrl)
+            .filter(Boolean);
+
+        const primaryImageRaw = imagesToUse[0] || '/favicon.png';
+        const primaryImage = primaryImageRaw.startsWith('http') ? primaryImageRaw : `${siteUrl}${primaryImageRaw.startsWith('/') ? '' : '/'}${primaryImageRaw}`;
 
         imagesToUse.forEach(img => {
             let absoluteUrl = img.startsWith('http') ? img :
