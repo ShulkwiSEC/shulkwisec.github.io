@@ -11,7 +11,13 @@ import {
 function decodeContent(content: string, encoding: boolean | undefined): string {
     if (encoding !== false) {
         try {
-            return decodeURIComponent(escape(atob(content)));
+            // Modern, robust UTF-8 Base64 decoding
+            const binary = atob(content);
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i++) {
+                bytes[i] = binary.charCodeAt(i);
+            }
+            return new TextDecoder().decode(bytes);
         } catch (e) {
             console.error('Failed to decode content', e);
             return content;

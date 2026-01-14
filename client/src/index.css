@@ -452,3 +452,26 @@
     @apply text-right leading-relaxed;
   }
 }
+/* MERMAID DIAGRAMS */
+.mermaid {
+  @apply my-8 p-4 sm:p-6 bg-muted/30 rounded-2xl border border-border/50 overflow-x-auto overflow-y-hidden shadow-inner flex justify-center transition-all duration-300;
+  min-height: 100px;
+  scrollbar-width: thin;
+}
+
+.mermaid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.mermaid::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.2);
+  border-radius: 10px;
+}
+
+.mermaid svg {
+  @apply max-w-none h-auto;
+}
+
+.media-modal-html .mermaid {
+  @apply bg-transparent border-none shadow-none m-0 p-0 overflow-visible;
+}

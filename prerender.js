@@ -28,6 +28,7 @@ function getMetaFromMdContent(content) {
     let descText = content
         .replace(/<style[\s\S]*?<\/style>/gi, '') // Remove style blocks
         .replace(/<script[\s\S]*?<\/script>/gi, '') // Remove script blocks
+        .replace(/```mermaid[\s\S]*?```/gs, '') // Remove mermaid blocks
         .replace(/!\[.*?\]\(.*?\)/g, '') // Remove md images
         .replace(/<img[^>]+>/g, '') // Remove html images
         .replace(/#+\s+.*$/gm, '') // Remove headers

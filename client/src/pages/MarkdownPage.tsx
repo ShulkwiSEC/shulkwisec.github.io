@@ -3,18 +3,17 @@ import { useParams } from 'wouter';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SEO from '@/components/layout/SEO';
-import { marked } from 'marked';
+import { marked } from '@/lib/marked';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
 import DOMPurify from 'dompurify';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useTheme } from '@/contexts/Theme';
+import mermaid from 'mermaid';
+import 'katex/dist/katex.min.css';
 
 
-// Configure marked options
-marked.use({
-  breaks: true,
-  gfm: true,
-});
+
 
 // Configure DOMPurify to open external links in new tab
 DOMPurify.addHook('afterSanitizeAttributes', (node) => {
@@ -31,6 +30,7 @@ export default function MarkdownPage() {
   const { slug } = useParams();
   const [markdown, setMarkdown] = useState('');
   const [loading, setLoading] = useState(true);
+  const { theme } = useTheme();
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -53,8 +53,17 @@ export default function MarkdownPage() {
   const htmlContent = useMemo(() => {
     const rawHtml = marked.parse(markdown) as string;
     return DOMPurify.sanitize(rawHtml, {
-      ADD_TAGS: ['rssapp-wall', 'iframe'],
-      ADD_ATTR: ['id', 'src', 'width', 'height', 'frameborder', 'allow', 'allowfullscreen', 'target']
+      ADD_TAGS: [
+        'span', 'div', 'pre', 'code', 'svg', 'path', 'circle', 'rect',
+        'line', 'polyline', 'polygon', 'ellipse', 'use', 'defs', 'clippath', 'g',
+        'math', 'annotation', 'semantics', 'mrow', 'msub', 'msup', 'mi', 'mo', 'mn',
+        'rssapp-wall', 'iframe'
+      ],
+      ADD_ATTR: [
+        'class', 'style', 'aria-hidden', 'viewbox', 'd', 'fill', 'stroke',
+        'x', 'y', 'width', 'height', 'points', 'cx', 'cy', 'r', 'rx', 'ry',
+        'xlink:href', 'target', 'rel', 'id', 'src', 'frameborder', 'allow', 'allowfullscreen'
+      ]
     });
   }, [markdown]);
 
@@ -63,6 +72,8 @@ export default function MarkdownPage() {
       // 1. Syntax Highlighting
       const codeBlocks = contentRef.current.querySelectorAll('pre code');
       codeBlocks.forEach(codeBlock => {
+        if (codeBlock.parentElement?.classList.contains('mermaid')) return;
+
         hljs.highlightElement(codeBlock as HTMLElement);
 
         // 2. Add Copy Button
@@ -84,8 +95,34 @@ export default function MarkdownPage() {
           pre.appendChild(copyButton);
         }
       });
+
+      // 3. Render Mermaid Diagrams
+      // 3. Render Mermaid Diagrams
+      const mermaidDivs = contentRef.current.querySelectorAll('.mermaid');
+      if (mermaidDivs.length > 0) {
+        console.log(`[Mermaid] Found ${mermaidDivs.length} diagrams, initializing...`);
+
+        try {
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: theme === 'dark' ? 'dark' : 'default',
+            securityLevel: 'loose',
+            fontFamily: 'inherit',
+          });
+
+          mermaid.run({
+            nodes: Array.from(mermaidDivs) as HTMLElement[],
+          }).then(() => {
+            console.log('[Mermaid] Render successful');
+          }).catch(err => {
+            console.error('[Mermaid] Render error:', err);
+          });
+        } catch (err) {
+          console.error('[Mermaid] Initialization error:', err);
+        }
+      }
     }
-  }, [htmlContent, loading]);
+  }, [htmlContent, loading, theme]);
 
   useEffect(() => {
     if (markdown.includes('<rssapp-wall')) {

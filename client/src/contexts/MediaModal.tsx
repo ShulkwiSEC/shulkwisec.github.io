@@ -6,9 +6,10 @@ import { Play, X } from "lucide-react";
 
 interface MediaData {
     url: string;
-    type?: 'image' | 'video' | 'gif' | 'embed' | 'slides' | 'doc';
+    type?: 'image' | 'video' | 'gif' | 'embed' | 'slides' | 'doc' | 'html';
     alt?: string;
     thumbnail?: string;
+    html?: string; // For raw SVG or HTML content
 }
 
 const MediaModalContext = createContext({
@@ -20,6 +21,23 @@ export const useMediaModal = () => useContext(MediaModalContext);
 export function MediaModalProvider({ children }: { children: React.ReactNode }) {
     const [selectedMedia, setSelectedMedia] = useState<MediaData | null>(null);
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+    // Helper: Convert YouTube/Vimeo URLs to embed URLs
+    const getEmbedUrl = (url: string): string => {
+        let embedUrl = url;
+        // YouTube
+        if (url.includes('youtube.com/watch?v=')) {
+            embedUrl = url.replace('watch?v=', 'embed/');
+        } else if (url.includes('youtu.be/')) {
+            embedUrl = url.replace('youtu.be/', 'www.youtube.com/embed/');
+        }
+        // Vimeo
+        else if (url.includes('vimeo.com/')) {
+            const vimeoId = url.split('/').pop();
+            embedUrl = `https://player.vimeo.com/video/${vimeoId}`;
+        }
+        return embedUrl;
+    };
 
     // Auto-detect media type from URL
     const getMediaType = (url: string): MediaData['type'] => {
@@ -36,14 +54,18 @@ export function MediaModalProvider({ children }: { children: React.ReactNode }) 
     // Parse media data
     const parseMedia = (media: string | MediaData): MediaData => {
         if (typeof media === 'string') {
+            const type = getMediaType(media);
             return {
-                url: media,
-                type: getMediaType(media),
+                url: type === 'embed' ? getEmbedUrl(media) : media,
+                type,
                 alt: 'Media preview'
             };
         }
         return {
             ...media,
+            url: (media.type === 'embed' || getMediaType(media.url) === 'embed')
+                ? getEmbedUrl(media.url)
+                : media.url,
             type: media.type || getMediaType(media.url)
         };
     };
@@ -68,16 +90,27 @@ export function MediaModalProvider({ children }: { children: React.ReactNode }) 
                 const imgSrc = (target as HTMLImageElement).src;
                 const imgAlt = (target as HTMLImageElement).alt;
 
-                // Skip if image is inside a link or has specific classes to ignore
-                if (target.closest('a') || target.classList.contains('no-modal')) {
-                    return;
-                }
+                if (target.closest('a') || target.classList.contains('no-modal')) return;
 
                 showMedia({
                     url: imgSrc,
                     type: 'image',
                     alt: imgAlt || 'Image preview'
                 });
+            }
+
+            // Handle Mermaid diagram clicks
+            const mermaidParent = target.closest('.mermaid');
+            if (mermaidParent) {
+                const svg = mermaidParent.querySelector('svg');
+                if (svg) {
+                    showMedia({
+                        url: '#',
+                        type: 'html',
+                        html: svg.outerHTML,
+                        alt: 'Diagram preview'
+                    });
+                }
             }
         };
 
@@ -142,10 +175,11 @@ export function MediaModalProvider({ children }: { children: React.ReactNode }) 
 
             case 'embed':
             case 'slides':
+                const embedUrl = url;
                 return (
-                    <div className="w-full h-[85vh] bg-black/90 rounded-lg overflow-hidden">
+                    <div className="w-full h-[85vh] bg-black/90 rounded-lg overflow-hidden relative">
                         <iframe
-                            src={url}
+                            src={embedUrl}
                             className="w-full h-full"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
@@ -226,6 +260,14 @@ export function MediaModalProvider({ children }: { children: React.ReactNode }) 
                             </div>
                         )}
                     </div>
+                );
+
+            case 'html':
+                return (
+                    <div
+                        className="media-modal-html w-full h-full flex items-center justify-center p-4 bg-white/5 rounded-lg overflow-auto"
+                        dangerouslySetInnerHTML={{ __html: selectedMedia.html || '' }}
+                    />
                 );
 
             default:

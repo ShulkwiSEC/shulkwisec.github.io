@@ -179,6 +179,31 @@
   "blog": {
     "posts": [
       {
+        "id": "how-shulkwisec-build-an-engine-to-detect-ai-authorship",
+        "date": "January 14, 2026",
+        "title": {
+          "en": "🖋️🕵️ AI DECTED (textID) 🫷",
+          "ar": "بصمات AI : كيف فككت شفرة هوية المؤلف باستخدام `TextID` 🕵️‍♂️",
+          "zh-cn": "AI指纹识别：我是如何利用`TextID`破解作者身份的🕵️‍♂️"
+        },
+        "excerpt": {
+          "en": "my journey with textid to learn about an ai model using only text 🏌️",
+          "ar": "رحلتي في تجربة textID للتعرف على نموذج الذكاء الاصطناعي من خلال نص فقط 🏌️",
+          "zh-cn": "我的 TextID 之旅：学习如何仅使用文本构建 AI 模型🏌️"
+        },
+        "content": "IyBXcml0aW5nIEZpbmdlcnByaW50czogSG93IEkgRGVjb2RlZCBBdXRob3JpYWwgSWRlbnRpdHkgd2l0aCBgVGV4dElEYCDwn5W177iP4oCN4pmC77iPCgpJbiBhbiBlcmEgb2YgZ2VuZXJhdGl2ZSBBSSwgZG9lcyBvdXIgaHVtYW4gdW5pcXVlbmVzcyBzdGlsbCBleGlzdD8gTXkgYW5zd2VyIGlzICoqWWVzKiouIFlvdXIgd3JpdGluZyBzdHlsZSBpc24ndCBqdXN0IHdvcmRzOyBpdCdzIGEgIkJlaGF2aW9yYWwgRE5BIiAoU29mdCBCaW9tZXRyaWMpIGFzIHVuaXF1ZSBhcyB5b3VyIGZpbmdlcnByaW50IG9yIHJldGluYS4g8J+nrAoKSSBkZXZlbG9wZWQgKipUZXh0SUQqKiwgYSBmb3JlbnNpYyBlbmdpbmUgdGhhdCB0cmFuc2Zvcm1zIHdyaXRpbmcgc3R5bGUgaW50byBwdXJlIG1hdGhlbWF0aWNhbCBnZW9tZXRyeS4gSXQgZG9lc24ndCByZWx5IG9uIGJsYWNrLWJveCBBSSBvciBjbG91ZHPigJRpdCByZWxpZXMgb24gdGhlIHBoeXNpY3Mgb2YgbGluZ3Vpc3RpY3MuCgotLS0KCiMjIyDwn6egIFRoZSBDb3JlIENvbmNlcHQ6ICJMaW5ndWlzdGljIEdsdWUiCkkgZG9uJ3QgZm9jdXMgb24gKndoYXQqIHlvdSB3cml0ZSwgYnV0ICpob3cqIHlvdSBzdWJjb25zY2lvdXNseSBjb25uZWN0IHlvdXIgdGhvdWdodHMuIEkgdHJhY2sgdGhlIHdvcmRzIHlvdSB1c2Ugd2l0aG91dCB0aGlua2luZ+KAlHByb25vdW5zLCBwcmVwb3NpdGlvbnMsIGFuZCBwdW5jdHVhdGlvbi4gVGhpcyAiTGluZ3Vpc3RpYyBHbHVlIiBmb3JtcyB0aGUgc3RydWN0dXJhbCBza2VsZXRvbiBvZiB5b3VyIGlkZW50aXR5LgoKIyMjIPCfk5AgVGhlIFNjaWVuY2UgQmVoaW5kIHRoZSBFbmdpbmUKClRleHRJRCBjYXB0dXJlcyBhICoqNzAtRGltZW5zaW9uYWwgRmVhdHVyZSBWZWN0b3IqKiBmb3IgZXZlcnkgdGV4dC4gRWFjaCBkaW1lbnNpb24gcmVwcmVzZW50cyB0aGUgZGVuc2l0eSBvZiBhIHNwZWNpZmljICJMaW5ndWlzdGljIE1hcmtlciIgaW4geW91ciBzdHlsZS4KCiMjIyMgMS4gVGhlIEdlb21ldHJ5IG9mIElkZW50aXR5IChSYW5rLVN5bmMgQ29ycmVsYXRpb24pCkkgZG9uJ3QgY29tcGFyZSB3b3JkczsgSSBtZWFzdXJlIHRoZSAqKm1hdGhlbWF0aWNhbCBhbmdsZSoqIGJldHdlZW4gbWluZHMuIElmIHRoZSBhbmdsZSBpcyB6ZXJvLCB0aGUgaWRlbnRpdHkgaXMgYSBtYXRjaC4gSSB1c2UgKipDb3NpbmUgU2ltaWxhcml0eSoqIHRvIHF1YW50aWZ5IHRoaXMgcHJveGltaXR5OgoKJCQgXHRleHR7SWRlbnRpdHkgU2NvcmV9ID0gXGZyYWN7XHN1bV97aT0xfV57bn0gQV9pIEJfaX17XHNxcnR7XHN1bV97aT0xfV57bn0gQV9pXjJ9IFxzcXJ0e1xzdW1fe2k9MX1ee259IEJfaV4yfX0gJCQKCiMjIyMgMi4gRXhwb25lbnRpYWwgQW1wbGlmaWNhdGlvbgpUbyBpc29sYXRlIHRoZSB0cnVlIHNpZ25hbCBmcm9tIHRoZSBub2lzZSwgSSBhcHBseSBhbiBleHBvbmVudGlhbCBmaWx0ZXIgKCRlXntzIFxjZG90IDMwfSQpLiBUaGlzIGVuc3VyZXMgdGhlIGRvbWluYW50IGF1dGhvcmlhbCBwYXR0ZXJuIGp1bXBzIG91dCB3aXRoIHN1cmdpY2FsIHByZWNpc2lvbi4KCi0tLQoKIyMjIPCfk4ogVGhlIFByb2Nlc3NpbmcgUGlwZWxpbmUgKFVNTCkKLS0tCgpgYGBtZXJtYWlkCmdyYXBoIFRECiAgICBBW/Cfk50gVW5rbm93biBJbnB1dCBUZXh0XSAtLT4gQihQdWxzZSBDYXB0dXJlOiBFeHRyYWN0IDEyMCBNYXJrZXJzKQogICAgQiAtLT4gQyhWZWN0b3IgV29ya3NwYWNlOiA3MEQgVHJhbnNmb3JtYXRpb24pCiAgICBDIC0tPiBEe1JhbmstU3luYyBDb3JyZWxhdGlvbn0KICAgIEQgLS0+fENvb3JkaW5hdGUgQ29tcGFyZXwgRVvwn5OaIENhbGlicmF0ZWQgQmlvbWV0cmljIFJlZ2lzdHJ5XQogICAgRCAtLT4gRlvwn46vIERlZmluaXRpdmUgSWRlbnRpdHkgUmV2ZWFsXQogICAgCiAgICBzdHlsZSBGIGZpbGw6I2Y5NixzdHJva2U6IzMzMyxzdHJva2Utd2lkdGg6NHB4CmBgYAoKLS0tCgojIyMg8J+agCBDYXNlIFN0dWR5OiBEZXRlY3RpbmcgdGhlIEFJIEFnZW50Ckkgd2FudGVkIHRvIHB1c2ggVGV4dElEIGZ1cnRoZXIsIHNvIEkgdGVzdGVkIGl0IGFzIGFuICoqQUkgTW9kZWwgRGV0ZWN0b3IqKi4gSSBmZWQgaXQgYXJ0aWNsZXMgZnJvbSBgQ2hhdEdQVGAgYW5kIGBHZW1pbmlgIHRvIHNlZSBpZiBpdCBjb3VsZCB0ZWxsIHRoZW0gYXBhcnQuCgoqKlRoZSByZXN1bHRzIHdlcmUgc3RyaWtpbmchKiogRXZlbiB3aXRoIHNob3J0IHNhbXBsZXMsIGl0IGFjaGlldmVkICoqODAlIGFjY3VyYWN5KiogaW4gZGlzdGluZ3Vpc2hpbmcgYmV0d2VlbiB0aGUgbW9kZWxzLgoKKiAgICoqT3BlbkFJKio6IEV4aGliaXRzIGEgaGlnaGx5IHJpZ2lkIHN0cnVjdHVyYWwgImdsdWUiICh2ZXJ5IGZvcm1hbCBhbmQgY29uc2lzdGVudCBtYXJrZXJzKS4KKiAgICoqR2VtaW5pKio6IFNob3dzIGEgbW9yZSBmbHVpZCwgZGVzY3JpcHRpdmUgc3R5bGUgd2l0aCBkaXN0aW5jdCBjb25uZWN0aW9uIHBhdHRlcm5zLgoKIVtEZXRlY3Rpb24gUmVzdWx0c10oaHR0cHM6Ly9pLnBvc3RpbWcuY2MvME5WVjRkMlovaW1hZ2UucG5nKQoKLS0tCgojIyMg8J+UriBUaGUgRnV0dXJlIG9mIFRleHRJRApNeSBuZXh0IHN0ZXBzIGNvbmNlbnRyYXRlIG9uIHNjYWxpbmcgdGhpcyBwZXJmb3JtYW5jZSBmb3IgbWFzc2l2ZSBkYXRhc2V0czoKMS4gICoqVmVjdG9yIERCIEludGVncmF0aW9uKio6IFVzaW5nIENocm9tYURCIHRvIGhhbmRsZSBtaWxsaW9ucyBvZiBzaWduYXR1cmVzIGluIG1pbGxpc2Vjb25kcy4KMi4gICoqQmVoYXZpb3JhbCBMZXhpY29ucyoqOiBNb3ZpbmcgYmV5b25kIGZ1bmN0aW9uIHdvcmRzIHRvIGNhcHR1cmUgcHN5Y2hvbG9naWNhbCBzdGF0ZXMuCgo+ICJNYXRoIGRvZXNuJ3QgbGllLiBZb3VyIHdvcmRzIGFyZSB5b3VyIEROQS4iIPCflovvuI/wn6esCgotLS0K8J+RiSAqKkV4cGxvcmUgdGhlIGNvZGUgb24gR2l0SHViOioqIFtTaHVsa3dpU0VDL3RleHRJRF0oaHR0cHM6Ly9naXRodWIuY29tL1NodWxrd2lTRUMvdGV4dElELyk=",
+        "tags": [
+          "ai",
+          "osint",
+          "detected",
+          "textID",
+          "Fingerprint",
+          "biometrics"
+        ],
+        "pin": false,
+        "encoding": true
+      },
+      {
         "id": "identity-from-msg-useing-text-id-soft-biometrics-anonymity-crying-in-coraner",
         "date": "January 13, 2026",
         "title": {

@@ -1,7 +1,7 @@
-const CACHE_NAME = 'shulkwisec-v7-media';
-const STATIC_CACHE = 'shulkwisec-static-v7';
-const MEDIA_CACHE = 'shulkwisec-media-v7';
-const DOCUMENT_CACHE = 'shulkwisec-docs-v7';
+const CACHE_NAME = 'shulkwisec-v8-media';
+const STATIC_CACHE = 'shulkwisec-static-v8';
+const MEDIA_CACHE = 'shulkwisec-media-v8';
+const DOCUMENT_CACHE = 'shulkwisec-docs-v8';
 
 const ASSETS_TO_CACHE = [
     '/',
@@ -66,6 +66,10 @@ function getCacheStrategy(request) {
     // Static assets (JS, CSS, fonts)
     const staticExtensions = ['js', 'css', 'woff', 'woff2', 'ttf', 'eot'];
     if (staticExtensions.includes(extension)) {
+        // Specifically for template.json-related JS, use network-first to ensure data freshness
+        if (url.pathname.includes('template')) {
+            return { cache: STATIC_CACHE, strategy: 'network-first', maxAge: 5 * 60 * 1000 }; // 5 minutes
+        }
         return { cache: STATIC_CACHE, strategy: 'stale-while-revalidate', maxAge: 7 * 24 * 60 * 60 * 1000 }; // 7 days
     }
 

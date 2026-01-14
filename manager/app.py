@@ -1169,16 +1169,9 @@ class DataManagerApp(ctk.CTk):
         if not was_encoded and len(raw_content) > 0:
             # Auto-detect Base64 (heuristic)
             try:
-                # If there are spaces/newlines in "base64", it's likely NOT base64 unless MIME formatted.
-                # Real base64 blocks usually don't have spaces inside except newlines every 76 chars.
-                # If it decodes successfully to UTF-8 and looks "mostly" text, we assume encoded.
                 candidate_bytes = base64.b64decode(raw_content)
                 candidate_str = candidate_bytes.decode('utf-8')
                 
-                # Check for URL encoding inside the decoded string
-                if "%20" in candidate_str or "%0A" in candidate_str or "%23" in candidate_str:
-                     candidate_str = urllib.parse.unquote(candidate_str)
-
                 # Ensure line endings are normalized
                 candidate_str = candidate_str.replace('\r\n', '\n')
                 
@@ -1191,16 +1184,6 @@ class DataManagerApp(ctk.CTk):
             try:
                 candidate_bytes = base64.b64decode(raw_content)
                 candidate_str = candidate_bytes.decode('utf-8')
-                
-                # Legacy support: Handle URL-encoded content from previous saves
-                if "%" in candidate_str:
-                    try:
-                        # Try to unquote. If it fails, revert to candidate_str
-                        unquoted = urllib.parse.unquote(candidate_str)
-                        candidate_str = unquoted
-                    except:
-                        pass
-                
                 candidate_str = candidate_str.replace('\r\n', '\n')
                 decoded_text = candidate_str
             except Exception as e:
