@@ -202,7 +202,7 @@
           "git",
           "github"
         ],
-        "pin": false,
+        "pin": true,
         "encoding": true
       },
       {
