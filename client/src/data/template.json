@@ -180,6 +180,7 @@
     "posts": [
       {
         "id": "claude-web-into-a-local-agent-claude-code",
+        "banner": "https://cdn.sanity.io/images/9u514z6s/production/d1ab6e8aba08df9961ad9b46eddd00b9b48663b4-2624x1440.png",
         "date": "May 15, 2026",
         "title": {
           "en": "Turn Claude Web into a Local AI Agent using Git Patches",
