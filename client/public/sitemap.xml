@@ -2,33 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://shulkwisec.github.io/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://shulkwisec.github.io/about</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://shulkwisec.github.io/page/resume</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://shulkwisec.github.io/page/experience</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://shulkwisec.github.io/page/vision</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shulkwisec.github.io/post/new-post-20260610235747</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shulkwisec.github.io/post/claude-web-into-a-local-agent-claude-code</loc>
