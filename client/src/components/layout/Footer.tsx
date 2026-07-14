@@ -1,42 +1,29 @@
 import { Github, Twitter, Linkedin, Heart } from 'lucide-react';
 import { useLanguage } from '@/contexts/Language';
 import { ownerConfig } from '@/lib/data';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useRafScroll } from '@/hooks/useRafScroll';
 
 export default function Footer() {
   const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.scrollY;
-      const clientHeight = window.innerHeight;
+  useRafScroll(() => {
+    const scrollTop = window.scrollY;
+    const distanceFromBottom = document.documentElement.scrollHeight - (scrollTop + window.innerHeight);
 
-      // Check if user is near bottom (within 200px)
-      const distanceFromBottom = scrollHeight - (scrollTop + clientHeight);
+    if (distanceFromBottom < 200) {
+      setIsVisible(true);
+      setIsExpanded(true);
+    } else {
+      setIsExpanded(false);
+    }
 
-      if (distanceFromBottom < 200) {
-        setIsVisible(true);
-        setIsExpanded(true);
-      } else {
-        setIsExpanded(false);
-      }
-
-      // Always visible once page is loaded
-      if (scrollTop > 100) {
-        setIsVisible(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Check initial position
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    if (scrollTop > 100) {
+      setIsVisible(true);
+    }
+  });
 
   return (
     <footer

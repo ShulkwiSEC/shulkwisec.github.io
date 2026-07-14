@@ -170,7 +170,7 @@ export default function BlogItem({ id, date, title, excerpt, link, pin, banner }
                 </span>
               )}
             </div>
-            <h2 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors flex items-center gap-2">
+            <h2 className="font-display text-2xl font-bold mb-3 group-hover:text-primary transition-colors flex items-center gap-2">
               {title}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4 line-clamp-3">{excerpt}</p>

@@ -30,8 +30,6 @@ export const useBlogPosts = () => {
 
             if (reposToSync.length > 0) {
                 try {
-                    console.log(`Syncing with repos: ${reposToSync.join(', ')}`);
-
                     // Create a timeout promise to prevent infinite loading
                     const timeout = new Promise<never>((_, reject) =>
                         setTimeout(() => reject(new Error("Timeout syncing GitHub posts")), 5000)

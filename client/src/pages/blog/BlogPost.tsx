@@ -18,14 +18,11 @@ import SEO from '@/components/layout/SEO';
 import { useMediaModal } from '@/contexts/MediaModal';
 
 import DOMPurify from 'dompurify';
-import hljs from 'highlight.js';
-import 'highlight.js/styles/atom-one-dark.css';
-import React, { useEffect, useRef, useMemo, useState } from 'react';
+import React, { useRef, useMemo, useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
 import 'katex/dist/katex.min.css';
-import mermaid from 'mermaid';
-
+import { useContentEnhancements } from '@/hooks/blog/ContentEnhancements';
 
 import { BlogPost as BlogPostType, BannerMedia } from '@/types/blog';
 
@@ -89,63 +86,7 @@ export default function BlogPost() {
     });
   }, [post?.content]);
 
-  useEffect(() => {
-    if (contentRef.current) {
-      // 1. Syntax Highlighting
-      const codeBlocks = contentRef.current.querySelectorAll('pre code');
-      codeBlocks.forEach(codeBlock => {
-        // Skip mermaid blocks as they are handled differently
-        if (codeBlock.parentElement?.classList.contains('mermaid')) return;
-
-        hljs.highlightElement(codeBlock as HTMLElement);
-
-        // 2. Add Copy Button
-        const pre = codeBlock.parentElement;
-        if (pre) {
-          // Avoid adding multiple buttons if re-running
-          if (pre.querySelector('.copy-btn')) return;
-
-          pre.style.position = 'relative';
-          const copyButton = document.createElement('button');
-          copyButton.innerText = 'Copy';
-          copyButton.className = 'copy-btn absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white px-2 py-1 rounded text-xs transition-colors';
-          copyButton.addEventListener('click', () => {
-            navigator.clipboard.writeText(codeBlock.textContent || '');
-            copyButton.innerText = 'Copied!';
-            setTimeout(() => {
-              copyButton.innerText = 'Copy';
-            }, 2000);
-          });
-          pre.appendChild(copyButton);
-        }
-      });
-
-      // 3. Render Mermaid Diagrams
-      const mermaidDivs = contentRef.current.querySelectorAll('.mermaid');
-      if (mermaidDivs.length > 0) {
-        console.log(`[Mermaid] Found ${mermaidDivs.length} diagrams, initializing...`);
-
-        try {
-          mermaid.initialize({
-            startOnLoad: false,
-            theme: theme === 'dark' ? 'dark' : 'default',
-            securityLevel: 'loose',
-            fontFamily: 'inherit',
-          });
-
-          mermaid.run({
-            nodes: Array.from(mermaidDivs) as HTMLElement[],
-          }).then(() => {
-            console.log('[Mermaid] Render successful');
-          }).catch(err => {
-            console.error('[Mermaid] Render error:', err);
-          });
-        } catch (err) {
-          console.error('[Mermaid] Initialization error:', err);
-        }
-      }
-    }
-  }, [htmlContent, theme]); // Run when HTML content or theme updates
+  useContentEnhancements(contentRef, htmlContent, theme);
 
   if (loading) {
     return (
@@ -370,7 +311,7 @@ export default function BlogPost() {
             );
           })()}
 
-          <div className="flex items-center gap-3 text-sm text-muted-foreground mb-6">
+          <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-wide text-muted-foreground mb-6">
             <time data-testid="text-post-date">{post.date}</time>
             <span className="w-1 h-1 rounded-full bg-border" />
             <span>{stats.time} min read</span>
@@ -378,7 +319,7 @@ export default function BlogPost() {
             <span>{stats.words} words</span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight flex items-center gap-3" data-testid="text-post-title">
+          <h1 className="font-display text-4xl md:text-5xl font-extrabold mb-6 tracking-tight flex items-center gap-3" data-testid="text-post-title">
             {postTitle}
             {post.pin && (
               <Pin className="w-6 h-6 text-primary fill-primary/20" />

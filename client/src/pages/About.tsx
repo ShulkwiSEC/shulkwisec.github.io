@@ -22,28 +22,20 @@ const chunkArray = <T,>(array: T[], chunkSize: number): T[][] => {
   return result;
 };
 
-const bgColors = [
-  { bgColor: 'bg-blue-500', textColor: 'text-white' },
-  { bgColor: 'bg-purple-500', textColor: 'text-white' },
-  { bgColor: 'bg-pink-500', textColor: 'text-white' },
-  { bgColor: 'bg-green-500', textColor: 'text-white' },
-  { bgColor: 'bg-orange-500', textColor: 'text-white' },
-  { bgColor: 'bg-red-500', textColor: 'text-white' },
-  { bgColor: 'bg-teal-500', textColor: 'text-white' },
-  { bgColor: 'bg-indigo-500', textColor: 'text-white' },
-  { bgColor: 'bg-yellow-300', textColor: 'text-gray-900' },
-  { bgColor: 'bg-lime-300', textColor: 'text-gray-900' },
-  { bgColor: 'bg-cyan-300', textColor: 'text-gray-900' },
-  { bgColor: 'bg-fuchsia-300', textColor: 'text-gray-900' },
+// Two on-palette tones, alternated deterministically by card index — the
+// card itself just needs to hold the rug pattern + icons, not compete for
+// attention with a different random hue every render.
+const cardTones = [
+  { bgColor: 'bg-card', borderColor: 'border-border' },
+  { bgColor: 'bg-accent', borderColor: 'border-accent-foreground/10' },
 ];
 
-const getRandomColor = () => bgColors[Math.floor(Math.random() * bgColors.length)];
 export default function About() {
   const { language } = useLanguage();
   const data = aboutConfig;
 
   const contactChunks = chunkArray(data.contact.links, 3);
-  const cardColors = contactChunks.map(() => getRandomColor());
+  const cardColors = contactChunks.map((_, index) => cardTones[index % cardTones.length]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -55,7 +47,7 @@ export default function About() {
       <Header />
 
       <main className="flex-1 container mx-auto px-4 sm:px-6 max-w-3xl py-12">
-        <h1 className="text-4xl font-bold mb-8">{data.aboutTitle[language]}</h1>
+        <h1 className="font-display text-4xl font-bold mb-8">{data.aboutTitle[language]}</h1>
 
         <div className="prose prose-slate dark:prose-invert max-w-none">
           <p className="text-lg leading-relaxed mb-6">{data.aboutText[language]}</p>
@@ -92,11 +84,11 @@ export default function About() {
               {contactChunks.map((linkChunk, index) => (
                 <SwiperSlide key={index} style={{ width: 'auto', height: 'auto' }}>
                   <div
-                    className={`flex items-center justify-center ${cardColors[index].bgColor} rounded-2xl shadow-xl border border-white/40 dark:border-slate-700/40 p-6 relative overflow-hidden`}
+                    className={`flex items-center justify-center ${cardColors[index].bgColor} rounded-2xl shadow-xl border ${cardColors[index].borderColor} p-6 relative overflow-hidden`}
                     style={{ minWidth: '300px', minHeight: '120px' }}
                   >
                     <div
-                      className="absolute inset-0"
+                      className="absolute inset-0 opacity-40 dark:opacity-20"
                       style={{
                         backgroundImage: 'url("/rug.svg")',
                         backgroundSize: 'cover',
@@ -116,10 +108,10 @@ export default function About() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <div className="bg-white dark:bg-slate-800 p-4 rounded-full group-hover:shadow-lg transition-all">
+                            <div className="bg-background p-4 rounded-full text-primary group-hover:shadow-lg group-hover:text-primary transition-all">
                               <IconComponent className="w-8 h-8" />
                             </div>
-                            <span className="bg-black/50 px-1 rounded text-white">
+                            <span className="bg-background/90 border border-border px-2 py-0.5 rounded-md text-foreground">
                               <span className="text-base font-semibold">{link.name}</span>
                             </span>
                           </a>

@@ -107,6 +107,46 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            "--tw-prose-headings": "var(--font-display)",
+            h1: { fontFamily: "var(--font-display)" },
+            h2: { fontFamily: "var(--font-display)" },
+            h3: { fontFamily: "var(--font-display)" },
+            // Code exhibits (.code-exhibit in index.css) own all fenced-block
+            // styling — strip the plugin's defaults so specificity never fights.
+            pre: {
+              backgroundColor: "transparent",
+              color: "inherit",
+              padding: 0,
+              margin: 0,
+              borderRadius: 0,
+              fontSize: "inherit",
+              fontWeight: "inherit",
+            },
+            "pre code": {
+              backgroundColor: "transparent",
+              padding: 0,
+              fontWeight: "inherit",
+              color: "inherit",
+            },
+            "pre code::before": { content: "none" },
+            "pre code::after": { content: "none" },
+            // Inline code keeps the plugin's backtick-free treatment but in
+            // our own mono face + muted pill instead of the plugin default.
+            code: {
+              fontFamily: "var(--font-mono)",
+              backgroundColor: "hsl(var(--muted))",
+              borderRadius: "0.3rem",
+              padding: "0.15em 0.4em",
+              fontWeight: "500",
+            },
+            "code::before": { content: "none" },
+            "code::after": { content: "none" },
+          },
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

@@ -3,19 +3,9 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/Language';
 import { useTheme } from '@/contexts/Theme';
 import { siteConfig, achievements } from '@/lib/data';
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, Link } from 'wouter';
-
-
-// Debounce utility function
-const debounce = (func: Function, delay: number) => {
-  let timeout: NodeJS.Timeout;
-  return function (this: any, ...args: any[]) {
-    const context = this;
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(context, args), delay);
-  };
-};
+import { useRafScroll } from '@/hooks/useRafScroll';
 
 export default function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -69,7 +59,7 @@ export default function Header() {
 
   const getLinkClasses = (href: string) => {
     const baseClasses = "text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium pb-1";
-    const activeClasses = "border-b-2 border-blue-500 font-semibold inline-block";
+    const activeClasses = "border-b-2 border-primary font-semibold inline-block";
 
     const normalizedCurrentPath = currentPath.endsWith('/') && currentPath !== '/' ? currentPath.slice(0, -1) : currentPath;
     const normalizedHref = href.endsWith('/') && href !== '/' ? href.slice(0, -1) : href;
@@ -78,39 +68,45 @@ export default function Header() {
   };
 
 
-  const handleScroll = useCallback(() => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > 80) {
-      setIsShrunk(true);
-    } else {
-      setIsShrunk(false);
-    }
-  }, []);
-
-  const debouncedHandleScroll = debounce(handleScroll, 100);
-
-  useEffect(() => {
-    window.addEventListener('scroll', debouncedHandleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', debouncedHandleScroll);
-    };
-  }, [debouncedHandleScroll]);
+  // Shrinking the header collapses ~200px of nav/achievements space, which
+  // shifts the page layout below it — enough to move `scrollY` back across
+  // the trigger on its own (via the browser's scroll-anchoring compensation,
+  // or just the shift itself), re-flipping the state, which shifts layout
+  // again, looping. Hysteresis alone isn't enough because the layout shift
+  // can exceed the gap between thresholds. The lock below is the real fix:
+  // once a flip happens, further flips are ignored until the transition
+  // (--island-speed) has had time to fully settle, so a shift the flip
+  // itself caused can never immediately trigger another flip.
+  const lastFlipRef = useRef(0);
+  useRafScroll(() => {
+    setIsShrunk((prev) => {
+      if (performance.now() - lastFlipRef.current < 700) return prev;
+      const y = window.scrollY;
+      const next = prev ? y > 40 : y > 120;
+      if (next !== prev) lastFlipRef.current = performance.now();
+      return next;
+    });
+  });
 
   return (
     <header
-      className={`sticky top-0 z-50  transition-all ease-out ${isShrunk ? 'py-2 bg-background/80 border-b border-border/50 shadow-sm' : 'py-4 sm:py-6 bg-transparent border-b border-transparent'}`}
+      className={`will-animate sticky top-0 z-50 transition-all ${isShrunk ? 'py-2 bg-primary/[0.06] backdrop-blur-xl border-b border-primary/15 shadow-sm' : 'py-4 sm:py-6 bg-transparent border-b border-transparent'}`}
       style={{
         paddingTop: `calc(var(--safe-top) + ${isShrunk ? '0.5rem' : '1rem'})`,
-        transition: 'all 0.5s ease-out'
+        transitionDuration: 'var(--island-speed)',
+        transitionTimingFunction: 'var(--island-ease)',
+        // Stop the browser from "helpfully" adjusting scrollY to compensate
+        // for the header's own animated height change — that compensation
+        // is what was fighting our threshold and causing the flicker.
+        overflowAnchor: 'none',
       }}
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
         <div className="flex items-center justify-between">
           {/* Logo and Title Section */}
-          <div className={`flex flex-col transition-[gap] duration-500 ease-in-out ${isShrunk ? 'gap-0' : 'gap-1'
+          <div className={`flex flex-col transition-[gap] duration-[var(--island-speed)] ease-[var(--island-ease)] ${isShrunk ? 'gap-0' : 'gap-1'
             }`}>
-            <h1 className={`font-bold transition-[font-size] duration-500 ease-in-out ${isShrunk ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl md:text-3xl font-black'
+            <h1 className={`font-display font-bold transition-[font-size] duration-[var(--island-speed)] ease-[var(--island-ease)] ${isShrunk ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl md:text-3xl font-black'
               }`}>
               <Link
                 href="/"
@@ -122,7 +118,7 @@ export default function Header() {
 
             {/* Subtitle with joint collapse effect */}
             <div
-              className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out ${isShrunk ? 'max-h-0 opacity-0' : 'max-h-10 opacity-100'
+              className={`overflow-hidden transition-[max-height,opacity] duration-[var(--island-speed)] ease-[var(--island-ease)] ${isShrunk ? 'max-h-0 opacity-0' : 'max-h-10 opacity-100'
                 }`}
             >
               <p className="text-muted-foreground text-xs sm:text-sm">
@@ -132,7 +128,7 @@ export default function Header() {
           </div>
 
           {/* Action Buttons */}
-          <div className={`flex items-center transition-[gap] duration-500 ease-in-out ${isShrunk ? 'gap-1' : 'gap-2'
+          <div className={`flex items-center transition-[gap] duration-[var(--island-speed)] ease-[var(--island-ease)] ${isShrunk ? 'gap-1' : 'gap-2'
             }`}>
             {/* Language Selector */}
             <div className="relative">
@@ -141,15 +137,15 @@ export default function Header() {
                 variant="ghost"
                 onClick={() => setIsLangOpen(!isLangOpen)}
                 data-testid="button-language-toggle"
-                className={`transition-[height,width] duration-500 hover:scale-105 hover:bg-accent ${isShrunk ? 'h-8 w-8' : 'h-9 w-9'
+                className={`transition-[height,width] duration-[var(--island-speed)] ease-[var(--island-ease)] hover:scale-105 hover:bg-accent ${isShrunk ? 'h-8 w-8' : 'h-9 w-9'
                   }`}
               >
-                <Globe className={`transition-[height,width] duration-500 ${isShrunk ? 'h-4 w-4' : 'h-5 w-5'
+                <Globe className={`transition-[height,width] duration-[var(--island-speed)] ease-[var(--island-ease)] ${isShrunk ? 'h-4 w-4' : 'h-5 w-5'
                   }`} />
               </Button>
 
               {isLangOpen && (
-                <div className="absolute right-0 top-full mt-2 min-w-[100px] w-auto rounded-md shadow-lg bg-popover ring-1 ring-black ring-opacity-5 focus:outline-none z-50 animate-in fade-in zoom-in-95 duration-200 bg-white dark:bg-zinc-950 border border-border">
+                <div className="absolute right-0 top-full mt-2 min-w-[100px] w-auto rounded-md shadow-lg bg-popover focus:outline-none z-50 animate-in fade-in zoom-in-95 duration-200 border border-popover-border">
                   <div className="py-1">
                     {((siteConfig as any).languages || ['en', 'ar']).map((lang: string) => (
                       <button
@@ -174,14 +170,14 @@ export default function Header() {
               variant="ghost"
               onClick={toggleTheme}
               data-testid="button-theme-toggle"
-              className={`transition-[height,width] duration-500 hover:scale-110 hover:bg-accent hover:rotate-180 ${isShrunk ? 'h-8 w-8' : 'h-9 w-9'
+              className={`transition-[height,width] duration-[var(--island-speed)] ease-[var(--island-ease)] hover:scale-110 hover:bg-accent hover:rotate-180 ${isShrunk ? 'h-8 w-8' : 'h-9 w-9'
                 }`}
             >
               {theme === 'dark' ? (
-                <Sun className={`transition-[height,width] duration-500 ${isShrunk ? 'h-4 w-4' : 'h-5 w-5'
+                <Sun className={`transition-[height,width] duration-[var(--island-speed)] ease-[var(--island-ease)] ${isShrunk ? 'h-4 w-4' : 'h-5 w-5'
                   }`} />
               ) : (
-                <Moon className={`transition-[height,width] duration-500 ${isShrunk ? 'h-4 w-4' : 'h-5 w-5'
+                <Moon className={`transition-[height,width] duration-[var(--island-speed)] ease-[var(--island-ease)] ${isShrunk ? 'h-4 w-4' : 'h-5 w-5'
                   }`} />
               )}
             </Button>
@@ -190,7 +186,7 @@ export default function Header() {
 
         {/* Navigation with joint accordion effect */}
         <nav
-          className={`overflow-hidden transition-[max-height,opacity,margin-top] duration-500 ease-in-out ${isShrunk
+          className={`overflow-hidden transition-[max-height,opacity,margin-top] duration-[var(--island-speed)] ease-[var(--island-ease)] ${isShrunk
             ? 'max-h-0 opacity-0 mt-0'
             : 'max-h-48 opacity-100 mt-4'
             }`}>

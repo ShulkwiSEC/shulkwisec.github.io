@@ -14,14 +14,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Optimized Font Loading -->
   <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Arabic:wght@400;700&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Arabic:wght@400;700&display=swap">
   <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Arabic:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Arabic:wght@400;700&display=swap"
     rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="manifest" href="/manifest.json" />
   <style>
-    /* Premium PWA Install Prompt Styles */
+    /* PWA install prompt — colors reference the same tokens as the app
+       (see client/src/index.css :root), so this pre-React banner already
+       matches whichever theme the visitor's OS/toggle resolves to. */
     #pwa-install-banner {
       position: fixed;
       bottom: 1.5rem;
@@ -32,18 +34,18 @@
       /* Use slightly more width on mobile */
       max-width: 500px;
       padding: 1rem;
-      background: rgba(15, 15, 16, 0.85);
+      background: hsl(var(--popover) / 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid hsl(var(--border));
       border-radius: 1.25rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      box-shadow: var(--shadow-2xl);
       z-index: 1000;
       display: flex;
       align-items: center;
       gap: 0.75rem;
       transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-      color: white;
+      color: hsl(var(--popover-foreground));
       pointer-events: auto;
       box-sizing: border-box;
       /* Ensures padding doesn't break width */
@@ -72,7 +74,7 @@
         /* Force buttons to their own row on very small screens */
         justify-content: flex-end;
         margin-top: 0.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        border-top: 1px solid hsl(var(--border));
         padding-top: 0.5rem;
       }
     }
@@ -82,7 +84,7 @@
       /* Reduced slightly for mobile */
       height: 40px;
       border-radius: 0.5rem;
-      background: white;
+      background: hsl(var(--background));
       padding: 2px;
       flex-shrink: 0;
     }
@@ -97,7 +99,7 @@
       margin: 0;
       font-size: 0.95rem;
       font-weight: 700;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: var(--font-display);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -107,7 +109,7 @@
       margin: 0;
       font-size: 0.75rem;
       opacity: 0.7;
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -127,17 +129,17 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
     }
 
     .pwa-btn-install {
-      background: #ffffff;
-      color: #000000;
+      background: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
     }
 
     .pwa-btn-close {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
+      background: hsl(var(--muted));
+      color: hsl(var(--muted-foreground));
     }
 
     .pwa-btn:active {
@@ -164,8 +166,6 @@
         // updateViaCache: 'none' forces the browser to bypass its own cache for sw.js script
         navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' })
           .then(reg => {
-            console.log('SW Registered');
-
             // Check for updates periodically
             setInterval(() => reg.update(), 60 * 60 * 1000); // Once an hour
 
@@ -178,7 +178,7 @@
               });
             });
           })
-          .catch(err => console.log('SW Registration Failed', err));
+          .catch(err => console.error('Service worker registration failed:', err));
       });
 
       // Handle the actual reload when the controller changes
@@ -194,16 +194,16 @@
       const banner = document.createElement('div');
       banner.id = 'pwa-update-banner';
       banner.innerHTML = `
-        <div style="position: fixed; bottom: 20px; right: 20px; background: #000; color: white; padding: 16px 24px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 9999; display: flex; align-items: center; gap: 16px; font-family: 'Inter', sans-serif; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div style="position: fixed; bottom: 20px; right: 20px; background: hsl(var(--popover) / 0.95); color: hsl(var(--popover-foreground)); padding: 16px 24px; border-radius: 12px; box-shadow: var(--shadow-2xl); z-index: 9999; display: flex; align-items: center; gap: 16px; font-family: var(--font-sans); border: 1px solid hsl(var(--border)); backdrop-filter: blur(10px); animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);">
           <div style="display: flex; flex-direction: column; gap: 2px;">
-            <span style="font-size: 14px; font-weight: 600;">Update Available</span>
-            <span style="font-size: 11px; opacity: 0.7;">New version of shulkwisec is ready</span>
+            <span style="font-size: 14px; font-weight: 600; font-family: var(--font-display);">Update available</span>
+            <span style="font-size: 11px; opacity: 0.7;">A new version of shulkwisec is ready</span>
           </div>
-          <button id="sw-update-btn" style="background: white; color: black; border: none; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s;">Refresh Now</button>
+          <button id="sw-update-btn" style="background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); border: none; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s;">Refresh now</button>
         </div>
         <style>
           @keyframes slideIn { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-          #sw-update-btn:hover { transform: scale(1.05); background: #f0f0f0; }
+          #sw-update-btn:hover { filter: brightness(1.08); }
         </style>
       `;
       document.body.appendChild(banner);
@@ -211,65 +211,41 @@
         worker.postMessage({ type: 'SKIP_WAITING' });
       };
     }
-    // PWA Install Logic
+
+    // PWA install prompt
     let deferredPrompt;
 
     window.addEventListener('beforeinstallprompt', (e) => {
-      console.log('🎉 PWA Install Prompt Event Fired!');
       e.preventDefault();
       deferredPrompt = e;
 
-      // Check if dismissed
-      const dismissed = sessionStorage.getItem('pwa-dismissed');
-      console.log('PWA Dismissed in session?', dismissed);
-
-      // Show the banner if it hasn't been dismissed in this session
-      if (!dismissed) {
-        console.log('⏰ Showing PWA banner in 3 seconds...');
+      // Show the banner once per session, unless already dismissed
+      if (!sessionStorage.getItem('pwa-dismissed')) {
         setTimeout(() => {
           document.getElementById('pwa-install-banner').classList.add('show');
-          console.log('✅ PWA Banner shown!');
         }, 3000);
-      } else {
-        console.log('❌ PWA Banner blocked by session storage');
       }
     });
 
-    // Debug: Check if event listener is set up
-    console.log('PWA Install listener registered');
-
     function installPWA() {
-      if (!deferredPrompt) {
-        console.log('⚠️ No deferred prompt available');
-        return;
-      }
-      console.log('Installing PWA...');
+      if (!deferredPrompt) return;
       document.getElementById('pwa-install-banner').classList.remove('show');
       deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('✅ User accepted the PWA install');
-        } else {
-          console.log('❌ User declined the PWA install');
-        }
+      deferredPrompt.userChoice.then(() => {
         deferredPrompt = null;
       });
     }
 
     function dismissPWA() {
-      console.log('PWA Banner dismissed');
       document.getElementById('pwa-install-banner').classList.remove('show');
       sessionStorage.setItem('pwa-dismissed', 'true');
     }
 
-    // Debug function: Force show banner (for testing)
+    // Dev helper: run testPWABanner() in the console to force the banner open
     window.testPWABanner = function () {
-      console.log('🧪 Forcing PWA banner to show...');
       sessionStorage.removeItem('pwa-dismissed');
       document.getElementById('pwa-install-banner').classList.add('show');
     };
-
-    console.log('💡 To test PWA banner manually, run: testPWABanner()');
   </script>
   <script async src="https://counterapi.com/counterapi.embed.js"></script>
   <title>shulkwisec</title>

@@ -1,31 +1,61 @@
-## Ahmed AlMhdi (@ShulkwiSEC)
-Senior Software Engineer | Cybersecurity Enthusiast | Automation | n8n | CTF GEEK | Bug Bounty Hunter
+# @shulkwisec
+**Security Researcher & Software Developer — Cyber Security Operator**
 
-Summary
-==============
-Senior Software Engineer Experienced developer with 5+ years in (Python,Flask,Fast API,Django,PHP,MySQL,SQLite) and fronted technologies (React.js,Angular, Bootstrap, Tailwind CSS).
-* SOCIAL PROFILES
-  * Github: https://github.com/shulkwisec
-  * LinkedIn: https://www.linkedin.com/in/ahmed-mhdi-34b440278/
+[shulkwisec@gmail.com](mailto:shulkwisec@gmail.com) · [github.com/ShulkwiSEC](https://github.com/ShulkwiSEC) · [shulkwisec.github.io](https://shulkwisec.github.io) · [linkedin.com/in/shulkwisec](https://linkedin.com/in/shulkwisec) · [x.com/shulkwisec](https://x.com/shulkwisec)
 
-Skills
-==============
-* Skilled at working with orm and relationship databases (sqlalhcmy), desing scalable codebase arch , also skilled working with bypass advance filters and mitgation techings,also skilled in API development and intgration, Payments gateways, and crafting salable, user-friendly software
+Security researcher and software developer specialized in exploit development and AI-driven security tooling. Leader and founder of the w4llz CTF team. Depth across web & binary exploitation, reverse engineering, cryptography, and source-code review — reporting critical vulnerabilities to major vendors and building the automation that finds them.
 
-EXPERIENCE
-==============
-WORK EXPERIENCE
-  * Since November 2021
-    Trainer at Afaq international, Jeddah
-      Experienced Cyber security Trainer at Afaq International, delivering comprehensive courses covering networking, software engineering, and full-stack web development. Passionate about equipping learners with practical Cyber security skills, industry best practices, and real-world applications. Skilled in bridging the gap between security principles and hands-on development to create secure and salable solutions. and the most binfit/required skill its patient
+## Skills
 
-  * Since June 2019
-    Freelancer at upwork/freelanser/hmsat/mstaql, Remotely
-      Specializing in secure web development, API integration, and networking, I deliver solutions. with strong collaboration skills, I work closely with clients worldwide to create high-quality, secure applications tailored to their needs.
+**AI Engineering** — AI system design with a focus on orchestration, automation, and context engineering. RAG, Model Context Protocol (MCP), tool integration, and agent-to-agent (A2A) architectures.
 
-  * sine September 2023
-    worked on healthcare brnad it was medical mangenment system. backend python3 flask,fastapi,flask-login,flask,sqlahamy,websockets. frontend, jinja template , html, js, chart.js, css, bootstrap5, JQuiry,marked.js ..etc system was required barcode system and was required payments gateway    
+**Reverse Engineering** — Low-level binary & bytecode analysis (Python, Smali) with GDB, Ghidra, IDA, x64dbg. Static + dynamic analysis, control-flow reconstruction, unpacking/deobfuscation. Strong in C; comfortable in noisy Rust/Go builds.
 
-EDUCATION
-==============
-  * Acconting Bachelor Degree, Cairo University, Excpted at (2026)
+**Source Code Analysis** — Deep white-box program comprehension — mapping functionality, extracting logic, summarizing systems, and building pattern-based scanners and custom analysis tooling.
+
+**Applied Security & CTF** — Competitive and practical problem solving. Playing CTF near-daily since 2022. Web & binary exploitation, cryptography, forensics.
+
+## Experience
+
+### Security Research — Vulnerability Disclosure
+*Independent*
+
+Reported critical vulnerabilities, including RCE, to major vendors — Google and Apache.
+
+- **Google (gemini-cli):** discovered an unauthenticated public endpoint handling the A2A protocol; exploited it via crafted JSON-RPC requests to achieve full host access.
+- **Apache Tomcat:** identified insecure CGIServlet defaults where `enableCmdLineArguments` permits argument parsing, leading to argument injection → potential RCE.
+
+### Founder & Team Lead — w4llz CTF Team
+*2022 — Present*
+
+Founded and lead [w4llz](https://w4llz.me), an international team competing worldwide across Web, Pwn, Crypto, Reverse & Forensics — ranked **#5 globally on CTFtime (2026)**.
+
+- 1st — FortID CTF 2025
+- 1st — CyberYard CTF 2025
+- 2nd — Break The Syntax CTF 2026
+
+### Security Engineer — Sudanese Cyber Security Authority
+*Sudan*
+
+Contributed to national cybersecurity engagements. Details covered under NDA — available to discuss within permitted scope.
+
+### Cybersecurity Trainer — Afaq International
+*Saudi Arabia · 2022 — 2025*
+
+- Designed hands-on offensive/defensive tracks and technical learning paths built around real-world scenarios.
+- Developed theoretical + practical exams and CTF-style, challenge-based evaluation models.
+- Delivered technical sessions (RE, exploitation, fundamentals) and mentored students through labs and real-case simulations.
+- Organized CTF competitions and security events, leading student engagement and technical activities.
+
+## Selected Projects
+
+- **emmu** — Autonomous cyber-AI bridge — an AI security framework that thinks, hacks, and reports. *(in development)*
+- **TextID** — Forensics / biometrics system detecting AI authorship via linguistic fingerprinting and Rank-Sync Correlation.
+- **bb-huge** — Personal bug-bounty findings hub with multi-agent orchestration for automated recon and reporting. `Python`
+- **bugbountysa** — Program-management tooling for the bugbounty.sa ecosystem. `Python`
+- **dumbemu** — Lightweight, dependency-minimal PE emulator on Unicorn Engine for function-level emulation of Windows executables.
+- **websnap** — CLI webpage-snapshot utility for recon workflows. `Python`
+
+## Education
+
+**B.Sc., Cairo University** *(Expected 2027)*
